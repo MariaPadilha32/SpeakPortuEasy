@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Class Query{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <form>
+        <div>
+            <div class="row">
+                <label for="txtClassName" class="form-label">Class Name:</label>
+            </div>
+            <div class="row col-12 d-flex">
+                <div class="col-10">
+                    <input type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" placeholder="Enter Class Name">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="mt-2 col-10">
+        <div>
+            <div class="alert alert-warning">Information not found!</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

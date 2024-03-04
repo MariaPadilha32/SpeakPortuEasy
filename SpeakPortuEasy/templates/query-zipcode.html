@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Zip-code Query{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <form>
+        <div>
+            <div class="row">
+                <label for="txtZipcode" class="form-label">Zip-Code/ Eircode:</label>
+            </div>
+            <div class="row col-12 d-flex">
+                <div class="col-10">
+                    <input type="text" class="form-control" id="txtZipcode" aria-describedby="Zipcode" placeholder="Enter Zipcode">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="mt-2 col-10">
+        <div>
+            <div class="alert alert-warning">Information not found!</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
