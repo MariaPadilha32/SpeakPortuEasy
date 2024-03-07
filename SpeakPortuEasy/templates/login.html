@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Login{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <form>
+        <div class="mb-3">
+          <label for="txtUserName" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="txtUserName" aria-describedby="UserName"required>
+        </div>
+        <div class="mb-3">
+          <label for="txtPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="txtPassword" required>
+        </div>
+        <div class="mb3">
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="reset" class="btn btn-warning">Cancel</button>
+        </div>
+        <div class="mb3">
+          <a href="{% url 'register-users' %}" class="text-primary text-decoration-none">Create User</a>
+        </div>
+        
+      </form>
+{% endblock %}
