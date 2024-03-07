@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}User Registery{% endblock %}
+
+{% block 'main' %}
+<div class="container col-6">
+    <form>
+        <div class="mb-3">
+            <label for="txtUsername" class="form-label">Username: <span class="required">*</span></label>
+            <input type="text" class="form-control" id="txtUsername" aria-describedby="Username" required  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtPassword" class="form-label">Password: <span class="required">*</span></label>
+            <input type="password" class="form-control" id="txtPassword" aria-describedby="Password" required  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtRole" class="form-label" >Role: <span class="required">*</span></label>
+            <select class="form-select" id="txtRole" required  disabled>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <!-- Add more roles as needed -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="txtEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="txtEmail" aria-describedby="Email"  disabled>
+        </div>
+        <button type="submit" class="btn btn-danger col-2">Delete</button>
+        <button type="reset" class="btn btn-warning col-2">Reset</button>
+    </form>
+</div>
+{% endblock %}
+

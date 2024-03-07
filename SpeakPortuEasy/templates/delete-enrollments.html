@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Enrollments Registery{% endblock %}
+
+{% block 'main' %}
+<div class="container col-6">
+    <form>
+        <div class="mb-3">
+            <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
+            <select class="form-select" id="txtStudent" required  disabled>
+                <!-- Populate with available students -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="txtClass" class="form-label">Class: <span class="required">*</span></label>
+            <select class="form-select" id="txtClass" required  disabled>
+                <!-- Populate with available classes -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="txtEnrollmentDate" class="form-label">Enrollment Date: <span class="required">*</span></label>
+            <input type="date" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required  disabled>
+        </div>
+        <button type="submit" class="btn btn-danger col-2">Delete</button>
+        <button type="reset" class="btn btn-warning col-2">Cancel</button>
+    </form>
+</div>
+{% endblock %}

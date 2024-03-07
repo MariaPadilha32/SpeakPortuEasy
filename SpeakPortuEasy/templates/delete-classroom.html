@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Classroom Registery{% endblock %}
+
+{% block 'main' %}
+<div class="container col-6">
+    <form>
+        <div class="mb-3">
+            <label for="txtClassroomName" class="form-label">Classroom Name: <span class="required">*</span></label>
+            <input type="text" class="form-control" id="txtClassroomName" aria-describedby="ClassroomName" required  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtCapacity" class="form-label">Capacity: <span class="required">*</span></label>
+            <input type="number" class="form-control" id="txtCapacity" aria-describedby="Capacity" required min="1" max="3"  disabled>
+            <small id="capacityHelp" class="form-text text-muted">Maximum 3 students per class.</small>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="chkOnlineClass"  disabled>
+            <label class="form-check-label" for="chkOnlineClass">Online Class</label>
+        </div>
+       <div class="mb-3">
+            <label for="txtDescription" class="form-label">Description:</label>
+            <textarea class="form-control" id="txtDescription" rows="3"  disabled></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger col-2">Delete</button>
+        <button type="reset" class="btn btn-warning col-2">Cancel</button>
+    </form>
+</div>
+{% endblock %}

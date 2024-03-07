@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Parents Registery{% endblock %}
+
+{% block 'main' %}
+<div class="container col-6">
+    <form>
+        <div class="mb-3">
+            <label for="txtParentName" class="form-label">Parent Name: <span class="required">*</span></label>
+            <input type="text" class="form-control" id="txtParentName" aria-describedby="ParentName" required  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="txtEmail" aria-describedby="Email"  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtPhone" class="form-label">Phone Number: <span class="required">*</span></label>
+            <input type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required  disabled>
+        </div>
+        <div class="mb-3">
+            <label for="txtStudent" class="form-label">Associated Student: <span class="required">*</span></label>
+            <select class="form-select" id="txtStudent" required  disabled>
+                <!-- Populate with available students -->
+            </select>
+        </div>
+        <button type="submit" class="btn btn-danger col-2">Delete</button>
+        <button type="reset" class="btn btn-warning col-2">Cancel</button>
+    </form>
+</div>
+{% endblock %}
