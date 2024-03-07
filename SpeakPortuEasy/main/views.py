@@ -59,3 +59,57 @@ def query_users(request):
 
 def query_zipcode(request):
     return render(request, 'query-zipcode.html')
+
+def delete_student(request):
+    return render(request, 'delete-student.html')
+
+def delete_class(request):
+    return render(request, 'delete-class.html')
+
+def delete_schedule(request):
+    return render(request, 'delete-schedule.html')
+
+def delete_classroom(request):
+    return render(request, 'delete-classroom.html')
+
+def delete_enrollments(request):
+    return render(request, 'delete-enrollments.html')
+
+def delete_users(request):
+    return render(request, 'delete-users.html')
+
+def delete_profiles(request):
+    return render(request, 'delete-profiles.html')
+
+def delete_parents(request):
+    return render(request, 'delete-parents.html')
+
+def delete_zipcode(request):
+    return render(request, 'delete-zipcode.html')
+
+def edit_student(request):
+    return render(request, 'edit-student.html')
+
+def edit_class(request):
+    return render(request, 'edit-class.html')
+
+def edit_schedule(request):
+    return render(request, 'edit-schedule.html')
+
+def edit_classroom(request):
+    return render(request, 'edit-classroom.html')
+
+def edit_enrollments(request):
+    return render(request, 'edit-classroom.html')
+
+def edit_users(request):
+    return render(request, 'edit-users.html')
+
+def edit_profiles(request):
+    return render(request, 'edit-profiles.html')
+
+def edit_parents(request):
+    return render(request, 'edit-parents.html')
+
+def edit_zipcode(request):
+    return render(request, 'edit-zipcode.html')
