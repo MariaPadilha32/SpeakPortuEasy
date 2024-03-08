@@ -59,5 +59,6 @@ urlpatterns = [
     path('edit-zipcode/', vw.edit_zipcode, name="edit-zipcode"),
     path('login/', vw.v_login, name="login"),
     path('valida-login/', vw.v_authenticate, name='valida'),
+    path('logout/', vw.v_logout, name='logout'),
     path('', vw.index, name="")
 ]

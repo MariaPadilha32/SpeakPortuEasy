@@ -47,8 +47,11 @@
             </li>
           </ul>
           <div class="d-flex">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            {% if user.is_authenticated %}
+            <button class="btn btn-success" onclick="window.location.href='../logout/'">Logout</button>
+            {% else  %}
             <button class="btn btn-success" onclick="window.location.href='../login/'">Login</button>
+            {% endif %}
           </div>
         </div>
       </div>

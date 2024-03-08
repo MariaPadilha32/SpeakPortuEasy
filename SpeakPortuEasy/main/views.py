@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
@@ -135,5 +135,9 @@ def v_authenticate(request):
     else:
         print("invalid Login/Password ")
         #Redirect to invalid login.
+
+def v_logout(request):
+    logout(request)
+    return render(request, 'login.html')
 
 
