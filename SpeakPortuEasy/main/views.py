@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def index(request):
@@ -113,3 +114,26 @@ def edit_parents(request):
 
 def edit_zipcode(request):
     return render(request, 'edit-zipcode.html')
+
+def v_login(request):
+    return render(request, 'login.html')
+
+def v_authenticate(request):
+    v_user = request.POST['username']
+    v_pwd = request.POST['password']
+
+    user = authenticate(username=v_user, password=v_pwd)
+    
+    if user is not None:
+        if user.is_active:
+            #Redirection to the page successfully.
+            login(request, user)
+            return render(request, 'index.html')
+        else:
+            print("Account disabled")
+            #Redirection to a page of unactive account.
+    else:
+        print("invalid Login/Password ")
+        #Redirect to invalid login.
+
+
