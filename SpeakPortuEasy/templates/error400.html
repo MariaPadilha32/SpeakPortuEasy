@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Error 400{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="error-page">
+        <img src="{% static 'images/error400.jpg' %}" alt="Error 400 Image">
+        <h2 class="error-heading">Error 400 - Bad Request</h2>
+        <p class="error-description">Sorry, the request could not be understood by the server due to malformed syntax. This may be caused by a typo in the URL, an outdated link, or incorrect form submission.</p>
+        <p class="error-suggestions">Here are a few things you can try:</p>
+        <ul class="error-list">
+            <li>Check the URL for any typos or errors.</li>
+            <li>Go back to the previous page and try again.</li>
+            <li>If you reached this page by clicking on a link, try searching for the content using the site's search function.</li>
+            <li>Contact the website administrator if you believe this error is a mistake.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

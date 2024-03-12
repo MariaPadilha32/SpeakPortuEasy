@@ -180,4 +180,7 @@ def v_logout(request):
 def recover_password(request):
     return render(request, 'recover-password.html')
 
+def error400(request, exception):
+    return render(request, 'error400.html', status=400)
+
 
