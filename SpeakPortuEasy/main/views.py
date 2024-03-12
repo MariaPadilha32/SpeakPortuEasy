@@ -185,3 +185,6 @@ def error400(request, exception):
 
 def error403(request, exception):
     return render(request, 'error403.html', status=403)
+
+def error404(request, exception):
+    return render(request, 'error404.html', status=404)
