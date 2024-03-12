@@ -18,10 +18,6 @@ from django.contrib import admin
 from django.urls import path
 import main.views as vw
 
-#handler400 = 'main.views.error_400_view'
-
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', vw.index, name="home"),
@@ -66,5 +62,6 @@ urlpatterns = [
     path('logout/', vw.v_logout, name='logout'),
     path('recover-password/', vw.recover_password, name="recover-password"),
     path('error400/', vw.error400, name="error400"),
+    path('error403/', vw.error403, name="error403"),
     path('', vw.index, name="")
 ]

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Error 403 - Forbidden Access{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="error-page">
+        <img src="{% static 'images/error403.jpg' %}" alt="Error 403 Image">
+        <h2 class="error-heading">Error 403 - Forbidden Access</h2>
+        <p class="error-description">Sorry, you don't have permission to access this page. This could be due to insufficient privileges or restricted access.</p>
+        <p class="error-suggestions">Here are a few things you can try:</p>
+        <ul class="error-list">
+            <li>Check if you are logged in with the correct user account.</li>
+            <li>Contact the website administrator for assistance.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

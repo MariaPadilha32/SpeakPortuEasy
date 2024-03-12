@@ -183,4 +183,5 @@ def recover_password(request):
 def error400(request, exception):
     return render(request, 'error400.html', status=400)
 
-
+def error403(request, exception):
+    return render(request, 'error403.html', status=403)
