@@ -64,5 +64,6 @@ urlpatterns = [
     path('error400/', vw.error400, name="error400"),
     path('error403/', vw.error403, name="error403"),
     path('error404/', vw.error404, name="error404"),
+    path('error500/', vw.error500, name="error500"),
     path('', vw.index, name="")
 ]
