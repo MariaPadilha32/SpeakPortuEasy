@@ -177,6 +177,7 @@ def v_logout(request):
     logout(request)
     return render(request, 'login.html')
 
-#def forgot_password(request):
+def recover_password(request):
+    return render(request, 'recover-password.html')
 
 

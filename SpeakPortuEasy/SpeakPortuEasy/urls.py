@@ -60,5 +60,6 @@ urlpatterns = [
     path('login/', vw.v_login, name="login"),
     path('valida-login/', vw.v_authenticate, name='valida'),
     path('logout/', vw.v_logout, name='logout'),
+    path('recover-password/', vw.recover_password, name="recover-password"),
     path('', vw.index, name="")
 ]
