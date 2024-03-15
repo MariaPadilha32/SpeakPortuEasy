@@ -15,7 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth import views
 import main.views as vw
 
 urlpatterns = [
@@ -57,9 +58,10 @@ urlpatterns = [
     path('edit-profiles/', vw.edit_profiles, name="edit-profiles"),
     path('edit-parents/', vw.edit_parents, name="edit-parents"),
     path('edit-zipcode/', vw.edit_zipcode, name="edit-zipcode"),
-    path('login/', vw.v_login, name="login"),
-    path('valida-login/', vw.v_authenticate, name='valida'),
-    path('logout/', vw.v_logout, name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    #path('login/', vw.v_login, name="login"),
+    #path('valida-login/', vw.v_authenticate, name='valida'),
+    #path('logout/', vw.v_logout, name='logout'),
     path('recover-password/', vw.recover_password, name="recover-password"),
     path('error400/', vw.error400, name="error400"),
     path('error403/', vw.error403, name="error403"),
