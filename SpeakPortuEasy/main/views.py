@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from main.models import Classroom
 from .forms import ClassroomForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -67,7 +68,14 @@ def query_class(request):
 
 @login_required(login_url='login')
 def query_classroom(request):
-    return render(request, 'query-classroom.html')
+    form = ClassroomForm
+    classrooms = Classroom.objects.all()
+    total = Classroom.objects.count()
+    list_classroom = Classroom.objects.all()
+    paginator = Paginator(list_classroom, 4)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-classroom.html', {'form': form, 'classrooms': classrooms, 'total': total, 'page_obj': page_obj})
 
 @login_required(login_url='login')
 def query_enrollments(request):
@@ -146,8 +154,19 @@ def edit_schedule(request):
     return render(request, 'edit-schedule.html')
 
 @login_required(login_url='login')
-def edit_classroom(request):
-    return render(request, 'edit-classroom.html')
+def edit_classroom(request, id):
+    classroom = Classroom.objects.get(id=id)
+    form = ClassroomForm(request.POST or None, instance=classroom)
+    data = {}
+    data['classroom'] = classroom
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-classroom')
+    else:
+        form = ClassroomForm
+        return render(request, 'edit-classroom.html', data)  
 
 @login_required(login_url='login')
 def edit_enrollments(request):
