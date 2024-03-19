@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="post" action="{% url 'valida' %}">
+    <form method="post">
       {% csrf_token %}
         <div class="mb-3">
           <label for="txtUserName" class="form-label">User Name</label>
