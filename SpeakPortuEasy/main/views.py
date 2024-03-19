@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from main.models import Classroom
+from .forms import ClassroomForm
 
 # Create your views here.
 def index(request):
@@ -22,7 +25,22 @@ def register_schedule(request):
 
 @login_required(login_url='login')
 def register_classroom(request):
-    return render(request, 'register-classroom.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Classroom.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'There is a Classroom registered with that name, please use a different name.')
+            return redirect('register-classroom')
+        if request.method == 'POST':
+            form = ClassroomForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-classroom')
+            else:
+                return redirect('register-classroom')
+    else:
+        form = ClassroomForm
+        return render(request, 'register-classroom.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_enrollments(request):
