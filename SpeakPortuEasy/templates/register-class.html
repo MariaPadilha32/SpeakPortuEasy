@@ -7,10 +7,10 @@
     <form>
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required>
+            <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required>
         </div>
         <div class="mb-3">
-            <select class="form-select" aria-label="Default select example" required>
+            <select name="level" class="form-select" aria-label="Default select example" required>
                 <option value="" selected disabled>Select option folowing CEFR levels:</option>
                 <option value="A1">A1- Beginner/ Novice</option>
                 <option value="A2">A2- Intermediate Low/ Intermediate Mid</option>
@@ -22,23 +22,23 @@
         </div>
         <div class="mb-3">
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
-            <textarea class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required></textarea>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required></textarea>
         </div>
         <div class="mb-3">
             <label for="txtClassTeacher" class="form-label">Class Teacher: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtClassTeacher" aria-describedby="ClassTeacher" required>
+            <input name="teacher" type="text" class="form-control" id="txtClassTeacher" aria-describedby="ClassTeacher" required>
         </div>
         <div class="mb-3">
             <label for="txtClassStudent" class="form-label">Class Student 1: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtClassStudent" aria-describedby="ClassStudent" required>
+            <input name="student1" type="text" class="form-control" id="txtClassStudent" aria-describedby="ClassStudent" required>
         </div>
         <div class="mb-3">
             <label for="txtClassStudent" class="form-label">Class Student 2: </label>
-            <input type="text" class="form-control" id="txtClassStudent" aria-describedby="txtClassStudent">
+            <input name="student2" type="text" class="form-control" id="txtClassStudent" aria-describedby="txtClassStudent">
         </div>
         <div class="mb-3">
             <label for="txtClassStudent" class="form-label">Class Student 3: </label>
-            <input type="text" class="form-control" id="txtClassStudent" aria-describedby="txtClassStudent">
+            <input name="student3" type="text" class="form-control" id="txtClassStudent" aria-describedby="txtClassStudent">
         </div>
         <button type="submit" class="btn btn-primary col-2">Submit</button>
         <button type="reset" class="btn btn-warning col-2">Reset</button>
