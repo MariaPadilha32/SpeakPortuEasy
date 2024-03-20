@@ -99,3 +99,16 @@ class Profiles(models.Model):
     
     class Meta:
         db_table = 'profiles'
+
+class Schedule(models.Model):
+    day_week = models.CharField(max_length=10, blank=False, null=False)
+    start_time = models.TimeField(blank=False, null=False)
+    end_time = models.TimeField(blank=False, null=False)
+    date = models.DateField(blank=False, null=False)
+    student = models.IntegerField(blank=False, null=False)
+
+    def __str__(self):
+        return self.day_week
+    
+    class Meta:
+        db_table = 'schedule'
