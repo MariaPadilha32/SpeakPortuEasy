@@ -305,32 +305,47 @@ def delete_schedule(request, id):
     messages.success(request, "Successfull Deleted!")
     return redirect('query-schedule')
 
-@login_required(login_url="accounts/login")
+@login_required(login_url='accounts/login')
 def delete_classroom(request, id):
     classroom = Classroom.objects.get(id=id)
     classroom.delete()
     messages.success(request,"Successfull Deleted!")
     return redirect('query-classroom')        
 
-@login_required(login_url='login')
-def delete_enrollments(request):
-    return render(request, 'delete-enrollments.html')
+@login_required(login_url='accounts/login')
+def delete_enrollments(request, id):
+    enrollments = Enrollments.objects.get(id=id)
+    enrollments.delete()
+    messages.success(request,"Successfull Deleted!")
+    return redirect('query-enrollments')
 
-@login_required(login_url='login')
-def delete_users(request):
-    return render(request, 'delete-users.html')
+@login_required(login_url='accounts/login')
+def delete_users(request, id):
+    users = Users.objects.get(id=id)
+    users.delete()
+    messages.success(request,"Successfull Deleted!")
+    return redirect('query-users')
 
-@login_required(login_url='login')
-def delete_profiles(request):
-    return render(request, 'delete-profiles.html')
+@login_required(login_url='accounts/login')
+def delete_profiles(request, id):
+    profiles = Profiles.objects.get(id=id)
+    profiles.delete()
+    messages.success(request,"Successfull Deleted!")
+    return redirect('query-profiles')
 
-@login_required(login_url='login')
-def delete_parents(request):
-    return render(request, 'delete-parents.html')
+@login_required(login_url='accounts/login')
+def delete_parents(request, id):
+    parents = Parents.objects.get(id=id)
+    parents.delete()
+    messages.success(request,"Successfull Deleted!")
+    return redirect('query-parents')
 
-@login_required(login_url='login')
-def delete_zipcode(request):
-    return render(request, 'delete-zipcode.html')
+@login_required(login_url='accounts/login')
+def delete_zipcode(request, id):
+    zipcodes = Zipcodes.objects.get(id=id)
+    zipcodes.delete()
+    message.success(request,"Successfull Deleted!" )
+    return redirect('query-zipcode')
 
 @login_required(login_url='login')
 def edit_student(request):
