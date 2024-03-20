@@ -4,170 +4,28 @@
 
 {% block 'main' %}
 {% if user.is_authenticated %}
-<h1>Welcome, {{ user.first_name }}. Thank you for visiting.</h1>
-{% else %}
+<h1 >Welcome, {{ user.first_name }}. Thank you for visiting.</h1>
 <div class="card mb-3" style="background-color: #bbdece">
-    <div class="position-absolute top-15 start-0">
-        <img src="/static/images/logop4.svg" class="card-img-top" alt="Company logo">
+  <div lass="clearfix">
+    <img src="/static/images/welcome.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="Company logo" style="width: 80%;">
+  </div> 
+{% else %}
+  <div class="card mb-3" style="background-color: #bbdece">
+    <div lass="clearfix">
+      <img src="/static/images/welcome.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="Company logo" style="width: 100%;">
     </div> 
-    <div class="position-absolute top-0 start-50 translate-middle-x text-center">
-        <h1 class="card-title" style="color: #fff8f5">Welcome to</h1>
-        <h2 class="card-text" style="color: #fff8f5">SpeakPortuEasy</h2>
+    <div class="clearfix">
+      <img src="/static/images/flag.png"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Brazilian Flag" style="width: 100%;">
     </div>
-</div>
-<div class="clearfix">
-    <img src="/static/images/brflag.jpg"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Brazilian Flag" style="width: 25%;">
-    <h2 class="card-title">At SpeakPortuEasy, we believe in demystifying the complexities of the Portuguese language.</h2>
-    <p class="card-text">Our approach focuses on breaking down language barriers and making learning intuitive and accessible. Through structured lessons, interactive exercises, and personalized guidance, we empower learners to grasp Portuguese with confidence and ease.</p>
-  </div>
-  <div class="clearfix">
-    <img src="/static/images/linguistic.jpg"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Linguistic written with a book, pen and glasses" style="width: 25%;">
-    <h2 class="card-title">At SpeakPortuEasy, we believe in demystifying the complexities of the Portuguese language.</h2>
-    <p class="card-text">Our approach focuses on breaking down language barriers and making learning intuitive and accessible. Through structured lessons, interactive exercises, and personalized guidance, we empower learners to grasp Portuguese with confidence and ease.</p>
-  </div>
-  <div class="clearfix">
-    <img src="/static/images/teacher.jpg"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Teacher walking holding a big book" style="width: 25%;">
-    <h2 class="card-title">Empower Teachers with Comprehensive Classroom Controls:</h2>
-    <p class="card-text">Embark on an enriching linguistic adventure with SpeakPortuEasy. Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.</p>
-  </div>
-  <div class="clearfix">
-    <img src="/static/images/meeting.jpg"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Linguistic written with a book, pen and glasses" style="width: 25%;">
-    <h2 class="card-title">Comprehensive Support and Community Engagement:</h2>
-    <p class="card-text">Beyond language instruction, SpeakPortuEasy provides a supportive environment for every learner. Whether you're a beginner or advanced student, our team is dedicated to your success. From responsive customer service to a thriving community of language enthusiasts, you'll find the encouragement and resources you need to thrive on your Portuguese learning journey. Join us today and experience the difference of learning with SpeakPortuEasy.</p>
-  </div>
-<!--
-<div class="row row-cols-1 row-cols-md-2 g-4 position-absolute top-100 end-0">
-    <div class="col">
-      <div class="card">
-        <img src="/static/images/brflag.jpg"  class="object-fit-contain border rounded" alt="Brazilian Flag" style="width: 50%;">
-        <div class="card-body">
-            <h2 class="card-title">At SpeakPortuEasy, we believe in demystifying the complexities of the Portuguese language.</h2>
-            <p class="card-text">Our approach focuses on breaking down language barriers and making learning intuitive and accessible. Through structured lessons, interactive exercises, and personalized guidance, we empower learners to grasp Portuguese with confidence and ease.</p>
-        </div>
-      </div>
+    <div class="clearfix">
+      <img src="/static/images/linguistic.png"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Linguistic written with a book, pen and glasses" style="width: 100%;">
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="/static/images/linguistic.jpg"  class="object-fit-contain border rounded" alt="Linguistic written with a book, pen and glasses" style="width: 50%;">
-        <div class="card-body">
-            <h2 class="card-title">Join us on a linguistic journey</h2>
-            <p class="card-text">Embark on an enriching linguistic adventure with SpeakPortuEasy. Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.</p>
-        </div>
-      </div>
+    <div class="clearfix">
+      <img src="/static/images/empower.png"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Teacher walking holding a big book" style="width: 100%;">
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="/static/images/teacher.jpg"  class="object-fit-contain border rounded" alt="Teacher walking holding a big book" style="width: 50%;">
-        <div class="card-body">
-          <h2 class="card-title">Empower Teachers with Comprehensive Classroom Controls:</h2>
-          <p class="card-text">Embark on an enriching linguistic adventure with SpeakPortuEasy. Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="/static/images/meeting.jpg"  class="object-fit-contain border rounded" alt="Linguistic written with a book, pen and glasses" style="width: 50%;">
-        <div class="card-body">
-            <h2 class="card-title">Comprehensive Support and Community Engagement:</h2>
-            <p class="card-text">Beyond language instruction, SpeakPortuEasy provides a supportive environment for every learner. Whether you're a beginner or advanced student, our team is dedicated to your success. From responsive customer service to a thriving community of language enthusiasts, you'll find the encouragement and resources you need to thrive on your Portuguese learning journey. Join us today and experience the difference of learning with SpeakPortuEasy.</p>
-        </div>
-      </div>
+    <div class="clearfix">
+      <img src="/static/images/engagement.png"  class="col-md-6 float-md-end mb-3 ms-md-3" alt="Linguistic written with a book, pen and glasses" style="width: 100%;">
     </div>
   </div>
-  -------------------------------------------------------------
-        <div class="grid text-center" style="--bs-columns: 3;background-color: #bbdece;">
-    <div class="card mb-3">
-        <img src="/static/images/logop4.svg" class="card-img-top" alt="Company logo" style="width: 50%;">
-        <div class="card-body">
-          <h1 class="card-title">Welcome to</h1>
-          <h2 class="card-text">SpeakPortuEasy</h2>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">At SpeakPortuEasy, we believe in demystifying the complexities of the Portuguese language.</h2>
-          <p class="card-text">Our approach focuses on breaking down language barriers and making learning intuitive and accessible. Through structured lessons, interactive exercises, and personalized guidance, we empower learners to grasp Portuguese with confidence and ease.</p>
-        </div>
-        <img src="/static/images/brflag.jpg" class="card-img-bottom" alt="Brazilian Flag" style="width: 50%;">
-      </div>
-      <div class="card mb-3">
-        <img src="/static/images/linguistic.jpg" class="card-img-top" alt="Linguistic written with a book, pen and glasses" style="width: 50%;">
-        <div class="card-body">
-          <h2 class="card-title">Join us on a linguistic journey</h2>
-          <p class="card-text">Embark on an enriching linguistic adventure with SpeakPortuEasy. Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.</p>
-        </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">Empower Teachers with Comprehensive Classroom Controls:</h2>
-                <p class="card-text">Embark on an enriching linguistic adventure with SpeakPortuEasy. Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.</p>
-                <p class="card-text"><small class="text-body-secondary">SpeakPortuEasy isn't just about language learning for students;</small></p>
-            </div>
-            <img src="/static/images/teacher.jpg" class="card-img-bottom" alt="Teacher walking holding a big book" style="width: 50%;">
-        </div>
-        <div class="card mb-3">
-          <img src="/static/images/meeting.jpg" class="card-img-top" alt="Linguistic written with a book, pen and glasses" style="width: 50%;">
-          <div class="card-body">
-            <h2 class="card-title">Comprehensive Support and Community Engagement:</h2>
-            <p class="card-text">Beyond language instruction, SpeakPortuEasy provides a supportive environment for every learner. Whether you're a beginner or advanced student, our team is dedicated to your success. From responsive customer service to a thriving community of language enthusiasts, you'll find the encouragement and resources you need to thrive on your Portuguese learning journey. Join us today and experience the difference of learning with SpeakPortuEasy.</p>
-        </div>
-    </div>
-    ------------------------------------------
-    <div>
-       <h1>Welcome to SpeakPortuEasy</h1>
-       <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-            Portuguese made simple, learning made easy.
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              <strong>At SpeakPortuEasy, we believe in demystifying the complexities of the Portuguese language.</strong> 
-              Our approach focuses on breaking down language barriers and making learning intuitive and accessible. Through structured lessons, interactive exercises, and personalized guidance, we empower learners to grasp Portuguese with confidence and ease.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-            Join us on a linguistic journey
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>Embark on an enriching linguistic adventure with SpeakPortuEasy.</strong> Our platform offers more than just language lessons; it's a gateway to explore the vibrant culture, history, and traditions of Portuguese-speaking regions. Immerse yourself in authentic conversations, cultural insights, and real-world scenarios, fostering a deeper connection to the language and its heritage.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                Empower Teachers with Comprehensive Classroom Controls: 
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>SpeakPortuEasy isn't just about language learning for students; </strong>  it's a dynamic platform designed to empower teachers. With our suite of classroom management tools, educators gain unprecedented control and flexibility in lesson planning, assessment, and student engagement. From tracking progress and managing assignments to facilitating interactive discussions, SpeakPortuEasy equips teachers with the resources they need to deliver impactful instruction and foster a collaborative learning environment. Join our platform today and revolutionize the way you teach Portuguese.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                Comprehensive Support and Community Engagement: 
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>Beyond language instruction, </strong> SpeakPortuEasy provides a supportive environment for every learner. Whether you're a beginner or advanced student, our team is dedicated to your success. From responsive customer service to a thriving community of language enthusiasts, you'll find the encouragement and resources you need to thrive on your Portuguese learning journey. Join us today and experience the difference of learning with SpeakPortuEasy.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-<div>
 {% endif %}
 {% endblock %}
