@@ -188,13 +188,13 @@ def register_zipcode(request):
 @login_required(login_url='login')
 def query_class(request):
     form = ClassesForm
-    classes = Classesroom.objects.all()
+    classes = Classes.objects.all()
     total = Classes.objects.count()
     list_classes = Classes.objects.all()
     paginator = Paginator(list_classes, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-class.html', {'form' : form, 'classes': classes, 'total' : total, 'page_obj' : page_obj})
+    return render(request, 'query-class.html', {'form': form, 'classes': classes, 'total': total, 'page_obj': page_obj})
 
 @login_required(login_url='login')
 def query_classroom(request):
@@ -242,19 +242,47 @@ def query_profiles(request):
 
 @login_required(login_url='login')
 def query_schedule(request):
-    return render(request, 'query-schedule.html')
+    form = ScheduleForm
+    schedule = Schedule.objects.all()
+    total = Schedule.objects.count()
+    list_schedule = Schedule.objects.all()
+    paginator = Paginator(list_schedule, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-schedule.html', {'form' : form, 'schedule': schedule, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_student(request):
-    return render(request, 'query-student.html')
+    form = StudentForm
+    students = Student.objects.all()
+    total = Student.objects.count()
+    list_students = Student.objects.all()
+    paginator = Paginator(list_students, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-student.html', {'form' : form, 'students': students, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_users(request):
-    return render(request, 'query-users.html')
+    form = UsersForm
+    users = Users.objects.all()
+    total = Users.objects.count()
+    list_users = Users.objects.all()
+    paginator = Paginator(list_users, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-users.html', {'form' : form, 'users': users, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_zipcode(request):
-    return render(request, 'query-zipcode.html')
+    form = ZipCodeForm
+    zipcodes = Zipcodes.objects.all()
+    total = Zipcodes.objects.count()
+    list_zipcodes = Zipcodes.objects.all()
+    paginator = Paginator(list_zipcodes, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-zipcode.html', {'form': form, 'zipcodes': zipcodes, 'total': total, 'page_obj': page_obj})
 
 @login_required(login_url='login')
 def delete_student(request):
