@@ -28,3 +28,15 @@ class Classes(models.Model):
     
     class Meta:
         db_table = 'classes'
+
+class ZipCode(models.Model):
+    zipcode = models.CharField(max_length=10, unique=True, blank=False, null=False)
+    city = models.CharField(max_length=50, blank=False, null=False)
+    state = models.CharField(max_length=100, blank=False, null=False)
+    country = models.CharField(max_length=50, unique=True, blank=False, null=False)
+
+    def __str__(self) -> str:
+        return self.zipcode
+    
+    class Meta:
+        db_table = 'zipcode'
