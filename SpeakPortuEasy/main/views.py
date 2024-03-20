@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Users, Profiles
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, UsersForm, ProfilesForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Users, Profiles, Parents, Zipcodes
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, UsersForm, ProfilesForm, ParentsForm, ZipCodeForm
 
 # Create your views here.
 def index(request):
@@ -149,15 +149,52 @@ def register_profiles(request):
 
 @login_required(login_url='login')
 def register_parents(request):
-    return render(request, 'register-parents.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Parents.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'This name has been used')
+            return redirect('register-parents')
+        if request.method == 'POST':
+            form = ParentsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-parents')
+            else:
+                return redirect('register-parents')
+    else:
+        form = ParentsForm()
+        return render(request, 'register-parents.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_zipcode(request):
-    return render(request, 'register-zipcode.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Zipcodes.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'This Zipcode has been used')
+            return redirect('register-zipcode')
+        if request.method == 'POST':
+            form = ZipcodeForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-zipcode')
+            else:
+                return redirect('register-zipcode')
+    else:
+        form = ZipCodeForm()
+        return render(request, 'register-ziocode.html', {'form' : form})
 
 @login_required(login_url='login')
 def query_class(request):
-    return render(request, 'query-class.html')
+    form = ClassesForm
+    classes = Classesroom.objects.all()
+    total = Classes.objects.count()
+    list_classes = Classes.objects.all()
+    paginator = Paginator(list_classes, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-class.html', {'form' : form, 'classes': classes, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_classroom(request):
@@ -172,7 +209,14 @@ def query_classroom(request):
 
 @login_required(login_url='login')
 def query_enrollments(request):
-    return render(request, 'query-enrollments.html')
+    form = EnrollmentsForm
+    enrollments = Enrollments.objects.all()
+    total = Enrollments.objects.count()
+    list_enrollment = Enrollments.objects.all()
+    paginator = Paginator(list_enrollment, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-enrollments.html', {'form' : form, 'classrooms': classrooms, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_parents(request):
