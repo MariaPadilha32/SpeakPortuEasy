@@ -348,16 +348,49 @@ def delete_zipcode(request, id):
     return redirect('query-zipcode')
 
 @login_required(login_url='login')
-def edit_student(request):
-    return render(request, 'edit-student.html')
+def edit_student(request, id):
+    student = Student.objects.get(id=id)
+    form = StudentForm(request.POST or None, instance=student)
+    data = {}
+    data['student'] = student
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-student')
+    else:
+        form = StudentForm
+        return render(request, 'edit-student.html', data)
 
 @login_required(login_url='login')
-def edit_class(request):
-    return render(request, 'edit-class.html')
+def edit_class(request, id):    
+    classes = Classes.objects.get(id=id)
+    form = ClassesForm(request.POST or None, instance=classes)
+    data = {}
+    data['classes'] = classes
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-classes')
+    else:
+        form = ClassesForm
+        return render(request, 'edit-class.html', data)
 
 @login_required(login_url='login')
-def edit_schedule(request):
-    return render(request, 'edit-schedule.html')
+def edit_schedule(request, id):
+    schedule = Schedules.objects.get(id=id)
+    form = ScheduleForm(request.POST or None, instance=schedule)
+    data = {}
+    data['schedule'] = schedule
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-schedule')
+    else:
+        form = ScheduleForm
+    return render(request, 'edit-schedule.html', data)
 
 @login_required(login_url='login')
 def edit_classroom(request, id):
@@ -375,24 +408,79 @@ def edit_classroom(request, id):
         return render(request, 'edit-classroom.html', data)
 
 @login_required(login_url='login')
-def edit_enrollments(request):
-    return render(request, 'edit-classroom.html')
+def edit_enrollments(request, id):
+    enrollments = Enrollments.objects.get(id=id):
+    form = EnrollmentsForm(request.POST or None, instance=enrollments)
+    data = {}
+    data['enrollments'] = enrollments
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-enrollments')
+    else:
+        form = EnrollmentsForm
+        return render(request, 'edit-enrollments.html', data)
 
 @login_required(login_url='login')
-def edit_users(request):
-    return render(request, 'edit-users.html')
+def edit_users(request, id):
+    users = Users.objects.get(id=id):
+    form = UsersForm(request.POST or None, instance=users)
+    data = {}
+    data['users'] = users
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-users')
+    else:
+        form = UsersForm
+        return render(request, 'edit-users.html', data)
 
 @login_required(login_url='login')
-def edit_profiles(request):
-    return render(request, 'edit-profiles.html')
+def edit_profiles(request, id):
+    profiles = Profiles.objects.get(id=id):
+    form = ProfilesForm(request.POST or None, instance=profiles)
+    data = {}
+    data['profiles'] = profiles
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-profiles')
+    else:
+        form = ProfilesForm
+        return render(request, 'edit-profiles.html', data)
 
 @login_required(login_url='login')
-def edit_parents(request):
-    return render(request, 'edit-parents.html')
+def edit_parents(request, id):
+    parents = Parents.objects.get(id=id):
+    form = ParentsForm(request.POST or None, instance=parents)
+    data = {}
+    data['parents'] = parents
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-parents')
+    else:
+        form = ParentsForm
+    return render(request, 'edit-parents.html', data)
 
 @login_required(login_url='login')
-def edit_zipcode(request):
-    return render(request, 'edit-zipcode.html')
+def edit_zipcode(request, id):
+    zipcode = Zipcodes.objects.get(id=id):
+    form = ZipCodeForm(request.POST or None, instance=zipcode)
+    data = {}
+    data['zipcode'] = zipcode
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-zipcodes')
+    else:
+        form = ZipCodeForm
+    return render(request, 'edit-zipcode.html', data)
 
 def search_classroom(request):
     search = request.GET.get('search')
