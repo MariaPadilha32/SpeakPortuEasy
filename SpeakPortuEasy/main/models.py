@@ -81,3 +81,21 @@ class Student(models.Model):
     
     class Meta:
         db_table = 'student'
+
+class Profiles(models.Model):
+    GENDER = (
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other')
+    )
+    profile = models.CharField(max_length=50, blank=False, null=False)
+    first_name = models.CharField(max_length=50, blank=False, null=False)
+    last_name = models.CharField(max_length=50, blank=False, null=False)
+    birthdate = models.DateField(blank=False, null=False)
+    gender = models.CharField(max_length=10, blank=False, null=False, choices=GENDER)
+
+    def __str__(self):
+        return self.profile
+    
+    class Meta:
+        db_table = 'profiles'
