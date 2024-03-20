@@ -212,8 +212,8 @@ def query_enrollments(request):
     form = EnrollmentsForm
     enrollments = Enrollments.objects.all()
     total = Enrollments.objects.count()
-    list_enrollment = Enrollments.objects.all()
-    paginator = Paginator(list_enrollment, 5)
+    list_enrollments = Enrollments.objects.all()
+    paginator = Paginator(list_enrollments, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
     return render(request, 'query-enrollments.html', {'form' : form, 'enrollments': enrollments, 'total' : total, 'page_obj' : page_obj})
@@ -284,9 +284,12 @@ def query_zipcode(request):
     page_obj = paginator.get_page(page_num)
     return render(request, 'query-zipcode.html', {'form': form, 'zipcodes': zipcodes, 'total': total, 'page_obj': page_obj})
 
-@login_required(login_url='login')
-def delete_student(request):
-    return render(request, 'delete-student.html')
+@login_required(login_url='accounts/login')
+def delete_student(request, id):
+    student = Student.objects.get(id=id)
+    student.delete()
+    messages.success(request, "Successfull Deleted!")
+    return redirect ('query-student')
 
 @login_required(login_url='login')
 def delete_class(request):
