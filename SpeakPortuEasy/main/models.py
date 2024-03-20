@@ -40,3 +40,15 @@ class ZipCode(models.Model):
     
     class Meta:
         db_table = 'zipcode'
+class Enrollments(models.Model):
+    student = models.CharField(max_length=50, blank=False, null=False)
+    classname = models.CharField(max_length=50, blank=False, null=False)
+    date = models.DateField(blank=False, null=False)
+
+    def __str__(self):
+        return self.classname
+    
+    class Meta:
+        db_table = 'enrollment'
+
+
