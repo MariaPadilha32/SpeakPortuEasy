@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import ZipCode, Classroom, Student, Enrollments, Classes
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm
+from main.models import ZipCode, Classroom, Student, Enrollments, Classes, Schedule
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm
 
 # Create your views here.
 def index(request):
@@ -41,21 +41,35 @@ def register_class(request):
         if count > 0:
             messages.error(request, 'There is a class with that name, please use a different name.')
             return redirect('register-class')
-        
         if request.method =='POST':
-           form = ClassesFormForm(request.POST)
+           form = ClassesForm(request.POST)
            if form.is_valid():
                form.save()
                return redirect('query-class')
            else:
                return redirect('register-class')
     else:
-        form = ClassesFormForm
+        form = ClassesForm
         return render(request, 'register-class.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_schedule(request):
-    return render(request, 'register-schedule.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Schedule.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'There is no schedule available at that time, please try a different one.')
+            return redirect('register-schedule')
+        if request.method =='POST':
+           form = ScheduleForm(request.POST)
+           if form.is_valid():
+               form.save()
+               return redirect('query-schedule')
+           else:
+               return redirect('register-schedule')
+    else:
+        form = ScheduleForm
+        return render(request, 'register-schedule.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_classroom(request):
