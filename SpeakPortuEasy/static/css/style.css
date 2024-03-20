@@ -1,0 +1,15 @@
+
+
+/* For screens smaller than 768px (e.g., mobile phones) */
+@media (max-width: 767.98px) {
+    .welcome-image-lg, .flag-image-lg, .linguistic-image-lg, .empowerment-image-lg, .engagement-image-lg {
+      display: none; /* hide large screen images on small screens*/
+    }
+  }
+  
+  /* For screens larger than 768px (e.g., tablets, laptops, desktops) */
+  @media (min-width: 768px) {
+    .welcome-image, .flag-image, .linguistic-image, .empowerment-image, .engagement-image {
+      display: none; /* hide small screen images on large screens */
+    }
+  }

@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from main.models import Classroom
-from .forms import ClassroomForm
 from django.core.paginator import Paginator
+from django.contrib import messages
+from main.models import ZipCode, Classroom, Student
+from .forms import ClassroomForm, StudentForm
 
 # Create your views here.
 def index(request):
@@ -14,7 +14,24 @@ def index(request):
 
 @login_required(login_url='login')
 def register_student(request):
-    return render(request, 'register-student.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Student.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'There is a student with that name, please use a different name.')
+            return redirect('register-student')
+        
+        if request.method =='POST':
+           form = StudentForm(request.POST)
+           if form.is_valid():
+               form.save()
+               return redirect('query-student')
+           else:
+               return redirect('register-student')
+    else:
+        form = StudentForm
+        return render(request, 'register-student.html', {'form' : form})
+
 
 @login_required(login_url='login')
 def register_class(request):
@@ -30,7 +47,7 @@ def register_classroom(request):
         name = request.POST.get('name')
         count = Classroom.objects.filter(name=name).count()
         if count > 0:
-            messages.error(request, 'There is a Classroom registered with that name, please use a different name.')
+            messages.error(request,'There is a classroom with that name, please use a different name.')
             return redirect('register-classroom')
         if request.method == 'POST':
             form = ClassroomForm(request.POST)
@@ -45,7 +62,7 @@ def register_classroom(request):
 
 @login_required(login_url='login')
 def register_enrollments(request):
-    return render(request, 'register-classroom.html')
+    return render(request, 'register-enrollments.html')
 
 def register_users(request):
     return render(request, 'register-users.html')
@@ -72,10 +89,10 @@ def query_classroom(request):
     classrooms = Classroom.objects.all()
     total = Classroom.objects.count()
     list_classroom = Classroom.objects.all()
-    paginator = Paginator(list_classroom, 4)
+    paginator = Paginator(list_classroom, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-classroom.html', {'form': form, 'classrooms': classrooms, 'total': total, 'page_obj': page_obj})
+    return render(request, 'query-classroom.html', {'form' : form, 'classrooms': classrooms, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_enrollments(request):
@@ -117,9 +134,12 @@ def delete_class(request):
 def delete_schedule(request):
     return render(request, 'delete-schedule.html')
 
-@login_required(login_url='login')
-def delete_classroom(request):
-    return render(request, 'delete-classroom.html')
+@login_required(login_url="accounts/login")
+def delete_classroom(request, id):
+    classroom = Classroom.objects.get(id=id)
+    classroom.delete()
+    messages.success(request,"Successfull Deleted!")
+    return redirect('query-classroom')        
 
 @login_required(login_url='login')
 def delete_enrollments(request):
@@ -166,7 +186,7 @@ def edit_classroom(request, id):
             return redirect('query-classroom')
     else:
         form = ClassroomForm
-        return render(request, 'edit-classroom.html', data)  
+        return render(request, 'edit-classroom.html', data)
 
 @login_required(login_url='login')
 def edit_enrollments(request):
@@ -187,6 +207,15 @@ def edit_parents(request):
 @login_required(login_url='login')
 def edit_zipcode(request):
     return render(request, 'edit-zipcode.html')
+
+def search_classroom(request):
+    search = request.GET.get('search')
+    classrooms = Classroom.objects.filter(name__icontains=search)
+    form = ClassroomForm()
+    data = {}
+    data['classrooms'] = classrooms
+    data['form'] = form
+    return render(request, 'query-classroom.html', data)
 
 def v_login(request):
     return render(request, 'login.html')
