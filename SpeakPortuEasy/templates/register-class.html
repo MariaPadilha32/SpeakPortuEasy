@@ -4,7 +4,8 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form>
+    <form method="post" action="{% url 'register-class' %}">
+        {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
             <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required>
