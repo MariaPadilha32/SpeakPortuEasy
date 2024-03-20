@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import ZipCode, Classroom, Student, Enrollments, Classes, Schedule
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Users, Profiles
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, UsersForm, ProfilesForm
 
 # Create your views here.
 def index(request):
@@ -29,7 +29,7 @@ def register_student(request):
            else:
                return redirect('register-student')
     else:
-        form = StudentForm
+        form = StudentForm()
         return render(request, 'register-student.html', {'form' : form})
 
 
@@ -49,7 +49,7 @@ def register_class(request):
            else:
                return redirect('register-class')
     else:
-        form = ClassesForm
+        form = ClassesForm()
         return render(request, 'register-class.html', {'form' : form})
 
 @login_required(login_url='login')
@@ -68,7 +68,7 @@ def register_schedule(request):
            else:
                return redirect('register-schedule')
     else:
-        form = ScheduleForm
+        form = ScheduleForm()
         return render(request, 'register-schedule.html', {'form' : form})
 
 @login_required(login_url='login')
@@ -87,7 +87,7 @@ def register_classroom(request):
             else:
                 return redirect('register-classroom')
     else:
-        form = ClassroomForm
+        form = ClassroomForm()
         return render(request, 'register-classroom.html', {'form' : form})
 
 @login_required(login_url='login')
@@ -106,15 +106,46 @@ def register_enrollments(request):
             else:
                 return redirect('register-enrollments')
     else:
-        form = EnrollmentsForm
+        form = EnrollmentsForm()
         return render(request, 'register-enrollments.html', {'form' : form})
 
+@login_required(login_url='login')
 def register_users(request):
-    return render(request, 'register-users.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Users.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'This user information is not available, try a new one.')
+            return redirect('register-users')
+        if request.method == 'POST':
+            form = UsersForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-users')
+            else:
+                return redirect('register-users')
+    else:
+        form = UsersForm()
+        return render(request, 'register-users.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_profiles(request):
-    return render(request, 'register-profiles.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Profiles.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'This profile has already been used, try a new one.')
+            return redirect('register-profiles')
+        if request.method == 'POST':
+            form = ProfilesForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-profiles')
+            else:
+                return redirect('register-profiles')
+    else:
+        form = ProfilesForm()
+        return render(request, 'register-profiles.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_parents(request):
