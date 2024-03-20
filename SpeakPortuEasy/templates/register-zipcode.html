@@ -4,22 +4,23 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form>
+    <form method="post" action="{% url 'register-zipcode' %}">
+        {% csrf_token %}
         <div class="mb-3">
             <label for="txtZipCode" class="form-label">Zip Code/Eircode: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtZipCode" aria-describedby="ZipCode" required>
+            <input type="text" name="zipcode" class="form-control" id="txtZipCode" aria-describedby="ZipCode" required>
         </div>
         <div class="mb-3">
             <label for="txtCity" class="form-label">City: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCity" aria-describedby="City" required>
+            <input type="text" name="city" class="form-control" id="txtCity" aria-describedby="City" required>
         </div>
         <div class="mb-3">
             <label for="txtState" class="form-label">State/County: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtState" aria-describedby="State" required>
+            <input type="text" name="state" class="form-control" id="txtState" aria-describedby="State" required>
         </div>
         <div class="mb-3">
             <label for="txtCountry" class="form-label">Country: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCountry" aria-describedby="Country" required>
+            <input type="text" name="coutry" class="form-control" id="txtCountry" aria-describedby="Country" required>
         </div>
         <button type="submit" class="btn btn-primary col-2">Submit</button>
         <button type="reset" class="btn btn-warning col-2">Reset</button>
