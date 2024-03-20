@@ -216,15 +216,29 @@ def query_enrollments(request):
     paginator = Paginator(list_enrollment, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-enrollments.html', {'form' : form, 'classrooms': classrooms, 'total' : total, 'page_obj' : page_obj})
+    return render(request, 'query-enrollments.html', {'form' : form, 'enrollments': enrollments, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_parents(request):
-    return render(request, 'query-parents.html')
+    form = ParentsForm
+    parents = Parents.objects.all()
+    total = Parents.objects.count()
+    list_parents = Parents.objects.all()
+    paginator = Paginator(list_parents, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-parents.html', {'form' : form, 'parents': parents, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_profiles(request):
-    return render(request, 'query-profiles.html')
+    form = ProfilesForm
+    profiles = Profiles.objects.all()
+    total = Profiles.objects.count()
+    list_profiles = Profiles.objects.all()
+    paginator = Paginator(list_profiles, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-profiles.html', {'form' : form, 'profiles': profiles, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_schedule(request):
