@@ -298,9 +298,12 @@ def delete_class(request, id):
     messages.success(request, "Successfull Deleted!")
     return redirect ('query-class')
 
-@login_required(login_url='login')
-def delete_schedule(request):
-    return render(request, 'delete-schedule.html')
+@login_required(login_url='accounts/login')
+def delete_schedule(request, id):
+    schedule = Schedule.objects.get(id=id)
+    schedule.delete()
+    messages.success(request, "Successfull Deleted!")
+    return redirect('query-schedule')
 
 @login_required(login_url="accounts/login")
 def delete_classroom(request, id):
