@@ -51,4 +51,14 @@ class Enrollments(models.Model):
     class Meta:
         db_table = 'enrollment'
 
+class Parents(models.Model):
+    name = models.CharField(max_length=50, blank=False, null=False)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=10, blank=False, null=False)
+    student = models.IntegerField(blank=False, null=False)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        db_table = 'parents'
 
