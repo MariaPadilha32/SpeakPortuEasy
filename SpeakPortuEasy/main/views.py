@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import ZipCode, Classroom, Student
-from .forms import ClassroomForm, StudentForm
+from main.models import ZipCode, Classroom, Student, Enrollments, Classes
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm
 
 # Create your views here.
 def index(request):
@@ -35,7 +35,23 @@ def register_student(request):
 
 @login_required(login_url='login')
 def register_class(request):
-    return render(request, 'register-class.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Classes.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'There is a class with that name, please use a different name.')
+            return redirect('register-class')
+        
+        if request.method =='POST':
+           form = ClassesFormForm(request.POST)
+           if form.is_valid():
+               form.save()
+               return redirect('query-class')
+           else:
+               return redirect('register-class')
+    else:
+        form = ClassesFormForm
+        return render(request, 'register-class.html', {'form' : form})
 
 @login_required(login_url='login')
 def register_schedule(request):
@@ -62,7 +78,22 @@ def register_classroom(request):
 
 @login_required(login_url='login')
 def register_enrollments(request):
-    return render(request, 'register-enrollments.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Enrollments.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'Please use a different name.')
+            return redirect('register-enrollments')
+        if request.method == 'POST':
+            form = EnrollmentsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-enrollments')
+            else:
+                return redirect('register-enrollments')
+    else:
+        form = EnrollmentsForm
+        return render(request, 'register-enrollments.html', {'form' : form})
 
 def register_users(request):
     return render(request, 'register-users.html')
