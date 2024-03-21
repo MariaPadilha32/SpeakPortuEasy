@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Users, Profiles, Parents, Zipcodes
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, UsersForm, ProfilesForm, ParentsForm, ZipCodeForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, ZipCode
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, ZipCodeForm
 
 # Create your views here.
 def index(request):
@@ -409,7 +409,7 @@ def edit_classroom(request, id):
 
 @login_required(login_url='login')
 def edit_enrollments(request, id):
-    enrollments = Enrollments.objects.get(id=id):
+    enrollments = Enrollments.objects.get(id=id)
     form = EnrollmentsForm(request.POST or None, instance=enrollments)
     data = {}
     data['enrollments'] = enrollments
@@ -424,7 +424,7 @@ def edit_enrollments(request, id):
 
 @login_required(login_url='login')
 def edit_users(request, id):
-    users = Users.objects.get(id=id):
+    users = Users.objects.get(id=id)
     form = UsersForm(request.POST or None, instance=users)
     data = {}
     data['users'] = users
@@ -439,7 +439,7 @@ def edit_users(request, id):
 
 @login_required(login_url='login')
 def edit_profiles(request, id):
-    profiles = Profiles.objects.get(id=id):
+    profiles = Profiles.objects.get(id=id)
     form = ProfilesForm(request.POST or None, instance=profiles)
     data = {}
     data['profiles'] = profiles
@@ -454,7 +454,7 @@ def edit_profiles(request, id):
 
 @login_required(login_url='login')
 def edit_parents(request, id):
-    parents = Parents.objects.get(id=id):
+    parents = Parents.objects.get(id=id)
     form = ParentsForm(request.POST or None, instance=parents)
     data = {}
     data['parents'] = parents
@@ -469,7 +469,7 @@ def edit_parents(request, id):
 
 @login_required(login_url='login')
 def edit_zipcode(request, id):
-    zipcode = Zipcodes.objects.get(id=id):
+    zipcode = Zipcodes.objects.get(id=id)
     form = ZipCodeForm(request.POST or None, instance=zipcode)
     data = {}
     data['zipcode'] = zipcode
