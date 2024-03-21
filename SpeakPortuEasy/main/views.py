@@ -403,6 +403,8 @@ def edit_classroom(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-classroom')
+        else:
+            return render(request, 'edit-classroom.html', data)
     else:
         form = ClassroomForm
         return render(request, 'edit-classroom.html', data)
