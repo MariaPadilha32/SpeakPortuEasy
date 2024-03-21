@@ -40,7 +40,7 @@
                     <td>{{ classroom.name }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-classroom' classroom.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-classroom' %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'delete-classroom'  classroom.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
