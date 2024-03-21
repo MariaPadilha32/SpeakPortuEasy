@@ -5,6 +5,7 @@
 {% block 'main' %}
 <div class="container">
     <form method="GET" action="">
+        {% csrf_token %}
         <div>
             <div class="row">
                 <label for="txtClassroomName" class="form-label">Classroom Name:</label>

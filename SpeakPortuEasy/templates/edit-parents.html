@@ -5,6 +5,7 @@
 {% block 'main' %}
 <div class="container col-6">
     <form>
+        {% csrf_token %}
         <div class="mb-3">
             <label for="txtParentName" class="form-label">Parent Name: <span class="required">*</span></label>
             <input type="text" class="form-control" id="txtParentName" aria-describedby="ParentName" required>

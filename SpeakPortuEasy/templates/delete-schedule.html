@@ -5,6 +5,7 @@
 {% block 'main' %}
 <div class="container col-6">
     <form>
+        {% csrf_token %}
         <div class="mb-3">
             <label for="txtDay" class="form-label" >Day of the Week: <span class="required">*</span></label>
             <select class="form-select" id="txtDay" required disabled>
