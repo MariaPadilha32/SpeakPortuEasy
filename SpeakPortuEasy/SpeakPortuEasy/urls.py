@@ -55,7 +55,7 @@ urlpatterns = [
     path('edit-classroom/<int:id>', vw.edit_classroom, name="edit-classroom"),
     path('edit-enrollments<int:id>/', vw.edit_enrollments, name="edit-enrollments"),
     path('edit-users/<int:id>', vw.edit_users, name="edit-users"),
-    path('edit-profiles/', vw.edit_profiles, name="edit-profiles"),
+    path('edit-profiles/<int:id>', vw.edit_profiles, name="edit-profiles"),
     path('edit-parents/', vw.edit_parents, name="edit-parents"),
     path('edit-zipcode/', vw.edit_zipcode, name="edit-zipcode"),
     path('accounts/', include('django.contrib.auth.urls')),
