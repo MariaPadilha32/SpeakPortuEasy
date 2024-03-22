@@ -443,6 +443,8 @@ def edit_users(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-users')
+        else:
+            return render(request, 'edit-users.html', data)
     else:
         form = UsersForm
         return render(request, 'edit-users.html', data)
