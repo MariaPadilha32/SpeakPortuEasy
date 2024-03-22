@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form>
+    <form method="post" action="{% url 'edit-schedule.html' schedule.id %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtDay" class="form-label">Day of the Week: <span class="required">*</span></label>
