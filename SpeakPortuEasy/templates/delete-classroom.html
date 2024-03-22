@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form>
+    <form method="post" action="{% url 'delete-classroom' classroom.id %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassroomName" class="form-label">Classroom Name: <span class="required">*</span></label>
