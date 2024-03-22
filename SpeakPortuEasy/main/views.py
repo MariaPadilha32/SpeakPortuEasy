@@ -358,6 +358,8 @@ def edit_student(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-student')
+        else:
+            return render(request, 'edit_student.html.', data)
     else:
         form = StudentForm
         return render(request, 'edit-student.html', data)
