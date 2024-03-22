@@ -375,6 +375,8 @@ def edit_class(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-classes')
+        else:
+            return render(request, 'edit_class.html', data)
     else:
         form = ClassesForm
         return render(request, 'edit-class.html', data)
