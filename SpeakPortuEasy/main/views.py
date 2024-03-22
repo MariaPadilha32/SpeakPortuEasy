@@ -392,9 +392,11 @@ def edit_schedule(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-schedule')
+        else:
+            return render(request, 'edit-schedule.html'. data)
     else:
         form = ScheduleForm
-    return render(request, 'edit-schedule.html', data)
+        return render(request, 'edit-schedule.html', data)
 
 @login_required(login_url='login')
 def edit_classroom(request, id):
