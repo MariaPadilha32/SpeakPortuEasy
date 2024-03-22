@@ -477,6 +477,8 @@ def edit_parents(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-parents')
+        else:
+            return render(request, 'edit-parents.html', data)
     else:
         form = ParentsForm
     return render(request, 'edit-parents.html', data)
