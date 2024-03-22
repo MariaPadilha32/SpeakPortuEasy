@@ -494,9 +494,11 @@ def edit_zipcode(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-zipcodes')
+        else:
+            return render(request, 'edit-zipcodes.html', data)
     else:
         form = ZipCodeForm
-    return render(request, 'edit-zipcode.html', data)
+        return render(request, 'edit-zipcode.html', data)
 
 def search_classroom(request):
     search = request.GET.get('search')
