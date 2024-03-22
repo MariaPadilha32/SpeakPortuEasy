@@ -40,7 +40,7 @@
                     <td>{{ profiles.name }}</td>
                        <td class="text-end">
                             <a href="{% url 'edit-profiles' profiles.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                         <a href="{% url 'delete-profiles' %}"><button class="btn btn-danger col-2">Delete</button></a>
+                            <a href="{% url 'delete-profiles' profiles.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                      </td>
                 </tr>
                {% endfor %}
