@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form>
+    <form method="GET" action="{% url 'query-enrollments.html' %}">
         {% csrf_token %}
         <div>
             <div class="row">
