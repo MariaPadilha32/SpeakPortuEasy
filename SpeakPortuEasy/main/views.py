@@ -426,6 +426,8 @@ def edit_enrollments(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-enrollments')
+        else:
+            return render(request, 'edit-enrollments.html', data)
     else:
         form = EnrollmentsForm
         return render(request, 'edit-enrollments.html', data)
