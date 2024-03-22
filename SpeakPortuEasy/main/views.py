@@ -460,6 +460,8 @@ def edit_profiles(request, id):
         if form.is_valid():
             form.save()
             return redirect('query-profiles')
+        else:
+            return render(request, 'edit-profiles.html', data)
     else:
         form = ProfilesForm
         return render(request, 'edit-profiles.html', data)
