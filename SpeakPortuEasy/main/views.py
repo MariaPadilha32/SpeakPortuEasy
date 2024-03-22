@@ -359,7 +359,7 @@ def edit_student(request, id):
             form.save()
             return redirect('query-student')
         else:
-            return render(request, 'edit_student.html.', data)
+            return render(request, 'edit_student.html', data)
     else:
         form = StudentForm
         return render(request, 'edit-student.html', data)
@@ -393,7 +393,7 @@ def edit_schedule(request, id):
             form.save()
             return redirect('query-schedule')
         else:
-            return render(request, 'edit-schedule.html'. data)
+            return render(request, 'edit-schedule.html', data)
     else:
         form = ScheduleForm
         return render(request, 'edit-schedule.html', data)
@@ -495,7 +495,7 @@ def edit_zipcode(request, id):
             form.save()
             return redirect('query-zipcodes')
         else:
-            return render(request, 'edit-zipcodes.html', data)
+            return render(request, 'edit-zipcode.html', data)
     else:
         form = ZipCodeForm
         return render(request, 'edit-zipcode.html', data)
