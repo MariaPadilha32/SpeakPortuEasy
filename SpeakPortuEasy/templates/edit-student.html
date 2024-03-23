@@ -8,24 +8,24 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
-          <input type="text" class="form-control" id="txtName" aria-describedby="Name" required>
+          <input name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" required>
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
+            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="txtEmail" aria-describedby="Email">
+            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
                 <label for="txtPhone1" class="form-label">Phone Number 1: <span class="required">*</span></label>
-                <input type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required>
+                <input name="phone1" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required>
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
+                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
             </div>
         </div>
         <div class="row">
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="mb-3 col-4">
-                <input type="text" class="form-control" id="txtZipCode" required>
+                <input name="zipcode" type="text" class="form-control" id="txtZipCode" required>
             </div>
             <div class="mb-3 col-4">
                 <button class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -46,28 +46,28 @@
         <div class="mb-3 row">
         <div class="col-4">
             <label for="txtCountry" class="form-label">Country: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCountry" aria-describedby="Country" disabled required>
+            <input name="country" type="text" class="form-control" id="txtCountry" aria-describedby="Country" disabled required>
         </div>
         <div class="col-4">
             <label for="txtState" class="form-label">State/County: <span class="required">*</span> </label>
-            <input type="text" class="form-control" id="txtState" aria-describedby="State" disabled required>
+            <input name="state" type="text" class="form-control" id="txtState" aria-describedby="State" disabled required>
         </div>
         <div class="col-4">
             <label for="txtCity" class="form-label">City: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCity" aria-describedby="City" disabled required>
+            <input name="city" type="text" class="form-control" id="txtCity" aria-describedby="City" disabled required>
         </div>
         </div>
         <div class="mb-3">
             <label for="txtAdress" class="form-label">Street Adress:<span class="required">*</span> </label>
-            <input type="text" class="form-control" id="txtAdress" aria-describedby="Street Adress" disabled required>
+            <input name="address" type="text" class="form-control" id="txtAdress" aria-describedby="Street Adress" disabled required>
         </div>
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="txtUnderAge">
+          <input name="under_age" type="checkbox" class="form-check-input" id="txtUnderAge">
           <label class="form-check-label" for="txtUnderAge">Under age</label>
         </div>
         <div class="mb-3">
             <label for="txtParents" class="form-label">Parents/ Legal Guardian:</label>
-            <input type="text" class="form-control" id="txtParents" aria-describedby="Parents/ Legal Guardian" disabled>
+            <input name="parents" type="text" class="form-control" id="txtParents" aria-describedby="Parents/ Legal Guardian" disabled>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>
