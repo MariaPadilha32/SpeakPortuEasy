@@ -108,3 +108,20 @@ class Schedule(models.Model):
     
     class Meta:
         db_table = 'schedule'
+
+class Users(models.Model):
+    name = models.CharField(max_length=50, blank=False, null=False)
+    password = models.CharField(max_length=50, blank=False, null=False) 
+    first_name = models.CharField(max_length=50, blank=False, null=False)
+    last_name = models.CharField(max_length=50, blank=False, null=False)
+    role = models.CharField(max_length=50, blank=False, null=False)
+    email = models.CharField(max_length=100)
+    is_staff = models.BooleanField()
+    is_active = models.BooleanField()
+    is_superuser = models.BooleanField()
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'users'
