@@ -8,25 +8,25 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtUserProfile" class="form-label">User Profile: <span class="required">*</span></label>
-            <select class="form-select" id="txtUserProfile" required  disabled>
+            <select name="profile" class="form-select" id="txtUserProfile" required  disabled>
                 <!-- Populate with available user profiles -->
             </select>
         </div>
         <div class="mb-3">
             <label for="txtFirstName" class="form-label">First Name: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtFirstName" aria-describedby="FirstName" required  disabled>
+            <input name="first_name" type="text" class="form-control" id="txtFirstName" aria-describedby="FirstName" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtLastName" class="form-label">Last Name: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtLastName" aria-describedby="LastName" required  disabled>
+            <input name="last_name" type="text" class="form-control" id="txtLastName" aria-describedby="LastName" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtBirthdate" class="form-label">Birthdate: <span class="required">*</span></label>
-            <input type="date" class="form-control" id="txtBirthdate" aria-describedby="Birthdate" required  disabled>
+            <input name="birthdate" type="date" class="form-control" id="txtBirthdate" aria-describedby="Birthdate" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtGender" class="form-label">Gender:</label>
-            <select class="form-select" id="txtGender" disabled>
+            <select name="gender" class="form-select" id="txtGender" disabled>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
