@@ -8,19 +8,19 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtZipCode" class="form-label">Zip Code/Eircode: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtZipCode" aria-describedby="ZipCode" required>
+            <input name="zipcode" type="text" class="form-control" id="txtZipCode" aria-describedby="ZipCode" required>
         </div>
         <div class="mb-3">
             <label for="txtCity" class="form-label">City: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCity" aria-describedby="City" required>
+            <input name="city" type="text" class="form-control" id="txtCity" aria-describedby="City" required>
         </div>
         <div class="mb-3">
             <label for="txtState" class="form-label">State/County: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtState" aria-describedby="State" required>
+            <input name="state" type="text" class="form-control" id="txtState" aria-describedby="State" required>
         </div>
         <div class="mb-3">
             <label for="txtCountry" class="form-label">Country: <span class="required">*</span></label>
-            <input type="text" class="form-control" id="txtCountry" aria-describedby="Country" required>
+            <input name="country" type="text" class="form-control" id="txtCountry" aria-describedby="Country" required>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>
