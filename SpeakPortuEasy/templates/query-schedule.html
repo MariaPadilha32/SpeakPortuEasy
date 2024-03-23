@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="GET" action="{% url 'query-schedle.html' %}">
+    <form method="GET" action="{% url 'query-schedule.html' %}">
         {% csrf_token %}
         <div>
             <div class="row">
@@ -12,7 +12,7 @@
             </div>
             <div class="row col-12 d-flex">
                 <div class="col-10">
-                    <input type="text" class="form-control" id="txtSchedule" aria-describedby="Schedule" placeholder="Enter Schedule">
+                    <input name="search" type="text" class="form-control" id="txtSchedule" aria-describedby="Schedule" placeholder="Enter Schedule">
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-primary">Search</button>
