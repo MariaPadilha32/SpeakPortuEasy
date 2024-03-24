@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, ZipCode
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, ZipCodeForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, ZipCode, Teacher
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, ZipCodeForm, TeacherForm
 
 # Create your views here.
 def index(request):
@@ -184,6 +184,26 @@ def register_zipcode(request):
     else:
         form = ZipCodeForm()
         return render(request, 'register-ziocode.html', {'form' : form})
+    
+@login_required(login_url='login')
+def register_teacher(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        count = Teacher.objects.filter(name=name).count()
+        if count > 0:
+            messages.error(request, 'There is a teacher with that name, please use a different name.')
+            return redirect('register-teacher')
+        
+        if request.method =='POST':
+           form = TeacherForm(request.POST)
+           if form.is_valid():
+               form.save()
+               return redirect('query-teacher')
+           else:
+               return redirect('register-teacher')
+    else:
+        form = TeacherForm()
+        return render(request, 'register-teacher.html', {'form' : form})
 
 @login_required(login_url='login')
 def query_class(request):
@@ -284,12 +304,30 @@ def query_zipcode(request):
     page_obj = paginator.get_page(page_num)
     return render(request, 'query-zipcode.html', {'form': form, 'zipcodes': zipcodes, 'total': total, 'page_obj': page_obj})
 
+@login_required(login_url='login')
+def query_teacher(request):
+    form = TeacherForm
+    teachers = Teacher.objects.all()
+    total = Teacher.objects.count()
+    list_teachers = Teacher.objects.all()
+    paginator = Paginator(list_teachers, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-teacher.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
+
 @login_required(login_url='accounts/login')
 def delete_student(request, id):
     student = Student.objects.get(id=id)
     student.delete()
     messages.success(request, "Successfull Deleted!")
     return redirect ('query-student')
+
+@login_required(login_url='accounts/login')
+def delete_teacher(request, id):
+    teacher = Teacher.objects.get(id=id)
+    teacher.delete()
+    messages.success(request, "Successfull Deleted!")
+    return redirect ('query-teacher')
 
 @login_required(login_url='accounts/login')
 def delete_class(request, id):
@@ -348,6 +386,17 @@ def delete_zipcode(request, id):
     return redirect('query-zipcode')
 
 @login_required(login_url='login')
+def query_teacher(request):
+    form = TeacherForm
+    teachers = Teacher.objects.all()
+    total = Teacher.objects.count()
+    list_teachers = Teacher.objects.all()
+    paginator = Paginator(list_teachers, 5)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'query-student.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
+
+@login_required(login_url='login')
 def edit_student(request, id):
     student = Student.objects.get(id=id)
     form = StudentForm(request.POST or None, instance=student)
@@ -363,6 +412,23 @@ def edit_student(request, id):
     else:
         form = StudentForm
         return render(request, 'edit-student.html', data)
+    
+@login_required(login_url='login')
+def edit_teacher(request, id):
+    teacher = Teacher.objects.get(id=id)
+    form = TeacherForm(request.POST or None, instance=teacher)
+    data = {}
+    data['teacher'] = teacher
+    data['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('query-teacher')
+        else:
+            return render(request, 'edit_teacher.html', data)
+    else:
+        form = TeacherForm
+        return render(request, 'edit-teacher.html', data)
 
 @login_required(login_url='login')
 def edit_class(request, id):    
@@ -549,3 +615,4 @@ def error404(request, exception):
 
 def error500(request, exception):
     return render(request, 'error500.html', status=500)
+
