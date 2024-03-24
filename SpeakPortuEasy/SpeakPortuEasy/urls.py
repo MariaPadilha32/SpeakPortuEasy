@@ -60,5 +60,9 @@ urlpatterns = [
     path('edit-zipcode/<int:id>', vw.edit_zipcode, name="edit-zipcode"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('recover-password/', vw.recover_password, name="recover-password"),
+    path('register-teacher/', vw.register_teacher, name="register-teacher"),
+    path('query-teacher/', vw.query_teacher, name="query-teacher"),
+    path('edit-teacher/<int:id>', vw.edit_teacher, name="edit-teacher"),
+    path('delete-teacher/<int:id>', vw.delete_teacher, name="delete-teacher"),
     path('', vw.index, name="")
 ]
