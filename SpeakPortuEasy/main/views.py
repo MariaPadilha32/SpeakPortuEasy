@@ -618,3 +618,8 @@ def search_student(request):
     query = request.GET.get('search')
     student = Student.objects.filter(name__icontains=query)
     return render(request, 'query-student.html', {'students' : student})
+
+def search_enrollments(request):
+    query = request.GET.get('search')
+    enrollment = Enrollments.objects.filter(name__icontains=query)
+    return render(request, 'query-enrollments.html', {'enrollments' : enrollment})

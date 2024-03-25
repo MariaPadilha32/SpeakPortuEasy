@@ -4,8 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="GET">
-        {% csrf_token %}
+    <form action="{% url 'search-enrollments' %}">
         <div>
             <div class="row">
                 <label for="txtEnrollmentName" class="form-label">Enrollment:</label>
@@ -35,15 +34,27 @@
                 </tr>
             </thead>
             <tbody>
-                {% for enrollments in page_obj %}
+                {% if enrollments %}
+                {% for enroll in enrollments %}
                 <tr>
-                    <td>{{ enrollments.name }}</td>
+                    <td>{{ enroll.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-enrollments' enrollments.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-enrollments' enrollments.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-enrollments' enroll.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-enrollments' enroll.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
+                {% else %}
+                {% for enrollm in page_obj %}
+                <tr>
+                    <td>{{ enrollm.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-enrollments' enrollm.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-enrollments' enrollm.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}                
             </tbody>
         </table>
     </div>
