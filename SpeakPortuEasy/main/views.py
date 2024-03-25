@@ -604,4 +604,8 @@ def v_logout(request):
 def recover_password(request):
     return render(request, 'recover-password.html')
 
+def search_classroom(request):
+    query = request.GET.get('search')
+    classrooms = Classroom.objects.filter(name__icontains=query)
+    return render(request, 'query-classroom.html', {'classes' : classrooms})
 

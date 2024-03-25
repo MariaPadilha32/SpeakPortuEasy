@@ -4,8 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="GET">
-        {% csrf_token %}
+    <form action="{% url 'search-classroom' %}">
         <div>
             <div class="row">
                 <label for="txtClassroomName" class="form-label">Classroom Name:</label>
@@ -35,15 +34,27 @@
                 </tr>
             </thead>
             <tbody>
-                {% for classroom in page_obj %}
+                {% if classes %}
+                {% for class in classes %}
                 <tr>
-                    <td>{{ classroom.name }}</td>
+                    <td>{{ class.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-classroom' classroom.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-classroom' classroom.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-classroom' class.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-classroom' class.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
+                {% else %}
+                {% for classrooms in page_obj %}
+                <tr>
+                    <td>{{ classrooms.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-classroom' classrooms.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-classroom' classrooms.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
             </tbody>
         </table>
     </div>
