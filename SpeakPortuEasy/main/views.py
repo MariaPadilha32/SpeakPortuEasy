@@ -604,15 +604,4 @@ def v_logout(request):
 def recover_password(request):
     return render(request, 'recover-password.html')
 
-def error400(request, exception):
-    return render(request, 'error400.html', status=400)
-
-def error403(request, exception):
-    return render(request, 'error403.html', status=403)
-
-def error404(request, exception):
-    return render(request, 'error404.html', status=404)
-
-def error500(request, exception):
-    return render(request, 'error500.html', status=500)
 
