@@ -613,3 +613,8 @@ def search_class(request):
     query = request.GET.get('search')
     classname = Classes.objects.filter(name__icontains=query)
     return render(request, 'query-class.html', {'classnames' : classname})
+
+def search_student(request):
+    query = request.GET.get('search')
+    student = Student.objects.filter(name__icontains=query)
+    return render(request, 'query-student.html', {'students' : student})

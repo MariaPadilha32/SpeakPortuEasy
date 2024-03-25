@@ -4,8 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="GET">
-        {% csrf_token %}
+    <form action="{% url 'search-student' %}">
         <div>
             <div class="row">
                 <label for="txtStudent" class="form-label">Student Name:</label>
@@ -35,7 +34,8 @@
                 </tr>
             </thead>
             <tbody>
-                {% for student in page_obj %}
+                {% if students %}
+                {% for student in students %}
                 <tr>
                     <td>{{ student.name }}</td>
                     <td class="text-end">
@@ -44,6 +44,17 @@
                     </td>
                 </tr>
                 {% endfor %}
+                {% else %}
+                {% for studentss in page_obj %}
+                <tr>
+                    <td>{{ studentss.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-student' studentss.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-student' studentss.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
             </tbody>
         </table>
     </div>
