@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'edit-class.html' classes.id %}">
+    <form method="post" action="{% url 'edit-class' classes.id %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>

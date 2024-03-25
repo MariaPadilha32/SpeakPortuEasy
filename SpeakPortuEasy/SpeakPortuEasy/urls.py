@@ -65,5 +65,6 @@ urlpatterns = [
     path('edit-teacher/<int:id>', vw.edit_teacher, name="edit-teacher"),
     path('delete-teacher/<int:id>', vw.delete_teacher, name="delete-teacher"),
     path('search-classroom/', vw.search_classroom, name='search-classroom'),
+    path('search-class/', vw.search_class, name='search-class'),
     path('', vw.index, name="")
 ]

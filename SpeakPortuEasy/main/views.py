@@ -609,3 +609,7 @@ def search_classroom(request):
     classrooms = Classroom.objects.filter(name__icontains=query)
     return render(request, 'query-classroom.html', {'classes' : classrooms})
 
+def search_class(request):
+    query = request.GET.get('search')
+    classname = Classes.objects.filter(name__icontains=query)
+    return render(request, 'query-class.html', {'classnames' : classname})
