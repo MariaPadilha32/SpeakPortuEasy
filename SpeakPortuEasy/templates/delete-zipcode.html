@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'delete-zipcode.html' zipcode.id %}">
+    <form method="post" action="{% url 'delete-zipcode' zipcode.id %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtZipCode" class="form-label">Zip Code/Eircode: <span class="required">*</span></label>
