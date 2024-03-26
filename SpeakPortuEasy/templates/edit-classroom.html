@@ -21,7 +21,7 @@
         </div>
        <div class="mb-3">
             <label for="txtDescription" class="form-label">Description:</label>
-            <textarea name="description" class="form-control" id="txtDescription" rows="3">{{ classroom.description }}</textarea>
+            <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255">{{ classroom.description }}</textarea>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>
