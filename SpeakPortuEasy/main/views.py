@@ -623,3 +623,8 @@ def search_enrollments(request):
     query = request.GET.get('search')
     enrollment = Enrollments.objects.filter(name__icontains=query)
     return render(request, 'query-enrollments.html', {'enrollments' : enrollment})
+
+def search_parents(request):
+    query = request.GET.get('search')
+    parent = Parents.objects.filter(name__icontains=query)
+    return render(request, 'query-parents.html', {'parents' : parent})

@@ -4,8 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form method="GET">
-        {% csrf_token %}
+    <form action="{% url 'search-parents' %}">
         <div>
             <div class="row">
                 <label for="txtParent" class="form-label">Parent/ Legal Guardian Name:</label>
@@ -35,15 +34,27 @@
                 </tr>
             </thead>
             <tbody>
-                {% for parents in page_obj %}
+                {% if parents %}
+                {% for pare in parents %}
                 <tr>
-                    <td>{{ parents.name }}</td>
+                    <td>{{ pare.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-parents' parents.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-parents' parents.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-parents' pare.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-parents' pare.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
+                {% else %}
+                {% for paren in page_obj %}
+                <tr>
+                    <td>{{ parent.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-parents' paren.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-parents' paren.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
             </tbody>
         </table>
     </div>

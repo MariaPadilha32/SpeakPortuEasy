@@ -68,5 +68,6 @@ urlpatterns = [
     path('search-class/', vw.search_class, name='search-class'),
     path('search-student/', vw.search_student, name='search-student'),
     path('search-enrollments/', vw.search_enrollments, name='search-enrollments'),
+    path('search-parents/', vw.search_parents, name='search-parents'),
     path('', vw.index, name="")
 ]
