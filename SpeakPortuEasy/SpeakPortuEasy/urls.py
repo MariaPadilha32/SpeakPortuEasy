@@ -69,5 +69,6 @@ urlpatterns = [
     path('search-student/', vw.search_student, name='search-student'),
     path('search-enrollments/', vw.search_enrollments, name='search-enrollments'),
     path('search-parents/', vw.search_parents, name='search-parents'),
+    path('search-profiles/', vw.search_profiles, name='search-profiles'),
     path('', vw.index, name="")
 ]

@@ -628,3 +628,8 @@ def search_parents(request):
     query = request.GET.get('search')
     parent = Parents.objects.filter(name__icontains=query)
     return render(request, 'query-parents.html', {'parents' : parent})
+
+def search_profiles(request):
+    query = request.GET.get('search')
+    profile = Profiles.objects.filter(name__icontains=query)
+    return render(request, 'query-profiles.html', {'profiles' : profile})

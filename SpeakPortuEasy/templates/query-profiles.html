@@ -4,8 +4,7 @@
 
 {% block 'main' %}
 <div class="container">
-    <form  method="GET">
-        {% csrf_token %}
+    <form  action="{% url 'search-profiles' %}">
         <div>
             <div class="row">
                 <label for="txtProfile" class="form-label">Profile:</label>
@@ -35,15 +34,27 @@
                  </tr>
                </thead>
            <tbody>
-                {% for profiles in page_obj %}
+                {% if profiles %}
+                {% for profile in profiles %}
                 <tr>
-                    <td>{{ profiles.name }}</td>
+                    <td>{{ profile.name }}</td>
                        <td class="text-end">
-                            <a href="{% url 'edit-profiles' profiles.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                            <a href="{% url 'delete-profiles' profiles.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                            <a href="{% url 'edit-profiles' profile.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                            <a href="{% url 'delete-profiles' profile.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                      </td>
                 </tr>
                {% endfor %}
+               {% else %}
+               {% for profi in page_obj %}
+               <tr>
+                   <td>{{ profi.name }}</td>
+                   <td class="text-end">
+                       <a href="{% url 'edit-profiles' profi.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                       <a href="{% url 'delete-profiles' profi.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                   </td>
+               </tr>
+               {% endfor %}
+               {% endif %}
             </tbody>
         </table>
      </div>
