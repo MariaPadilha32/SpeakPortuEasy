@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, Teacher
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, TeacherForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Parents, Teacher
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ParentsForm, TeacherForm
 
 # Create your views here.
 def index(request):
@@ -129,25 +129,6 @@ def register_users(request):
         return render(request, 'register-users.html', {'form' : form})
 
 @login_required(login_url='login')
-def register_profiles(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Profiles.objects.filter(name=name).count()
-        if count > 0:
-            messages.error(request, 'This profile has already been used, try a new one.')
-            return redirect('register-profiles')
-        if request.method == 'POST':
-            form = ProfilesForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('query-profiles')
-            else:
-                return redirect('register-profiles')
-    else:
-        form = ProfilesForm()
-        return render(request, 'register-profiles.html', {'form' : form})
-
-@login_required(login_url='login')
 def register_parents(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -229,17 +210,6 @@ def query_parents(request):
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
     return render(request, 'query-parents.html', {'form' : form, 'parents': parents, 'total' : total, 'page_obj' : page_obj})
-
-@login_required(login_url='login')
-def query_profiles(request):
-    form = ProfilesForm
-    profiles = Profiles.objects.all()
-    total = Profiles.objects.count()
-    list_profiles = Profiles.objects.all()
-    paginator = Paginator(list_profiles, 5)
-    page_num = request.GET.get('page')
-    page_obj = paginator.get_page(page_num)
-    return render(request, 'query-profiles.html', {'form' : form, 'profiles': profiles, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def query_schedule(request):
@@ -340,13 +310,6 @@ def delete_users(request, id):
     users.delete()
     messages.success(request,"Successfull Deleted!")
     return redirect('query-users')
-
-@login_required(login_url='accounts/login')
-def delete_profiles(request, id):
-    profiles = Profiles.objects.get(id=id)
-    profiles.delete()
-    messages.success(request,"Successfull Deleted!")
-    return redirect('query-profiles')
 
 @login_required(login_url='accounts/login')
 def delete_parents(request, id):
@@ -486,23 +449,6 @@ def edit_users(request, id):
         return render(request, 'edit-users.html', data)
 
 @login_required(login_url='login')
-def edit_profiles(request, id):
-    profiles = Profiles.objects.get(id=id)
-    form = ProfilesForm(request.POST or None, instance=profiles)
-    data = {}
-    data['profiles'] = profiles
-    data['form'] = form
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('query-profiles')
-        else:
-            return render(request, 'edit-profiles.html', data)
-    else:
-        form = ProfilesForm
-        return render(request, 'edit-profiles.html', data)
-
-@login_required(login_url='login')
 def edit_parents(request, id):
     parents = Parents.objects.get(id=id)
     form = ParentsForm(request.POST or None, instance=parents)
@@ -581,11 +527,6 @@ def search_parents(request):
     query = request.GET.get('search')
     parent = Parents.objects.filter(name__icontains=query)
     return render(request, 'query-parents.html', {'parents' : parent})
-
-def search_profiles(request):
-    query = request.GET.get('search')
-    profile = Profiles.objects.filter(name__icontains=query)
-    return render(request, 'query-profiles.html', {'profiles' : profile})
 
 def search_teacher(request):
     query = request.GET.get('search')
