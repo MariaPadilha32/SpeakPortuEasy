@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'delete-parents.html' parents.id %}">
+    <form method="post" action="{% url 'delete-parents' parents.id %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtParentName" class="form-label">Parent Name: <span class="required">*</span></label>
