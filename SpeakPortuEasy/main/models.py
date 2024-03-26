@@ -53,11 +53,6 @@ class Student(models.Model):
     email = models.CharField(max_length=100)
     phone1 = models.CharField(max_length=20, blank=False, null=False)
     phone2 = models.CharField(max_length=20)
-    zipcode = models.CharField(max_length=10, blank=False, null=False)
-    country = models.CharField(max_length=50, blank=False, null=False)
-    state = models.CharField(max_length=50, blank=False, null=False)
-    city = models.CharField(max_length=50, blank=False, null=False)
-    adress = models.CharField(max_length=200, blank=False, null=False)
     under_age = models.BooleanField()
     parents = models.CharField(max_length=50)
 
