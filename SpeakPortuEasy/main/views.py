@@ -346,9 +346,16 @@ def delete_schedule(request, id):
 @login_required(login_url='accounts/login')
 def delete_classroom(request, id):
     classroom = Classroom.objects.get(id=id)
-    classroom.delete()
-    messages.success(request,"Successfull Deleted!")
-    return redirect('query-classroom')        
+    form = ClassroomForm(request.POST or None, instance=classroom)
+    data = {}
+    data['classroom'] = classroom
+    data['form'] = form
+    if request.method == "POST":
+        classroom.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-classroom')
+    else:
+        return render(request, 'delete-classroom.html', data)
 
 @login_required(login_url='accounts/login')
 def delete_enrollments(request, id):
