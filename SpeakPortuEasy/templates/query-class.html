@@ -37,7 +37,7 @@
                 {% if classnames %}
                 {% for classname in classnames %}
                 <tr>
-                    <td>{{ classnames.name }}</td>
+                    <td>{{ classname.name }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-class' classname.id %}"><button class="btn btn-warning col-2">Edit</button></a>
                         <a href="{% url 'delete-class' classname.id %}"><button class="btn btn-danger col-2">Delete</button></a>
