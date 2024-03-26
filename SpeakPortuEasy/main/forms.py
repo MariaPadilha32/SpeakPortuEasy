@@ -11,11 +11,6 @@ class ClassesForm(ModelForm):
         model = Classes
         fields = '__all__'
 
-class ZipCodeForm(ModelForm):
-    class Meta:
-        model = ZipCode
-        fields = '__all__'
-
 class EnrollmentsForm(ModelForm):
     class Meta:
         model = Enrollments
