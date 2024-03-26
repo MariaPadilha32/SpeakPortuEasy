@@ -633,3 +633,8 @@ def search_profiles(request):
     query = request.GET.get('search')
     profile = Profiles.objects.filter(name__icontains=query)
     return render(request, 'query-profiles.html', {'profiles' : profile})
+
+def search_teacher(request):
+    query = request.GET.get('search')
+    teacher = Teacher.objects.filter(name__icontains=query)
+    return render(request, 'query-teacher.html', {'teachers' : teacher})
