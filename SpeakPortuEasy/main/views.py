@@ -638,3 +638,13 @@ def search_teacher(request):
     query = request.GET.get('search')
     teacher = Teacher.objects.filter(name__icontains=query)
     return render(request, 'query-teacher.html', {'teachers' : teacher})
+
+def search_schedule(request):
+    query = request.GET.get('search')
+    schedules = Schedule.objects.filter(name__icontains=query)
+    return render(request, 'query-schedule.html', {'schedule' : schedules})
+
+def search_zipcode(request):
+    query = request.GET.get('search')
+    zipcodes = Zip.objects.filter(name__icontains=query)
+    return render(request, 'query-zipcode.html', {'zipcode' : zipcodes})

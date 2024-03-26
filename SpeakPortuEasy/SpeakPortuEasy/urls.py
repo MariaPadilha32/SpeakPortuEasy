@@ -71,5 +71,7 @@ urlpatterns = [
     path('search-parents/', vw.search_parents, name='search-parents'),
     path('search-profiles/', vw.search_profiles, name='search-profiles'),
     path('search-teacher/', vw.search_teacher, name='search-teacher'),
+    path('search-schedule/', vw.search_schedule, name='search-schedule'),
+    path('search-zipcode/', vw.search_zipcode, name='search-zipcode'),
     path('', vw.index, name="")
 ]
