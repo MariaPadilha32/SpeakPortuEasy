@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Classroom, Classes, ZipCode, Enrollments, Parents, Student, Profiles, Schedule, Teacher
+from .models import Classroom, Classes, Enrollments, Parents, Student, Profiles, Schedule, Teacher
 
 class ClassroomForm(ModelForm):
     class Meta: # using Meta database
