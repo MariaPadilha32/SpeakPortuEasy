@@ -45,7 +45,7 @@ class Parents(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        db_table = 'parents'
+        db_table = 'parents' 
 
 class Student(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
