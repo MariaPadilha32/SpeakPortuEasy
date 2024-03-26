@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, ZipCode, Teacher
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, ZipCodeForm, TeacherForm
+from main.models import Classroom, Student, Enrollments, Classes, Schedule, Profiles, Parents, Teacher
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ProfilesForm, ParentsForm, TeacherForm
 
 # Create your views here.
 def index(request):
@@ -165,25 +165,6 @@ def register_parents(request):
     else:
         form = ParentsForm()
         return render(request, 'register-parents.html', {'form' : form})
-
-@login_required(login_url='login')
-def register_zipcode(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Zipcodes.objects.filter(name=name).count()
-        if count > 0:
-            messages.error(request, 'This Zipcode has been used')
-            return redirect('register-zipcode')
-        if request.method == 'POST':
-            form = ZipcodeForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('query-zipcode')
-            else:
-                return redirect('register-zipcode')
-    else:
-        form = ZipCodeForm()
-        return render(request, 'register-ziocode.html', {'form' : form})
     
 @login_required(login_url='login')
 def register_teacher(request):
@@ -294,17 +275,6 @@ def query_users(request):
     return render(request, 'query-users.html', {'form' : form, 'users': users, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
-def query_zipcode(request):
-    form = ZipCodeForm
-    zipcodes = Zipcodes.objects.all()
-    total = Zipcodes.objects.count()
-    list_zipcodes = Zipcodes.objects.all()
-    paginator = Paginator(list_zipcodes, 5)
-    page_num = request.GET.get('page')
-    page_obj = paginator.get_page(page_num)
-    return render(request, 'query-zipcode.html', {'form': form, 'zipcodes': zipcodes, 'total': total, 'page_obj': page_obj})
-
-@login_required(login_url='login')
 def query_teacher(request):
     form = TeacherForm
     teachers = Teacher.objects.all()
@@ -384,13 +354,6 @@ def delete_parents(request, id):
     parents.delete()
     messages.success(request,"Successfull Deleted!")
     return redirect('query-parents')
-
-@login_required(login_url='accounts/login')
-def delete_zipcode(request, id):
-    zipcodes = Zipcodes.objects.get(id=id)
-    zipcodes.delete()
-    message.success(request,"Successfull Deleted!" )
-    return redirect('query-zipcode')
 
 @login_required(login_url='login')
 def query_teacher(request):
@@ -556,23 +519,6 @@ def edit_parents(request, id):
         form = ParentsForm
     return render(request, 'edit-parents.html', data)
 
-@login_required(login_url='login')
-def edit_zipcode(request, id):
-    zipcode = Zipcodes.objects.get(id=id)
-    form = ZipCodeForm(request.POST or None, instance=zipcode)
-    data = {}
-    data['zipcode'] = zipcode
-    data['form'] = form
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('query-zipcodes')
-        else:
-            return render(request, 'edit-zipcode.html', data)
-    else:
-        form = ZipCodeForm
-        return render(request, 'edit-zipcode.html', data)
-
 def search_classroom(request):
     search = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=search)
@@ -650,8 +596,3 @@ def search_schedule(request):
     query = request.GET.get('search')
     schedules = Schedule.objects.filter(name__icontains=query)
     return render(request, 'query-schedule.html', {'schedule' : schedules})
-
-def search_zipcode(request):
-    query = request.GET.get('search')
-    zipcodes = Zip.objects.filter(name__icontains=query)
-    return render(request, 'query-zipcode.html', {'zipcode' : zipcodes})
