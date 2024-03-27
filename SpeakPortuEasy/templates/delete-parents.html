@@ -25,7 +25,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-danger col-2">Delete</button>
-        <button type="reset" class="btn btn-warning col-2">Cancel</button>
+        <a href="{% url 'query-parents' %}"><input type="button" value="Cancel" class="btn btn-warning col-2"></a>
     </form>
 </div>
 {% endblock %}
