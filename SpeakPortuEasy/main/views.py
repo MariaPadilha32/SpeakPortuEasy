@@ -342,9 +342,16 @@ def delete_users(request, id):
 @login_required(login_url='accounts/login')
 def delete_parents(request, id):
     parents = Parents.objects.get(id=id)
-    parents.delete()
-    messages.success(request,"Successfull Deleted!")
-    return redirect('query-parents')
+    form = ParentsForm(request.POST or None, instance=parents)
+    data = {}
+    data['parents'] = parents
+    data['form'] = form
+    if request.method == "POST":
+        parents.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-parents')
+    else:
+        return render(request, 'delete-parents.html', data)
 
 @login_required(login_url='login')
 def query_teacher(request):

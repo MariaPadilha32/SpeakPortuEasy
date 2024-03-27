@@ -8,19 +8,19 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtParentName" class="form-label">Parent Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtParentName" aria-describedby="ParentName" required  disabled>
+            <input name="name" value="{{ parents.name }}" type="text" class="form-control" id="txtParentName" aria-describedby="ParentName" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email"  disabled>
+            <input name="email" value="{{ parents.email }}" type="email" class="form-control" id="txtEmail" aria-describedby="Email"  disabled>
         </div>
         <div class="mb-3">
             <label for="txtPhone" class="form-label">Phone Number: <span class="required">*</span></label>
-            <input name="phone" type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required  disabled>
+            <input name="phone" value="{{ parents.phone }}" type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Associated Student: <span class="required">*</span></label>
-            <select name="student" class="form-select" id="txtStudent" required  disabled>
+            <select name="student" class="form-select" id="txtStudent" required  disabled>{{ parents.description }}
                 <!-- Populate with available students -->
             </select>
         </div>
