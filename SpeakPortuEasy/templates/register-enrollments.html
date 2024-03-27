@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'register-enrollments' enrollments.id %}">
+    <form method="post" action="{% url 'register-enrollments' %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>

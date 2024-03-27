@@ -35,22 +35,22 @@
             </thead>
             <tbody>
                 {% if schedule %}
-                {% for schedu in schedule %}
+                {% for schedules in schedule %}
                 <tr>
-                    <td>{{ schedu.name }}</td>
+                    <td>{{ schedules.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-schedule' schedule.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-schedule' schedule.id  %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-schedule' schedules.id  %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
                 {% else %}
-                {% for scheduless in page_obj %}
+                {% for schedules in page_obj %}
                 <tr>
-                    <td>{{ scheduless.name }}</td>
+                    <td>{{ schedules.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-schedule' scheduless.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-schedule' scheduless.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-schedule' schedules.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -35,22 +35,22 @@
             </thead>
             <tbody>
                 {% if enrollments %}
-                {% for enroll in enrollments %}
+                {% for enrollment in enrollments %}
                 <tr>
-                    <td>{{ enroll.name }}</td>
+                    <td>{{ enrollment.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-enrollments' enroll.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-enrollments' enroll.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
                 {% else %}
-                {% for enrollm in page_obj %}
+                {% for enrollment in page_obj %}
                 <tr>
-                    <td>{{ enrollm.name }}</td>
+                    <td>{{ enrollment.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-enrollments' enrollm.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-enrollments' enrollm.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning col-2">Edit</button></a>
+                        <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger col-2">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}

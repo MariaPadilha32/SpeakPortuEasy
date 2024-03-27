@@ -36,7 +36,3 @@ class TeacherForm(ModelForm):
         model = Teacher
         fields = '__all__'
 
-class UsersForm(ModelForm):
-    class Meta:
-        model = Users
-        fields = '__all__'
