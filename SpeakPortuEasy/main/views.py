@@ -272,9 +272,30 @@ def delete_student(request, id):
 @login_required(login_url='accounts/login')
 def delete_teacher(request, id):
     teacher = Teacher.objects.get(id=id)
-    teacher.delete()
-    messages.success(request, "Successfull Deleted!")
-    return redirect ('query-teacher')
+    form = TeacherForm(request.POST or None, instance=teacher)
+    data = {}
+    data['teacher'] = teacher
+    data['form'] = form
+    if request.method == "POST":
+        teacher.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-teacher')
+    else:
+        return render(request, 'delete-teacher.html', data)
+
+@login_required(login_url='accounts/login')
+def delete_(request, id):
+    student = Student.objects.get(id=id)
+    form = StudentForm(request.POST or None, instance=student)
+    data = {}
+    data['student'] = student
+    data['form'] = form
+    if request.method == "POST":
+        student.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-student')
+    else:
+        return render(request, 'delete-student.html', data)
 
 @login_required(login_url='accounts/login')
 def delete_class(request, id):
@@ -334,7 +355,7 @@ def query_teacher(request):
     paginator = Paginator(list_teachers, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-student.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
+    return render(request, 'query-teacher.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
 
 @login_required(login_url='login')
 def edit_student(request, id):
