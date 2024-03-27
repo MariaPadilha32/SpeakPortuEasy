@@ -258,9 +258,16 @@ def query_teacher(request):
 @login_required(login_url='accounts/login')
 def delete_student(request, id):
     student = Student.objects.get(id=id)
-    student.delete()
-    messages.success(request, "Successfull Deleted!")
-    return redirect ('query-student')
+    form = StudentForm(request.POST or None, instance=student)
+    data = {}
+    data['student'] = student
+    data['form'] = form
+    if request.method == "POST":
+        student.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-student')
+    else:
+        return render(request, 'delete-student.html', data)
 
 @login_required(login_url='accounts/login')
 def delete_teacher(request, id):
@@ -447,6 +454,7 @@ def edit_users(request, id):
     else:
         form = UsersForm
         return render(request, 'edit-users.html', data)
+
 
 @login_required(login_url='login')
 def edit_parents(request, id):
