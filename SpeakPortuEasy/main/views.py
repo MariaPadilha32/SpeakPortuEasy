@@ -328,9 +328,16 @@ def delete_classroom(request, id):
 @login_required(login_url='accounts/login')
 def delete_enrollments(request, id):
     enrollments = Enrollments.objects.get(id=id)
-    enrollments.delete()
-    messages.success(request,"Successfull Deleted!")
-    return redirect('query-enrollments')
+    form = EnrollmentsForm(request.POST or None, instance=enrollments)
+    data = {}
+    data['enrollments'] = enrollments
+    data['form'] = form
+    if request.method == "POST":
+        enrollments.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-enrollments')
+    else:
+        return render(request, 'delete-enrollments.html', data)
 
 @login_required(login_url='accounts/login')
 def delete_users(request, id):
