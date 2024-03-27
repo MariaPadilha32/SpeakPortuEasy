@@ -23,7 +23,7 @@
             <input name="date" value="{{ enrollments.date }}" type="date" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required  disabled>
         </div>
         <button type="submit" class="btn btn-danger col-2">Delete</button>
-        <button type="reset" class="btn btn-warning col-2">Cancel</button>
+        <a href="{% url 'query-enrollments' %}"><input type="button" value="Cancel" class="btn btn-warning col-2"></a>
     </form>
 </div>
 {% endblock %}
