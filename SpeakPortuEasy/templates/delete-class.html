@@ -8,22 +8,22 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required disabled>
+            <input name="name" value="{{ classes.name }}" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required disabled>
         </div>
         <div class="mb-3">
             <select name="level" class="form-select" aria-label="Default select example" required  disabled>
                 <option value="" selected disabled>Select option folowing CEFR levels:</option>
-                <option value="A1">A1- Beginner/ Novice</option>
-                <option value="A2">A2- Intermediate Low/ Intermediate Mid</option>
-                <option value="B1">B1- Intermidiate High</option>
-                <option value="B2">B2- Advanced Low/ Mid/ High </option>
-                <option value="C1">C1- Superior</option>
-                <option value="C2">C2- Distinguished</option>
+                <option value="{{ classes.A1 }}">A1- Beginner/ Novice</option>
+                <option value="{{ classes.A2 }}">A2- Intermediate Low/ Intermediate Mid</option>
+                <option value="{{ classes.B1 }}">B1- Intermidiate High</option>
+                <option value="{{ classes.B2 }}">B2- Advanced Low/ Mid/ High </option>
+                <option value="{{ classes.C1 }}">C1- Superior</option>
+                <option value="{{ classes.C2 }}">C2- Distinguished</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
-            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required  disabled></textarea>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required  disabled>{{ classes.description }}</textarea>
         </div>
         <button type="submit" class="btn btn-danger col-2">Delete</button>
         <button type="reset" class="btn btn-warning col-2">Cancel</button>

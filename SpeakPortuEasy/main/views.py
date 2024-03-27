@@ -284,25 +284,18 @@ def delete_teacher(request, id):
         return render(request, 'delete-teacher.html', data)
 
 @login_required(login_url='accounts/login')
-def delete_(request, id):
-    student = Student.objects.get(id=id)
-    form = StudentForm(request.POST or None, instance=student)
-    data = {}
-    data['student'] = student
-    data['form'] = form
-    if request.method == "POST":
-        student.delete()
-        messages.success(request,"Successfull Deleted!")
-        return redirect('query-student')
-    else:
-        return render(request, 'delete-student.html', data)
-
-@login_required(login_url='accounts/login')
 def delete_class(request, id):
     classes = Classes.objects.get(id=id)
-    classes.delete()
-    messages.success(request, "Successfull Deleted!")
-    return redirect ('query-class')
+    form = ClassesForm(request.POST or None, instance=classes)
+    data = {}
+    data['classes'] = classes
+    data['form'] = form
+    if request.method == "POST":
+        classes.delete()
+        messages.success(request,"Successfull Deleted!")
+        return redirect('query-class')
+    else:
+        return render(request, 'delete-class.html', data)
 
 @login_required(login_url='accounts/login')
 def delete_schedule(request, id):
