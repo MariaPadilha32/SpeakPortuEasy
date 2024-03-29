@@ -10,20 +10,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='classes',
-            name='student1',
-        ),
-        migrations.RemoveField(
-            model_name='classes',
-            name='student2',
-        ),
-        migrations.RemoveField(
-            model_name='classes',
-            name='student3',
-        ),
-        migrations.RemoveField(
-            model_name='classes',
-            name='teacher',
-        ),
+
     ]

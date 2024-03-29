@@ -14,20 +14,20 @@ def index(request):
 
 @login_required(login_url='login')
 def register_student(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Student.objects.filter(name=name).count()
-        if count > 0:
-            messages.error(request, 'There is a student with that name, please use a different name.')
-            return redirect('register-student')
+    # if request.method == 'POST':
+        # name = request.POST.get('name')
+        # count = Student.objects.filter(name=name).count()
+        # if count > 0:
+        #     messages.error(request, 'There is a student with that name, please use a different name.')
+        #     return redirect('register-student')
         
-        if request.method =='POST':
-           form = StudentForm(request.POST)
-           if form.is_valid():
-               form.save()
-               return redirect('query-student')
-           else:
-               return redirect('register-student')
+    if request.method =='POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('query-student')
+        else:
+            return redirect('home')
     else:
         form = StudentForm()
         return render(request, 'register-student.html', {'form' : form})

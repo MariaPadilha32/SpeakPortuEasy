@@ -10,34 +10,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Classes',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('level', models.CharField(max_length=2)),
-                ('description', models.CharField(max_length=255)),
-                ('teacher', models.CharField(max_length=50)),
-                ('student1', models.CharField(max_length=50)),
-                ('student2', models.CharField(max_length=50)),
-                ('student3', models.CharField(max_length=50)),
-            ],
-            options={
-                'db_table': 'classes',
-            },
-        ),
-        migrations.CreateModel(
-            name='Enrollments',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('student', models.CharField(max_length=50)),
-                ('classname', models.CharField(max_length=50)),
-                ('date', models.DateField()),
-            ],
-            options={
-                'db_table': 'enrollment',
-            },
-        ),
+
         migrations.CreateModel(
             name='Parents',
             fields=[
@@ -65,41 +38,7 @@ class Migration(migrations.Migration):
                 'db_table': 'profiles',
             },
         ),
-        migrations.CreateModel(
-            name='Schedule',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('day_week', models.CharField(max_length=10)),
-                ('start_time', models.TimeField()),
-                ('end_time', models.TimeField()),
-                ('date', models.DateField()),
-                ('student', models.IntegerField()),
-            ],
-            options={
-                'db_table': 'schedule',
-            },
-        ),
-        migrations.CreateModel(
-            name='Student',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('surname', models.CharField(max_length=50)),
-                ('email', models.CharField(max_length=100)),
-                ('phone1', models.CharField(max_length=20)),
-                ('phone2', models.CharField(max_length=20)),
-                ('zipcode', models.CharField(max_length=10)),
-                ('country', models.CharField(max_length=50)),
-                ('state', models.CharField(max_length=50)),
-                ('city', models.CharField(max_length=50)),
-                ('adress', models.CharField(max_length=200)),
-                ('under_age', models.BooleanField()),
-                ('parents', models.CharField(max_length=50)),
-            ],
-            options={
-                'db_table': 'student',
-            },
-        ),
+
         migrations.CreateModel(
             name='ZipCode',
             fields=[
