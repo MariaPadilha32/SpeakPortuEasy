@@ -45,7 +45,7 @@ class Student(models.Model):
     email = models.CharField(max_length=100, blank=True, null=True)
     phone1 = models.CharField(max_length=20, blank=False, null=False)
     phone2 = models.CharField(max_length=20, blank=True, null=True)
-    under_age = models.BooleanField(null=True, blank=True)
+    under_age = models.BooleanField(blank=True)
     parents = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
