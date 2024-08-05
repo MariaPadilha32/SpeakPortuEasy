@@ -2,16 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-class Enrollments(models.Model):
-    student = models.CharField(max_length=50, blank=False, null=False)
-    classname = models.CharField(max_length=50, blank=False, null=False)
-    date = models.DateField(blank=False, null=False)
-
-    def __str__(self):
-        return self.classname
-
-    class Meta:
-        db_table = 'enrollment'
 
 class Classroom(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
@@ -26,11 +16,35 @@ class Classroom(models.Model):
         db_table = 'classroom'
 
 
+class Classes(models.Model):
+    name = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    level = models.CharField(max_length=2, blank=False, null=False)
+    description = models.CharField(max_length=255, blank=False, null=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'classes'
+
+
+class Enrollments(models.Model):
+    student = models.CharField(max_length=50, blank=False, null=False)
+    classname = models.CharField(max_length=50, blank=False, null=False)
+    date = models.DateField(blank=False, null=False)
+
+    def __str__(self):
+        return self.classname
+
+    class Meta:
+        db_table = 'enrollment'
+
+
 class Parents(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=10, blank=False, null=False)
-    student = models.IntegerField(blank=False, null=False)
+    #student = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
         return self.name
@@ -54,6 +68,19 @@ class Student(models.Model):
     class Meta:
         db_table = 'student'
 
+
+class Schedule(models.Model):
+    day_week = models.CharField(max_length=10, blank=False, null=False)
+    start_time = models.TimeField(blank=False, null=False)
+    end_time = models.TimeField(blank=False, null=False)
+    date = models.DateField(blank=False, null=False)
+    student = models.IntegerField(blank=False, null=False)
+
+    def __str__(self):
+        return self.day_week
+
+    class Meta:
+        db_table = 'schedule'
 
 
 class Users(models.Model):
@@ -86,53 +113,3 @@ class Teacher(models.Model):
 
     class Meta:
         db_table = 'teacher'
-
-
-
-class Classes(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False)
-    level = models.CharField(max_length=2, blank=False, null=False)
-    description = models.CharField(max_length=255, blank=False, null=False)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'classes'
-
-
-class Parents(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False)
-    email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=10, blank=False, null=False)
-    student = models.IntegerField(blank=False, null=False)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'parents'
-
-class Schedule(models.Model):
-    day_week = models.CharField(max_length=10, blank=False, null=False)
-    start_time = models.TimeField(blank=False, null=False)
-    end_time = models.TimeField(blank=False, null=False)
-    date = models.DateField(blank=False, null=False)
-    student = models.IntegerField(blank=False, null=False)
-
-    def __str__(self):
-        return self.day_week
-
-    class Meta:
-        db_table = 'schedule'
-
-class Enrollments(models.Model):
-    student = models.CharField(max_length=50, blank=False, null=False)
-    classname = models.CharField(max_length=50, blank=False, null=False)
-    date = models.DateField(blank=False, null=False)
-
-    def __str__(self):
-        return self.classname
-
-    class Meta:
-        db_table = 'enrollment'

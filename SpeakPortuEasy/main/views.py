@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
 from main.models import Classroom, Student, Enrollments, Classes, Schedule, Parents, Teacher
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ParentsForm, TeacherForm
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ParentsForm, TeacherForm, UserForm
 
 # Create your views here.
 def index(request):
@@ -14,13 +14,7 @@ def index(request):
 
 @login_required(login_url='login')
 def register_student(request):
-    # if request.method == 'POST':
-        # name = request.POST.get('name')
-        # count = Student.objects.filter(name=name).count()
-        # if count > 0:
-        #     messages.error(request, 'There is a student with that name, please use a different name.')
-        #     return redirect('register-student')
-        
+    parents = Parents.objects.all().order_by('name')
     if request.method =='POST':
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -30,7 +24,7 @@ def register_student(request):
             return redirect('home')
     else:
         form = StudentForm()
-        return render(request, 'register-student.html', {'form' : form})
+        return render(request, 'register-student.html', {'form' : form, 'parents' : parents})
 
 
 @login_required(login_url='login')
@@ -54,9 +48,10 @@ def register_class(request):
 
 @login_required(login_url='login')
 def register_schedule(request):
+    classes = Classes.objects.all().order_by('name')
     if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Schedule.objects.filter(name=name).count()
+        id = request.POST.get('id')
+        count = Schedule.objects.filter(id=id).count()
         if count > 0:
             messages.error(request, 'There is no schedule available at that time, please try a different one.')
             return redirect('register-schedule')
@@ -69,7 +64,7 @@ def register_schedule(request):
                return redirect('register-schedule')
     else:
         form = ScheduleForm()
-        return render(request, 'register-schedule.html', {'form' : form})
+        return render(request, 'register-schedule.html', {'form' : form, 'classes' : classes})
 
 @login_required(login_url='login')
 def register_classroom(request):
@@ -92,6 +87,8 @@ def register_classroom(request):
 
 @login_required(login_url='login')
 def register_enrollments(request):
+    students = Student.objects.all().order_by('name')
+    classes = Classes.objects.all().order_by('name')
     if request.method == 'POST':
         name = request.POST.get('name')
         count = Enrollments.objects.filter(name=name).count()
@@ -107,42 +104,17 @@ def register_enrollments(request):
                 return redirect('register-enrollments')
     else:
         form = EnrollmentsForm()
-        return render(request, 'register-enrollments.html', {'form' : form})
-
-@login_required(login_url='login')
-def register_users(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Users.objects.filter(name=name).count()
-        if count > 0:
-            messages.error(request, 'This user information is not available, try a new one.')
-            return redirect('register-users')
-        if request.method == 'POST':
-            form = UsersForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('query-users')
-            else:
-                return redirect('register-users')
-    else:
-        form = UsersForm()
-        return render(request, 'register-users.html', {'form' : form})
+        return render(request, 'register-enrollments.html', {'form' : form, 'students' : students, 'classes' : classes})
 
 @login_required(login_url='login')
 def register_parents(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Parents.objects.filter(name=name).count()
-        if count > 0:
-            messages.error(request, 'This name has been used')
+        form = ParentsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('query-parents')
+        else:
             return redirect('register-parents')
-        if request.method == 'POST':
-            form = ParentsForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('query-parents')
-            else:
-                return redirect('register-parents')
     else:
         form = ParentsForm()
         return render(request, 'register-parents.html', {'form' : form})
@@ -300,10 +272,12 @@ def delete_class(request, id):
 @login_required(login_url='accounts/login')
 def delete_schedule(request, id):
     schedule = Schedule.objects.get(id=id)
+    classes = Classes.objects.get(id=schedule.student)
     form = ScheduleForm(request.POST or None, instance=schedule)
     data = {}
     data['schedule'] = schedule
     data['form'] = form
+    data['classes'] = classes
     if request.method == "POST":
         schedule.delete()
         messages.success(request,"Successfull Deleted!")
@@ -422,7 +396,7 @@ def edit_class(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('query-classes')
+            return redirect('query-class')
         else:
             return render(request, 'edit_class.html', data)
     else:
@@ -431,11 +405,13 @@ def edit_class(request, id):
 
 @login_required(login_url='login')
 def edit_schedule(request, id):
-    schedule = Schedules.objects.get(id=id)
+    schedule = Schedule.objects.get(id=id)
+    classes = Classes.objects.all().order_by('name')
     form = ScheduleForm(request.POST or None, instance=schedule)
     data = {}
     data['schedule'] = schedule
     data['form'] = form
+    data['classes'] = classes
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -587,3 +563,9 @@ def search_schedule(request):
     query = request.GET.get('search')
     schedules = Schedule.objects.filter(name__icontains=query)
     return render(request, 'query-schedule.html', {'schedule' : schedules})
+
+def v_404(request, exception):
+    return render(request, "eror404.html", status=404)
+
+def v_500(request):
+    return render(request, "eror500.html", status=500)

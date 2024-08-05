@@ -1,40 +1,46 @@
 {% extends 'base.html' %}
 
 {% block 'title' %}Student Registery{% endblock %}
-
 {% block 'main' %}
+<script>
+    function teste(){
+        console.log('teste')
+    }
+</script>
 <div class="container col-6">
     <form method="post" action="{% url 'edit-student' student.id %}">
         {% csrf_token %}
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
-          <input name="name" value="{{ student.name }}" type="text" class="form-control" id="txtName" aria-describedby="Name" required>
+          <input value="{{ student.name }}" name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" required>
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input name="surname" value="{{ student.surname }}" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
+            <input value="{{ student.surname }}" name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input name="email" {% if student.email %} value="{{ student.email }}" {% endif %} type="email" class="form-control" id="txtEmail" aria-describedby="Email">
+            <input {% if student.email %} value="{{ student.email }}" {% endif %} name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
                 <label for="txtPhone1" class="form-label">Phone Number 1: <span class="required">*</span></label>
-                <input name="phone1" value="{{ student.phone1 }}" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required>
+                <input value="{{ student.phone1 }}" name="phone1" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required>
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input name="phone2" value="{{  student.phone2 }}" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
+                <input {% if student.phone2 %} value="{{ student.phone2 }}" {% endif %} name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
             </div>
         </div>
         <div class="mb-3 form-check">
-          <input name="under_age" type="checkbox" class="form-check-input" id="txtUnderAge"  {% if student.under_age %} checked {% endif %}>
+          <input onclick="control_under_age()" {% if student.under_age %} checked {% endif %} name="under_age" type="checkbox" class="form-check-input" id="txtUnderAge"  >
           <label class="form-check-label" for="txtUnderAge">Under age</label>
         </div>
         <div class="mb-3">
             <label for="txtParents" class="form-label">Parents/ Legal Guardian:</label>
-            <input name="parents" value="{{ student.parents }}" type="text" class="form-control" id="txtParents" aria-describedby="Parents/ Legal Guardian" disabled>
+            <select name="parents" id="txtParents" class="form-control" disabled >
+                <option value="">Select his/her legal guardian</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>

@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'register-student'%}">
+    <form method="post" action="{% url 'register-student' %}">
         {% csrf_token %}
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
@@ -29,12 +29,24 @@
             </div>
         </div>
         <div class="mb-3 form-check">
-          <input name="under_age" type="checkbox" class="form-check-input" id="txtUnderAge">
+          <input  onclick="control_under_age()" {% if student.under_age %} checked {% endif %}  name="under_age" type="checkbox" class="form-check-input" id="txtUnderAge">
           <label class="form-check-label" for="txtUnderAge">Under age</label>
         </div>
         <div class="mb-3">
-            <label for="txtParents" class="form-label">Parents/ Legal Guardian:</label>
-            <input name="parents" type="text" class="form-control" id="txtParents" aria-describedby="Parents/ Legal Guardian" disabled>
+            <div class="d-flex">
+                <div class="col-8">
+                    <label for="txtParents" class="form-label">Parents/ Legal Guardian:</label>
+                    <select name="parents" id="txtParents" class="form-control" disabled >
+                        <option value="">Select his/her legal guardian</option>
+                        {% for parent in parents %}
+                        <option value="{{parent.id}}">{{parent.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-2  mt-4 d-flex  flex-row-reverse">
+                <a href="{% url 'register-parents' %}" class="btn btn-success">New Parent</a>
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary col-2" >Submit</button>
         <button type="reset" class="btn btn-warning col-2">Reset</button>

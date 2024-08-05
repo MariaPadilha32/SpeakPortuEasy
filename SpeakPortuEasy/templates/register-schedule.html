@@ -10,7 +10,7 @@
             <label for="txtDay" class="form-label">Day of the Week: <span class="required">*</span></label>
             <select name="day_week" class="form-select" id="txtDay" required>
                 <option value="" selected> Select day off the week</option>
-                <option value="monday">Monday</option>
+                <option value="monday" >Monday</option>
                 <option value="tuesday">Tuesday</option>
                 <option value="wednesday">Wednesday</option>
                 <option value="thursday">Thursday</option>
@@ -32,6 +32,9 @@
         <div class="mb-3">
             <label for="txtClass" class="form-label">Associated Class: <span class="required">*</span></label>
             <select name="student" class="form-select" id="txtClass" required>
+                {% for class in classes %}
+                <option value="{{class.id}}">{{class.name}}</option>
+                {% endfor %}
                 <!-- Populate with available classes -->
             </select>
         </div>

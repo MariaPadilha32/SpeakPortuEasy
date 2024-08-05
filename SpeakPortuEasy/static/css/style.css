@@ -1,15 +1,79 @@
+body{
+  background-color: #bbdece;
+}
 
+.aboutitem{
+  display: flex;
+  height: 500px;
+  background-color: #bbdece;
+}
+
+.leftitem{
+  height: 100%;
+  margin: 5px;
+}
+
+.rightitem{
+  width: 70%;
+  height: 100%;
+  margin: 5px;
+}
+
+.text-grey{
+  color: #495551;
+}
+
+.contenttitle{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+  font-size: 5em;
+}
+
+.images-index{
+  width: 700px;
+  height: 500px;
+  border-radius: 20px;
+}
+
+.item-title{
+   font-size: 3em;
+}
+
+.text-white{
+  color: #fff8f5;
+}
+
+.item-description{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+footer{
+  width: 100%;
+  height: 5dvh;
+  font-size: 1.5em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+}
 
 /* For screens smaller than 768px (e.g., mobile phones) */
 @media (max-width: 767.98px) {
-    .welcome-image-lg, .flag-image-lg, .linguistic-image-lg, .empowerment-image-lg, .engagement-image-lg {
-      display: none; /* hide large screen images on small screens*/
-    }
+
   }
   
   /* For screens larger than 768px (e.g., tablets, laptops, desktops) */
   @media (min-width: 768px) {
-    .welcome-image, .flag-image, .linguistic-image, .empowerment-image, .engagement-image {
-      display: none; /* hide small screen images on large screens */
-    }
+
   }

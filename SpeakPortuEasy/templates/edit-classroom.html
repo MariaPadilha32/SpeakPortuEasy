@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
-{% block 'title' %}Classroom Registery{% endblock %}
+{% block 'title' %}Class Registery{% endblock %}
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'edit-classroom' classroom.id %}">
+    <form method="post" action="{% url 'edit-class' classes.id %}">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="txtClassroomName" class="form-label">Classroom Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtClassroomName" aria-describedby="ClassroomName" required value="{{ classroom.name }}">
+            <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
+            <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required value="{{ classes.name}}" >
         </div>
         <div class="mb-3">
-            <label for="txtCapacity" class="form-label">Capacity: <span class="required">*</span></label>
-            <input name="capacity" type="number" class="form-control" id="txtCapacity" aria-describedby="Capacity" required min="1" max="3" value="{{classroom.capacity}}">
-            <small id="capacityHelp" class="form-text text-muted">Maximum 3 students per class.</small>
+            <select name="level" class="form-select" aria-label="Default select example" required>
+                <option value="" selected disabled>Select option folowing CEFR levels:</option>
+                <option value="A1" {% if classes.level == "A1" %} selected {% endif %} >A1- Beginner/ Novice</option>
+                <option value="A2" {%  if classes.level == "A2" %} selected {% endif %} >A2- Intermediate Low/ Intermediate Mid</option>
+                <option value="B1" {% if classes.level == "B1" %} selected {% endif %}>B1- Intermidiate High</option>
+                <option value="B2" {% if classes.level == "B2" %} selected {%  endif %}>B2- Advanced Low/ Mid/ High </option>
+                <option value="C1" {% if classes.level == "C1" %} selected {% endif %}>C1- Superior</option>
+                <option value="C2" {% if classes.level == "C2" %} selected {% endif %}  >C2- Distinguished</option>
+            </select>
         </div>
-        <div class="mb-3 form-check">
-            <input name="is_online" type="checkbox" class="form-check-input" id="chkOnlineClass" {% if classroom.is_online %} checked {% endif %}>
-            <label class="form-check-label" for="chkOnlineClass">Online Class</label>
-        </div>
-       <div class="mb-3">
-            <label for="txtDescription" class="form-label">Description:</label>
-            <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255">{{ classroom.description }}</textarea>
+        <div class="mb-3">
+            <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required>{{ classes.description }}</textarea>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>

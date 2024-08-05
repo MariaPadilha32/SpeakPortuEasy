@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import django_heroku
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,15 +78,19 @@ WSGI_APPLICATION = 'SpeakPortuEasy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'speakportueasy_db',
+        #'USER' : 'root',
+        #'PASSWORD' : '',
+        #'HOST': 'localhost',
+        #'PORT': '3306'
+    #}
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'speakportueasy_db',
-        'USER' : 'root',
-        'PASSWORD' : '',
-        'HOST': 'localhost',
-        'PORT': '3306'
-    }
+    'default': dj_database_url.config(default='postgres://u2kztgahej9:LzKOhACqCVjN@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/flyer_scarf_tiger_237618')
 }
 
 

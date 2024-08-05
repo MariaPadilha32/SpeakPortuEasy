@@ -37,7 +37,7 @@
                 {% if schedule %}
                 {% for schedules in schedule %}
                 <tr>
-                    <td>{{ schedules.name }}</td>
+                    <td>{{ schedules.date }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning col-2">Edit</button></a>
                         <a href="{% url 'delete-schedule' schedules.id  %}"><button class="btn btn-danger col-2">Delete</button></a>
