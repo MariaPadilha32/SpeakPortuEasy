@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="txtEnrollmentDate" class="form-label">Enrollment Date: <span class="required">*</span></label>
-            <input name="date" type="date" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required>
+            <input name="date" value="{{ enrollments.date }}" type="date" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
         <button type="reset" class="btn btn-warning text-white col-2">Reset</button>

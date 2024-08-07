@@ -28,10 +28,8 @@ def register_student(request):
         else:
             return redirect('home')
     else:
-        return redirect('home')
-
-    form = StudentForm()
-    return render(
+        form = StudentForm()
+        return render(
         request,
         'register-student.html',
         {'form': form, 'parents': parents}
@@ -120,8 +118,9 @@ def register_enrollments(request):
     students = Student.objects.all().order_by('name')
     classes = Classes.objects.all().order_by('name')
     if request.method == 'POST':
-        name = request.POST.get('name')
-        count = Enrollments.objects.filter(name=name).count()
+        student_id = request.POST.get('student')
+        class_id = request.POST.get('classname')
+        count = Enrollments.objects.filter(student=student_id, classname=class_id).count()
         if count > 0:
             messages.error(request, 'Please use a different name.')
             return redirect('register-enrollments')

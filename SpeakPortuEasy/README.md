@@ -12,9 +12,7 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
   - [The-Strategy-Plane](#the-strategy-plane)
     - [Site-Goals](#site-goals)
     - [Agile Planning](#agile-planning)
-      - [Epics](#epics)
       - [User Stories](#user-stories)
-  - [The-Scope-Plane](#the-scope-plane)
   - [The-Structure-Plane](#the-structure-plane)
     - [Features](#features)
     - [Features Left To Implement](#features-left-to-implement)
@@ -159,313 +157,301 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 
 Implementation:
 
-**Navigation Menu**
+**Navigation Bar**
 
- The Navigation contains links for Home, Bookings, Menus and has allauth options.
+The navigation menu in SpeakPortuEasy is designed to provide easy access to all major sections of the platform. The menu is available on all pages and adapts to smaller devices by displaying as a hamburger menu.
 
 The following navigation items are available on all pages:
-  * Home -> index.html - Visible to all
-  * Bookings (Drop Down):
-    * Manage Bookings -> managebookings.html - Visible to logged in users
-    * New Booking -> booking.html - Visible to logged in users
-  * Menus (Drop Down):
-    * View Menus -> menus.html - Visible to all
-    * Create Menu -> create_menu.html - Visible to staff
-    * Manage Menus -> managemenus - Visible to staff
+  * SpeakPortuEasy (goes to home) - Visible to all
+  * Home (goes to home) - Visible to all
+  * Register (Drop Down) - Provides options for registering different entities:
+    * Register Student (register-student.html) - Visible to logged in users
+    * Register Class (register-class.html) - Visible to logged in users
+    * Register Classroom (register-classroom.html) - Visible to logged in users
+    * Register Schedule (register-schedule.html) - Visible to logged in users
+    * Register Enrollment (register-enrollment.html) - Visible to logged in users
+    * Register Teacher (register-teacher.html) - Visible to logged in users
+  * Query (Drop Down) - Provides options for querying different entities
+    * Query Student (query-student.html) - Visible to logged in users
+    * Query Class (query-class.html) - Visible to logged in users
+    * Query Classroom (query-classroom.html) - Visible to logged in users
+    * Query Schedule (query-schedule.html) - Visible to logged in users
+    * Query Enrollment (query-enrollment.html) - Visible to logged in users
+    * Query Teacher (query-teacher.html) - Visible to logged in users
   * Login -> login.html - Visible to logged out users
-  * Register -> signup.html - Visible to logged out users
   * Logout -> logout.html - Visible to logged in users
 
-The navigation menu is displayed on all pages and drops down into a hamburger menu on smaller devices. This will allow users to view the site from any device and not take up too much space on mobile devices.
+The navigation bar is displayed on all pages and drops down into a hamburger menu on smaller devices. This will allow users to view the site from any device and not take up too much space on mobile devices.
 
-![Navbar](docs/readme_images/navbar.PNG)
+![Navbar](tobeadded)
 
-``USER STORY - As a restaurant owner, I would like a home page so that customers can view information on my restaurant``
+``USER STORY - As a teacher, I would like a home page that provides an overview of the system and easy access to its features.``
 
 Implementation:
 
 **Home Page**
 
-The home page contains a hero image of a seaside restaurant and the restaurant information at the top of the page. This will immediately make it evident to the user, what the purpose of the website is.
+The home page contains a hero image with the SpeakPortuEasy logo and a brief description of the website's purpose. This section immediately informs the user about the platform's function, which is to assist teachers in managing their classes and student information.
 
-Under the information section are two buttons, 'Make a booking' and 'View Menus'. These buttons will allow the user a quick way to the respective pages if they wish to make a booking or view the restaurants active menus.
+Under the description, users must log in to access the system's features. This ensures that only authenticated users can manage and view class and student information.
 
-The last section of the home page contains a google map, marking the location of the restaurant and the opening hours of the restaurant. This will allow the user to locate the restaurant and operating times.
+The home page is designed to be simple and user-friendly, providing essential information and a clear call to action for logging in.
 
-![Hero Image](docs/readme_images/hero.PNG)
+![Hero Image](tobeadded)
 
-![Welcome Section](docs/readme_images/welcome.PNG)
+![Welcome Section](tobeadded)
 
-![Find Us](docs/readme_images/find-us.PNG)
+``USER STORY - As a teacher, I want to createa simple footer``
 
-
-``USER STORY - As a developer, I need to create the footer with social media links and contact information``
-
-Implementation:
+**Implementation:**
 
 **Footer**
 
-A footer has been added to the bottom of the site, this contains a Twitter and Facebook link so that users can follow the restaurant on social media if they want to keep up to date with special offers not advertised on the website. These icons have aria-labels added to ensure users with assistive screen reading technology know what the purpose of the links are for. They also open in new tabs as they lead users away from the site.
+A simple footer has been added to the bottom of the site. Since SpeakPortuEasy is a system for teachers to manage their work, the footer only includes essential registration information. It does not contain social media links or additional contact information, maintaining a clean and professional appearance.
 
-![Footer](docs/readme_images/footer.PNG)
+![Footer](tobeadded)
 
-``USER STORY - As a staff user, I want to be able to create a new menu when we have new dishes to offer``
+``USER STORY - As a teacher, I want to be able to create a new class so that I can organize my teaching schedule.``
 
-Implementation:
+**Implementation:**
+**Create Class Page**
 
-**Create Menu Page**
+A create class page was implemented to allow teachers to create new classes via the UI without having to use the backend admin panel. This will enable teachers to quickly add new classes as needed.
 
-A create menu page was implemented to allow staff users to create new menus via the UI without having to use the backend admin panel. This will allow staff the ability to quickly update menus when they have made changes to the food being offered.
+![Image](tobeadded)
 
-![Create Menu](docs/readme_images/create-menu.PNG)
+``USER STORY - As a teacher, I want to be able to view the classes I have created so that I can manage them effectively.``
 
-``USER STORY -As a user, I would like to be able to view menus so that I can decide if I would like to dine at the restaurant``
+**Implementation:**
+**View Classes Page**
 
-Implementation:
+A view classes page has been implemented to allow teachers to see all the classes they have created. This page includes a list of classes with relevant information and options to edit or delete each class.
 
-**View Menu Page**
+![Image](tobeadded)
 
-A menu page has been implemented to allow users to see the current active menus and decide whether they are interested in the food we offer before booking. This is visible to all users regardless of logged in state as it is not user friendly to restrict core information from users to force them into signing up.
+``USER STORY - As a teacher, I want to be able to edit a class when updates are needed so that the information remains current.``
 
-![View Menus](docs/readme_images/menus.PNG)
+**Implementation:**
+**Edit Class Page**
 
-``USER STORY -As a staff user, I want to be able to edit a menu when updates are needed``
+On the view classes page, an edit button was added to allow teachers to update class information when changes need to be made.
 
-Implementation:
+![Image](tobeadded)
 
-**Edit Menu Page**
+``USER STORY - As a teacher, I want to be able to delete a class when it is no longer needed so that my class list stays organized.``
 
-On the manage menus page a button was added to allow staff members to edit a menu when changes need to be made.
+**Implementation:**
+**Delete Class Page**
 
-![Edit Menu](docs/readme_images/edit-menu.PNG)
+On the view classes page, a delete button has been implemented that will take teachers to a confirmation page to allow them to delete a class. This helps maintain an up-to-date list of active classes.
 
-``USER STORY -As a staff member, I would like to receive feedback when I create or update menus so that I can see they have worked``
+![Image](tobeadded)
 
-Implementation:
+``USER STORY - As a teacher, I want to be able to create a new student record so that I can manage student information.``
 
-**Toasts**
+**Implementation:**
+**Create Student Page**
 
-Custom toasts were added on successful creation and deletion of menus which display success messages to the user to enable them to see that the action completed successfully.
+A create student page was implemented with a form that takes in student details, allowing teachers to easily add new students to their classes through the UI.
 
-![Menu Toasts](docs/readme_images/toast-menu.PNG)
+![Image](tobeadded)
 
-``USER STORY -As a staff user, I want to be able to delete a menu when it is no longer used``
+``USER STORY - As a teacher, I want to be able to view student records so that I can keep track of student information.``
 
-Implementation:
+**Implementation:**
+**View Students Page**
 
-**Delete Menu Page**
+A view students page was implemented to show all student records. Teachers can use this page to see detailed information about each student and manage their records.
 
-On the manage menus page, a delete button has been implemented that will take staff users to a confirmation page to allow them to delete a menu. This will allow staff to delete menus when they are no longer needed
+![Image](tobeadded)
 
-![Delete Menu](docs/readme_images/delete-menu.PNG)
+``USER STORY - As a teacher, I want to be able to edit a student record so that I can update their information as needed.``
 
-``USER-STORY - As a user, I would like to be able to create a new booking when I want to visit the restaurant``
+**Implementation:**
+**Edit Student Page**
 
-Implementation:
+On the view students page, an edit button is available that directs teachers to a form where they can update student information.
 
-**Create booking page**
+![Image](tobeadded)
 
-A booking page was implemented with a form that takes in the customer details and enables the user to easily make a booking through the UI. 
+``USER STORY - As a teacher, I want to be able to delete a student record when it is no longer needed so that the student list remains accurate.``
 
-Extensive logic was added to the form validation to ensure that not only is there a table available for the users chosen time and date but also that it has enough seats for the amount of guests. If the form is successful with validation on the front end, logic is in place to find the lowest capacity table to seat the guests for the given date and time.
+**Implementation:**
+**Delete Student Page**
 
-This allows for seat optimisation to ensure we do not have small amounts of guests at tables that could of been booked for larger groups. Ensuring table optimisation and revenue for the restaurant.
+A delete button was added to the view students page, allowing teachers to remove student records they no longer need.
 
-![Create Booking](docs/readme_images/create-booking.PNG)
+![Image](tobeadded)
 
-``USER-STORY - As a user, I would like to view my bookings when I need to check the information``
+``USER STORY - As a teacher, I want to be able to search for a specific class or student so that I can quickly find the information I need.``
 
-Implementation:
+**Implementation:**
+**Search Box**
 
-**Manage bookings page**
+A search box was added to the view classes and view students pages. This allows teachers to easily locate a specific class or student by entering relevant keywords.
 
-A manage bookings page was implemented with validation checks on the user. This shows all of the users bookings. This will allow the user to view their upcoming bookings when needed.
+![Image](tobeadded)
 
-For restaurant staff users, all bookings will be available to display so that staff can easily view numbers and future bookings.
+``USER STORY - As a teacher, I want to be notified if I try to register the same information more than once to avoid duplicates.``
 
-![Manage Bookings](docs/readme_images/manage-bookings.PNG)
+**Implementation:**
+**Duplicate Entry Notification**
 
-``USER-STORY - As a user, I would like to be able to edit a booking so that I can make changes when needed``
+Validation logic was added to notify teachers if they attempt to register duplicate information. This helps maintain a clean and accurate database.
 
-Implementation:
+![Image](tobeadded)
 
-**Edit Booking Page**
-
-On the manage bookings page an edit button is present that allows the user to direct to a form and update their booking when required. This will allow the user to easily manage their own booking.
-
-For staff users, they can also edit bookings from the manage booking page, even if they did not create the reservation. This will allow restaurant staff to ammend details as needed.
-
-![Edit Booking](docs/readme_images/edit-booking.PNG)
-
-``USER-STORY - As a user, I would like to receive feedback when I create a booking or edit one so I know it was completed successfully``
-
-Implementation:
-
-**Toasts**
-
-Custom toasts were implemented on the successful creation and editing of bookings. This will provide feedback to the user to relay information that the booking was successfully received or updated.
-
-![Booking Toasts](docs/readme_images/booking-toast.PNG)
-
-``USER-STORY - As a staff user, I want to be able to search a booking by reference to save time searching``
-
-Implementation:
-
-**Searchbox**
-
-A search box was added to the manage bookings page that is only visible to staff users. This will allow the staff members to easily locate a booking by reference number if they need to find it quickly.
-
-[Search Boxes](docs/readme_images/search.PNG)
-
-``USER-STORY - As a user I would like to delete a booking when I no longer require it``
-
-Implementation:
-
-**Delete Booking Page**
-
-A delete button was added to the manage bookings page that will allow customers to delete their booking should they no longer require it without the need to call the restaurant.
-
-For staff members, they also have the abaility to delete any booking through the UI as well. This will allow staff to free up table capacity should a customer call to cancel their booking.
-
-![Delete Booking](docs/readme_images/delete-booking.PNG)
-
-Favicon
+**Favicon**
     * A site wide favicon was implemented.
     * This provides an image in the tabs header to allow the user to easily identify the website if they have multiple tabs open.
 
-![Favicon](docs/readme_images/favicon.PNG)
+![Favicon]((tobeadded))
 
 **Error Pages**
 
 ``USER STORY - As a developer, I need to implement a 404 error page to alert users when they have accessed a page that doesn't exist``
 
-Implementation:
-
+**Implementation:**
 **404 Page**
 
-As a developer, I need to implement a 404 error page to redirect users to
+A 404 error page has been implemented to display whenever a user navigates to a broken link or a missing page. This custom error page provides a user-friendly way to handle such errors, allowing users to easily navigate back to the main website.
 
-A 404 page has been implemented and will display if a user navigates to a broken link.
+The 404 page includes links to the home page and other key sections, so users can continue exploring the site without needing to use the browser's back button.
 
-The 404 page will allow the user to easily navigate back to the main website if they direct to a broken link / missing page, without the need  of the browsers back button.
+``USER STORY - As a developer, I need to implement a 403 error page to alert users when they try to access a page/view that they do not have permission to view.``
 
-``USER STORY - As a developer, I need to implement a 403 error page to alert users when accessing a page/view that they do not have permission to view``
-
-Implementation:
-
+**Implementation:**
 **403 Page**
 
-A 403 error page has been implemented to provide feedback to the user when they try to access unauthorized content. Users will be directed to this page if they alter the URL's and attempt to edit, delete or access pages that are restricted. 
+A 403 error page has been implemented to provide feedback to users when they attempt to access unauthorized content. Users will be redirected to this page if they try to edit, delete, or view pages that are restricted based on their permissions.
 
 This covers:
 
-* Create Menu - Only authorized to staff
-* Edit Menu - Only authorized to staff
-* Delete Menu - Only authorized to staff
-* Edit Booking - Only authorized to the customer who created the booking or a staff member
-* Delete booking - Only authorized to the customer who created the booking or a staff member
+* Register Class - Only authorized for logged-in users
+* Edit Class - Only authorized for logged-in users
+* Delete Class - Only authorized for logged-in users
+* Register Student - Only authorized for logged-in users
+* Edit Student - Only authorized for logged-in users
+* Delete Student - Only authorized for logged-in users
+* Register Classroom - Only authorized for logged-in users
+* Edit Classroom - Only authorized for logged-in users
+* Delete Classroom - Only authorized for logged-in users
+* Register Schedule - Only authorized for logged-in users
+* Edit Schedule - Only authorized for logged-in users
+* Delete Schedule - Only authorized for logged-in users
+* Register Enrollment - Only authorized for logged-in users
+* Edit Enrollment - Only authorized for logged-in users
+* Delete Enrollment - Only authorized for logged-in users
+* Register Teacher - Only authorized for logged-in users
+* Edit Teacher - Only authorized for logged-in users
+* Delete Teacher - Only authorized for logged-in users
 
-``USER STORY - As a developer, I need to implement a 500 error page to alert users when an internal server error occurs``
+``USER STORY - As a developer, I need to implement a 500 error page to notify users when an internal server error happens.``
 
-Implementation:
-
+**Implementation:**
 **500 Page**
 
-A 500 error page has been displayed to alert users when an internal server error occurs. The message relays to users that the problem is on our end, not theirs.
+A 500 error page has been created to inform users when an internal server error occurs. This page conveys to users that the issue originates from our side, not theirs, and we are working to resolve it
 
 **Base Setup User Stories**
 
-The following stories were implemented in order to set up a base structure for all the HTML pages and the core installations and configurations needed to run the application. While these do not show as individual features, they were stories completed that were needed to implement all of the stories above.
+The following user stories were completed to lay the groundwork for all HTML pages and ensure the necessary installations and configurations were in place to run the application. While these tasks do not stand out as individual features, they were crucial for enabling the implementation of all the functionalities mentioned earlier.
 
-``As a developer, I need to create the base.html page and structure so that other pages can reuse the layout``
+``USER STORY - As a developer, I need to create the base.html page and layout structure so that other pages can reuse the layout.``
 
-``As a developer, I need to create static resources so that images, css and javascript work on the website``
+``USER STORY - As a developer, I need to create static resources so that images, CSS, and JavaScript function properly on the website.``
 
-``As a developer, I need to set up the project so that it is ready for implementing the core features``
+``USER STORY - As a developer, I need to set up the project environment to be ready for implementing the core features.``
+
+**Explore More User Stories**
+
+In addition to the stories highlighted here, nearly 300 user stories have been meticulously documented and tracked on our Kanban board(https://github.com/users/MariaPadilha32/projects/6/views/1). These stories encompass the full scope of the project's development, covering all features, enhancements, and bug fixes.
+
+To gain a comprehensive understanding of the project's depth and the full range of functionalities implemented, please explore the complete list of user stories on our Kanban board
 
 **Favicon**
 
 A favicon was added the website to enable users to easily locate the website in the browser when multiple tabs are open.
 
 ### Features Left To Implement
-- In a future release I would like to implement a page which displays a table map of the restaurant with information displayed on each table of upcoming bookings. This feature would allow staff to easily see if there are any upcoming bookings on the each table and plan accordingly. 
+For future development, the following features are planned to enhance the functionality and user experience of SpeakPortuEasy:
+
+- **Student Homework Uploads:** Enable students to upload their homework directly to the platform. This feature will streamline the submission process and allow teachers to easily review and grade assignments.
+
+- **User-Friendly Attendance Tracking:** Develop a more intuitive and user-friendly page for teachers to manage student attendance. This will provide teachers with better tools to track and update attendance records efficiently.
+
+- **Online Payment for Classes:** Implement a secure online payment system allowing students to pay for their classes directly through the platform. This feature will simplify the payment process and provide a convenient option for students to manage their class fees.
 
 
-## The-Skeleton-Plane
-
-### Wireframes
+## Wireframes
 
 - Home page
 
 
-![Home Page](docs/wireframes/home.JPG)
+![Home Page](tobeadded)
 
 
 - Signup page
 
 
-![Sign up Page](docs/wireframes/register.JPG)
+![Sign up Page](tobeadded)
 
 - Log in
 
-![Login Page](docs/wireframes/login.JPG)
+![Login Page](tobeadded)
 
 - Log Out
 
-![Logout Page](docs/wireframes/logout.JPG)
+![Logout Page](tobeadded)
 
 - Create Booking
 
-![Create Booking](docs/wireframes/create_booking.JPG)
+![Create Booking](tobeadded)
 
 - Edit Booking 
 
-![Edit Booking](docs/wireframes/edit_booking.JPG)
+![Edit Booking](tobeadded)
 
 - Manage Bookings
 
-![Manage Bookings](docs/wireframes/manage_booking.JPG)
+![Manage Bookings](tobeadded)
 
 - Delete Booking 
 
-![Delete Booking](docs/wireframes/delete_booking.JPG)
+![Delete Booking](tobeadded)
 
 - Create Menu 
 
-![Create Menu](docs/wireframes/create_menu.JPG)
+![Create Menu](tobeadded)
 
 - Edit Menu 
 
-![Edit Menu](docs/wireframes/edit_menu.JPG)
+![Edit Menu](tobeadded)
 
 - View Menu 
 
-![View Menu](docs/wireframes/view_menu.JPG)
+![View Menu](tobeadded)
 
 
 - Manage Menus
 
-![Manage Menu](docs/wireframes/manage_menus.JPG)
+![Manage Menu](tobeadded)
 
 - Delete Menu 
 
-![Delete Menu](docs/wireframes/delete_menu.JPG)
+![Delete Menu](tobeadded)
 
 - 404 Error 
 
-![404 Error](docs/wireframes/404.JPG)
+![404 Error](tobeadded)
 
 - 403 Error 
 
-![403 Error](docs/wireframes/403.JPG)
+![403 Error](tobeadded)
 
 - 500 Error 
 
-![500 Error](docs/wireframes/500.JPG)
-
-**Differences to Design**
-
-On the menu page, the original wireframe was to display the menus in a complete linear format but on larger screens this caused a lot of un-neccessary white space on smaller items like drinks and sides. A change was made to have the drinks and sides sit side-by-side on larger screens and stack as originally planned on mobiles.
+![500 Error](tobeadded)
 
 ### Database-Design
 
@@ -474,8 +460,6 @@ The database was designed to allow CRUD functionality to be available to registe
 The Menu Items model holds objects that are linked to the Menu Models by a many to many relationship. This allows for staff to create menus with many menu items on.
 
 Bookings are related to the customer (user) by a Foreign Key which allows the users to be able to view and update bookings attached to their accounts.
-
-Entity relationship diagram was created using [DBVisualizer](https://www.dbvis.com/) and shows the schemas for each of the models and how they are related.
 
 ![Entity Relationship Diagram](docs/readme_images/erd.JPG)
 
@@ -505,65 +489,110 @@ The hero image was taken from Pexels which is a royalty free image site.
 
 ## Technolgies
 
-- HTML
-  - The structure of the Website was developed using HTML as the main language.
-- CSS
-  - The Website was styled using custom CSS in an external file.
-- JavaScript
-  - JavaScript was used to make the custom slider on the menu page change and the bootstrap date picker.
-- Python
-  - Python was the main programming language used for the application using the Django Framework.
-- Visual Studio Code
-  - The website was developed using Visual Studio Code IDE
-- GitHub
-  - Source code is hosted on GitHub
-- Git
-  - Used to commit and push code during the development of the Website
-- Font Awesome
-  - This was used for various icons throughout the site
-- Favicon.io
-  - favicon files were created at https://favicon.io/favicon-converter/
-- balsamiq
-  - wireframes were created using balsamiq from https://balsamiq.com/wireframes/desktop/#
-- Canva
-  - This was used to create the logo in header 
-- TinyPNG
-  - This was used to compress the hero image for optimal load times
+##  Technology Used
+
+### Html
+ - Utilized to structure the content of the website, laying the foundation for all web pages.
+
+### CSS
+ - Custom CSS was crafted to style the website as per design specifications and wireframes, ensuring a visually appealing and responsive layout.
+
+### JavaScript
+ - Implemented to add interactivity and enhance user experience, such as enabling the menu on the index.html page and setting timeout functions for messages.
+
+### Python
+ -  The primary programming language used to handle backend logic, including processing data and handling requests.
+
+### Django
+ -  A front-end framework used alongside Django to facilitate design and development, ensuring the website is responsive and mobile-friendly.
+
+### Font Awesome
+ -  An icon library integrated into the navigation bar and footer to improve the visual appeal and usability of the website with various icons.
+
+### Bootstrap 
+ - A front-end framework used alongside Django to streamline the design and development process, ensuring a responsive and mobile-friendly layout.
+
+### GitHub
+ - Used for storing the project's code and managing version control. It also hosted the project's Kanban board to track progress and manage tasks.
+
+### Heroku
+ - A cloud platform leveraged to host and deploy the website, making it accessible online.
+
+### ElephantSQL
+ - A cloud-based PostgreSQL database service used to store and manage the project's data.
+
+### Git
+- A version control system utilized to track changes in the project's source code, enabling collaboration and maintaining a history of modifications.
+
+### AWS S3 and IAM
+- Employed to host static and media files for the project, with IAM managing permission-based roles for accessing the S3 buckets.
+
+### Canva
+- This was used to create the logo in header 
+
+### Django-Crispy-Forms
+- A Django application used to enhance the styling of forms, providing a more user-friendly and aesthetically pleasing form interface.
 
 **Python Modules Used**
 
 * Django Class based views (ListView, UpdateView, DeleteView, CreateView) - Used for the classes to create, read, update and delete
-* Mixins (LoginRequiredMixin, UserPassesTestMixin) - Used to enforce login required on views and test user is authorized to perform actions
 * messages - Used to pass messages to the toasts to display feedback to the user upon actions
 * timedelta, date - Date was used in order to search for objects by date and timedelta for searching date ranges
 
 **External Python Modules**
 
-* cloudinary==1.29.0 - Cloundinary was set up for use but no custom uploads were made, settings remain for future development
-* crispy-bootstrap5==0.6 - This was used to allow bootstrap5 use with crispy forms
-* cryptography==37.0.2 - Installed as dependency with another package
-* defusedxml==0.7.1 - Installed as dependency with another package
-* dj-database-url==0.5.0 - Used to parse database url for production environment
-* dj3-cloudinary-storage==0.0.6 - Storage system to work with cloudinary
-* Django==4.0.5 - Framework used to build the application
-* django-admin-rangefilter==0.8.4 - This was used to search bookings in the admin for a range between 2 dates
-* django-allauth==0.51.0 - Used for the sites authentication system, sign up, sign in, logout, password resets ect.
-* django-crispy-forms==1.14.0 - Used to style the forms on render
-* django-model-utils==4.2.0 - Installed as dependency with another package
-* gunicorn==20.1.0 - Installed as dependency with another package
-* idna==3.3 - Installed as dependency with another package
-* oauthlib==3.2.0 - Installed as dependency with another package
-* psycopg2==2.9.3 - Needed for heroku deployment
-* pycparser==2.21 - Installed as dependency with another package
-* PyJWT==2.4.0 - Installed as dependency with another package
-* python3-openid==3.2.0 - Installed as dependency with another package
-* requests==2.27.1 - Installed as dependency with another package
-* requests-oauthlib==1.3.1 - Installed as dependency with another package (allauth authentication)
-* six==1.16.0 - Installed as dependency with another package
-* sqlparse==0.4.2 - Installed as dependency with another package
-* tzdata==2022.1 - Installed as dependency with another package
-* urllib3==1.26.9 - Installed as dependency with another package
-* whitenoise==6.2.0 - Used to serve static files directly without use of static resource provider like cloundinary
+asgiref==3.7.2
+* Description: ASGI (Asynchronous Server Gateway Interface) reference implementation. It provides utilities and a reference implementation of the ASGI specification, which is the successor to WSGI for Python web applications. It is used for handling asynchronous web applications.
+* Usage: This is often used in Django projects to enable asynchronous capabilities.
+
+dj-database-url==0.5.0
+* Description: Allows the configuration of the Django database via a single environment variable.
+* Usage: It is useful for setting up database configurations in deployment environments, particularly when working with Heroku.
+
+Django==5.0.2
+* Description: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
+* Usage: The main framework your application is built on, providing the core functionality and structure.
+
+django-heroku==0.3.1
+* Description: Django-Heroku integrates Django with Heroku’s environment settings, including database configuration, static files, and logging.
+* Usage: Simplifies the deployment of Django applications on Heroku by automatically configuring settings.
+
+gunicorn==20.1.0
+* Description: A Python WSGI HTTP Server for UNIX, which serves your Django application.
+* Usage: Used as a production-grade server to run Django applications, especially when deployed on platforms like Heroku.
+
+mysql-connector-python==8.2.0
+* Description: MySQL Connector for Python is a standardized database driver for Python platforms and development.
+* Usage: Used for connecting to MySQL databases, providing a Pythonic interface to execute SQL commands and manage database connections.
+
+mysqlclient==2.2.4
+* Description: A MySQL database connector for Python that is a fork of the MySQLdb library.
+* Usage: Another option for connecting to MySQL databases, often preferred for its performance and compatibility with Django.
+
+protobuf==4.21.12
+* Description: Protocol Buffers are a method developed by Google for serializing structured data, similar to XML or JSON.
+* Usage: Used for serializing structured data, typically for communication protocols, data storage, and more.
+
+psycopg2==2.9.9
+* Description: PostgreSQL database adapter for Python.
+* Usage: Required for connecting and interacting with PostgreSQL databases from a Django application.
+
+setuptools==69.1.0
+* Description: A package development and distribution library. It provides enhancements to the Python standard library’s distutils.
+* Usage: Essential for building and distributing Python packages, and often required for installing other Python packages.
+
+sqlparse==0.4.4
+* Description: A non-validating SQL parser for Python.
+* Usage: Used by Django and other applications for parsing and formatting SQL queries.
+
+tzdata==2023.4
+* Description: Time zone database for Python.
+* Usage: Provides up-to-date time zone information, used by applications to manage time zones.
+
+whitenoise==6.5.0
+* Description: WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere.
+* Usage: Simplifies serving static files (like CSS, JavaScript, images) in a Django application, particularly useful in production environments.
+
 
 ## Testing
 
@@ -609,7 +638,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 The app should now be deployed.
 
-The live link can be found here: [Live Site](https://sizzle-and-steak.onrender.com/)
+The live link can be found here: [Live Site](TOBEADDED)
 
 ### Run Locally
 
@@ -633,8 +662,12 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 - This will create a duplicate of the full project in your GitHub Repository.
 
-## Credits 
+### Resources
+	- The Code Institute "Hello Django and I think Therefore I blog" project was very much relied upon to build this project.
 
-The [Hero Image](https://www.pexels.com/photo/people-dining-at-an-al-fresco-restaurant-by-the-sea-6446203/) was taken from pexels.
+### Acknowledgements
 
+- Most special thanks to Ger Hickey, my father-in-law, who passed away while I was working on this project. He was always an amazing support.
+
+[Back to top](#contents)
 
