@@ -4,18 +4,23 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-from main.models import Classroom, Student, Enrollments, Classes, Schedule, Parents, Teacher
-from .forms import ClassroomForm, StudentForm, EnrollmentsForm, ClassesForm, ScheduleForm, ParentsForm, TeacherForm, UserForm
+from main.models import Classroom, Student, Enrollments
+from main.models import Classes, Schedule, Parents, Teacher
+from .forms import ClassroomForm, StudentForm, EnrollmentsForm, UserForm
+from .forms import ClassesForm, ScheduleForm, ParentsForm, TeacherForm
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'index.html')
-    #return HttpResponse('Hello World - Welcome to Django Framework')
+    # return HttpResponse('Hello World - Welcome to Django Framework')
+
 
 @login_required(login_url='login')
 def register_student(request):
     parents = Parents.objects.all().order_by('name')
-    if request.method =='POST':
+    if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
@@ -23,8 +28,14 @@ def register_student(request):
         else:
             return redirect('home')
     else:
-        form = StudentForm()
-        return render(request, 'register-student.html', {'form' : form, 'parents' : parents})
+        return redirect('home')
+
+    form = StudentForm()
+    return render(
+        request,
+        'register-student.html',
+        {'form': form, 'parents': parents}
+    )
 
 
 @login_required(login_url='login')
@@ -33,18 +44,22 @@ def register_class(request):
         name = request.POST.get('name')
         count = Classes.objects.filter(name=name).count()
         if count > 0:
-            messages.error(request, 'There is a class with that name, please use a different name.')
+            messages.error(
+                request,
+                'There is a class with that name, please use a different name.'
+            )
             return redirect('register-class')
-        if request.method =='POST':
-           form = ClassesForm(request.POST)
-           if form.is_valid():
-               form.save()
-               return redirect('query-class')
-           else:
-               return redirect('register-class')
+        if request.method == 'POST':
+            form = ClassesForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-class')
+            else:
+                return redirect('register-class')
     else:
         form = ClassesForm()
-        return render(request, 'register-class.html', {'form' : form})
+        return render(request, 'register-class.html', {'form': form})
+
 
 @login_required(login_url='login')
 def register_schedule(request):
@@ -53,18 +68,29 @@ def register_schedule(request):
         id = request.POST.get('id')
         count = Schedule.objects.filter(id=id).count()
         if count > 0:
-            messages.error(request, 'There is no schedule available at that time, please try a different one.')
+            messages.error(
+                request,
+                'No schedule available, please try a different time.'
+            )
             return redirect('register-schedule')
-        if request.method =='POST':
-           form = ScheduleForm(request.POST)
-           if form.is_valid():
-               form.save()
-               return redirect('query-schedule')
-           else:
-               return redirect('register-schedule')
+        if request.method == 'POST':
+            form = ScheduleForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-schedule')
+            else:
+                return redirect('register-schedule')
     else:
         form = ScheduleForm()
-        return render(request, 'register-schedule.html', {'form' : form, 'classes' : classes})
+        return render(
+            request,
+            'register-schedule.html',
+            {
+                'form': form,
+                'classes': classes
+            }
+        )
+
 
 @login_required(login_url='login')
 def register_classroom(request):
@@ -72,7 +98,10 @@ def register_classroom(request):
         name = request.POST.get('name')
         count = Classroom.objects.filter(name=name).count()
         if count > 0:
-            messages.error(request,'There is a classroom with that name, please use a different name.')
+            messages.error(
+                request,
+                'Classroom name exists, please use another.'
+            )
             return redirect('register-classroom')
         if request.method == 'POST':
             form = ClassroomForm(request.POST)
@@ -83,7 +112,8 @@ def register_classroom(request):
                 return redirect('register-classroom')
     else:
         form = ClassroomForm()
-        return render(request, 'register-classroom.html', {'form' : form})
+        return render(request, 'register-classroom.html', {'form': form})
+
 
 @login_required(login_url='login')
 def register_enrollments(request):
@@ -104,7 +134,16 @@ def register_enrollments(request):
                 return redirect('register-enrollments')
     else:
         form = EnrollmentsForm()
-        return render(request, 'register-enrollments.html', {'form' : form, 'students' : students, 'classes' : classes})
+        return render(
+            request,
+            'register-enrollments.html',
+            {
+                'form': form,
+                'students': students,
+                'classes': classes
+            }
+        )
+
 
 @login_required(login_url='login')
 def register_parents(request):
@@ -117,27 +156,32 @@ def register_parents(request):
             return redirect('register-parents')
     else:
         form = ParentsForm()
-        return render(request, 'register-parents.html', {'form' : form})
-    
+        return render(request, 'register-parents.html', {'form': form})
+
+
 @login_required(login_url='login')
 def register_teacher(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         count = Teacher.objects.filter(name=name).count()
         if count > 0:
-            messages.error(request, 'There is a teacher with that name, please use a different name.')
+            messages.error(
+                request,
+                'That name is already used, please use a different name.'
+            )
             return redirect('register-teacher')
-        
-        if request.method =='POST':
-           form = TeacherForm(request.POST)
-           if form.is_valid():
-               form.save()
-               return redirect('query-teacher')
-           else:
-               return redirect('register-teacher')
+
+        if request.method == 'POST':
+            form = TeacherForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('query-teacher')
+        else:
+            return redirect('register-teacher')
     else:
         form = TeacherForm()
-        return render(request, 'register-teacher.html', {'form' : form})
+        return render(request, 'register-teacher.html', {'form': form})
+
 
 @login_required(login_url='login')
 def query_class(request):
@@ -148,7 +192,17 @@ def query_class(request):
     paginator = Paginator(list_classes, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-class.html', {'form': form, 'classes': classes, 'total': total, 'page_obj': page_obj})
+    return render(
+        request,
+        'query-class.html',
+        {
+            'form': form,
+            'classes': classes,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_classroom(request):
@@ -159,7 +213,17 @@ def query_classroom(request):
     paginator = Paginator(list_classroom, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-classroom.html', {'form' : form, 'classrooms': classrooms, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-classroom.html',
+        {
+            'form': form,
+            'classrooms': classrooms,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_enrollments(request):
@@ -170,7 +234,17 @@ def query_enrollments(request):
     paginator = Paginator(list_enrollments, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-enrollments.html', {'form' : form, 'enrollments': enrollments, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-enrollments.html',
+        {
+            'form': form,
+            'enrollments': enrollments,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_parents(request):
@@ -181,7 +255,17 @@ def query_parents(request):
     paginator = Paginator(list_parents, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-parents.html', {'form' : form, 'parents': parents, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-parents.html',
+        {
+            'form': form,
+            'parents': parents,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_schedule(request):
@@ -192,7 +276,17 @@ def query_schedule(request):
     paginator = Paginator(list_schedule, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-schedule.html', {'form' : form, 'schedule': schedule, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-schedule.html',
+        {
+            'form': form,
+            'schedule': schedule,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_student(request):
@@ -203,7 +297,17 @@ def query_student(request):
     paginator = Paginator(list_students, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-student.html', {'form' : form, 'students': students, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-student.html',
+        {
+            'form': form,
+            'students': students,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_users(request):
@@ -214,7 +318,17 @@ def query_users(request):
     paginator = Paginator(list_users, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-users.html', {'form' : form, 'users': users, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-users.html',
+        {
+            'form': form,
+            'users': users,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def query_teacher(request):
@@ -225,7 +339,17 @@ def query_teacher(request):
     paginator = Paginator(list_teachers, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-teacher.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-teacher.html',
+        {
+            'form': form,
+            'teachers': teachers,
+            'total': total,
+            'page_obj': page_obj
+        }
+    )
+
 
 @login_required(login_url='accounts/login')
 def delete_student(request, id):
@@ -236,10 +360,11 @@ def delete_student(request, id):
     data['form'] = form
     if request.method == "POST":
         student.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-student')
     else:
         return render(request, 'delete-student.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_teacher(request, id):
@@ -250,10 +375,11 @@ def delete_teacher(request, id):
     data['form'] = form
     if request.method == "POST":
         teacher.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-teacher')
     else:
         return render(request, 'delete-teacher.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_class(request, id):
@@ -264,10 +390,11 @@ def delete_class(request, id):
     data['form'] = form
     if request.method == "POST":
         classes.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-class')
     else:
         return render(request, 'delete-class.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_schedule(request, id):
@@ -280,10 +407,11 @@ def delete_schedule(request, id):
     data['classes'] = classes
     if request.method == "POST":
         schedule.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-schedule')
     else:
         return render(request, 'delete-schedule.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_classroom(request, id):
@@ -294,10 +422,11 @@ def delete_classroom(request, id):
     data['form'] = form
     if request.method == "POST":
         classroom.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-classroom')
     else:
         return render(request, 'delete-classroom.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_enrollments(request, id):
@@ -308,10 +437,11 @@ def delete_enrollments(request, id):
     data['form'] = form
     if request.method == "POST":
         enrollments.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-enrollments')
     else:
         return render(request, 'delete-enrollments.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_users(request, id):
@@ -322,10 +452,11 @@ def delete_users(request, id):
     data['form'] = form
     if request.method == "POST":
         users.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-users')
     else:
         return render(request, 'delete-users.html', data)
+
 
 @login_required(login_url='accounts/login')
 def delete_parents(request, id):
@@ -336,10 +467,11 @@ def delete_parents(request, id):
     data['form'] = form
     if request.method == "POST":
         parents.delete()
-        messages.success(request,"Successfull Deleted!")
+        messages.success(request, "Successfull Deleted!")
         return redirect('query-parents')
     else:
         return render(request, 'delete-parents.html', data)
+
 
 @login_required(login_url='login')
 def query_teacher(request):
@@ -350,7 +482,17 @@ def query_teacher(request):
     paginator = Paginator(list_teachers, 5)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)
-    return render(request, 'query-teacher.html', {'form' : form, 'teachers': teachers, 'total' : total, 'page_obj' : page_obj})
+    return render(
+        request,
+        'query-teacher.html',
+        {
+            'form': form,
+            'teachers': teachers,
+            'total': total,
+            'page_obj':  page_obj
+        }
+    )
+
 
 @login_required(login_url='login')
 def edit_student(request, id):
@@ -368,7 +510,8 @@ def edit_student(request, id):
     else:
         form = StudentForm
         return render(request, 'edit-student.html', data)
-    
+
+
 @login_required(login_url='login')
 def edit_teacher(request, id):
     teacher = Teacher.objects.get(id=id)
@@ -386,8 +529,9 @@ def edit_teacher(request, id):
         form = TeacherForm
         return render(request, 'edit-teacher.html', data)
 
+
 @login_required(login_url='login')
-def edit_class(request, id):    
+def edit_class(request, id):
     classes = Classes.objects.get(id=id)
     form = ClassesForm(request.POST or None, instance=classes)
     data = {}
@@ -402,6 +546,7 @@ def edit_class(request, id):
     else:
         form = ClassesForm
         return render(request, 'edit-class.html', data)
+
 
 @login_required(login_url='login')
 def edit_schedule(request, id):
@@ -422,6 +567,7 @@ def edit_schedule(request, id):
         form = ScheduleForm
         return render(request, 'edit-schedule.html', data)
 
+
 @login_required(login_url='login')
 def edit_classroom(request, id):
     classroom = Classroom.objects.get(id=id)
@@ -439,6 +585,7 @@ def edit_classroom(request, id):
         form = ClassroomForm
         return render(request, 'edit-classroom.html', data)
 
+
 @login_required(login_url='login')
 def edit_enrollments(request, id):
     enrollments = Enrollments.objects.get(id=id)
@@ -455,6 +602,7 @@ def edit_enrollments(request, id):
     else:
         form = EnrollmentsForm
         return render(request, 'edit-enrollments.html', data)
+
 
 @login_required(login_url='login')
 def edit_users(request, id):
@@ -491,6 +639,7 @@ def edit_parents(request, id):
         form = ParentsForm
     return render(request, 'edit-parents.html', data)
 
+
 def search_classroom(request):
     search = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=search)
@@ -500,72 +649,91 @@ def search_classroom(request):
     data['form'] = form
     return render(request, 'query-classroom.html', data)
 
+
 def v_login(request):
     return render(request, 'login.html')
+
 
 def v_authenticate(request):
     v_user = request.POST['username']
     v_pwd = request.POST['password']
 
     user = authenticate(username=v_user, password=v_pwd)
-    
+
     if user is not None:
         if user.is_active:
-            #Redirection to the page successfully.
+            # Redirection to the page successfully.
             login(request, user)
             return render(request, 'index.html')
         else:
             print("Account disabled")
-            #Redirection to a page of unactive account.
+            # Redirection to a page of unactive account.
     else:
-       # print("invalid Login/Password ")
+        # print("invalid Login/Password ")
         return HttpResponse('login/ senha invalidos')
-        #Redirect to invalid login.
+        # Redirect to invalid login.
+
 
 def v_logout(request):
     logout(request)
     return render(request, 'login.html')
 
+
 def recover_password(request):
     return render(request, 'recover-password.html')
+
 
 def search_classroom(request):
     query = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=query)
-    return render(request, 'query-classroom.html', {'classes' : classrooms})
+    return render(request, 'query-classroom.html', {'classes': classrooms})
+
 
 def search_class(request):
     query = request.GET.get('search')
     classname = Classes.objects.filter(name__icontains=query)
-    return render(request, 'query-class.html', {'classnames' : classname})
+    return render(request, 'query-class.html', {'classnames': classname})
+
 
 def search_student(request):
     query = request.GET.get('search')
     student = Student.objects.filter(name__icontains=query)
-    return render(request, 'query-student.html', {'students' : student})
+    return render(request, 'query-student.html', {'students': student})
+
 
 def search_enrollments(request):
     query = request.GET.get('search')
     enrollment = Enrollments.objects.filter(name__icontains=query)
-    return render(request, 'query-enrollments.html', {'enrollments' : enrollment})
+    return render(
+        request,
+        'query-enrollments.html',
+        {
+            'enrollments': enrollment
+        }
+    )
+
 
 def search_parents(request):
     query = request.GET.get('search')
     parent = Parents.objects.filter(name__icontains=query)
-    return render(request, 'query-parents.html', {'parents' : parent})
+    return render(request, 'query-parents.html', {'parents': parent})
+
 
 def search_teacher(request):
     query = request.GET.get('search')
     teacher = Teacher.objects.filter(name__icontains=query)
-    return render(request, 'query-teacher.html', {'teachers' : teacher})
+    return render(request, 'query-teacher.html', {'teachers': teacher})
+
 
 def search_schedule(request):
     query = request.GET.get('search')
     schedules = Schedule.objects.filter(name__icontains=query)
-    return render(request, 'query-schedule.html', {'schedule' : schedules})
+    return render(request, 'query-schedule.html', {'schedule': schedules})
+
 
 def v_404(request, exception):
     return render(request, "eror404.html", status=404)
+
 
 def v_500(request):
     return render(request, "eror500.html", status=500)

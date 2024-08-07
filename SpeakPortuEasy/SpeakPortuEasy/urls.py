@@ -24,11 +24,17 @@ from django.conf.urls import handler404, handler500
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', vw.index, name="home"),
-    path('register-student/',vw.register_student, name="register-student"),
+    path('register-student/', vw.register_student, name="register-student"),
     path('register-class/', vw.register_class, name="register-class"),
     path('register-schedule/', vw.register_schedule, name="register-schedule"),
-    path('register-classroom/', vw.register_classroom, name="register-classroom"),
-    path('register-enrollments/', vw.register_enrollments, name="register-enrollments"),
+    path('register-classroom/',
+         vw.register_classroom,
+         name="register-classroom"
+         ),
+    path('register-enrollments/',
+         vw.register_enrollments,
+         name="register-enrollments"
+         ),
     path('register-parents/', vw.register_parents, name="register-parents"),
     path('query-class/', vw.query_class, name="query-class"),
     path('query-classroom/', vw.query_classroom, name="query-classroom"),
@@ -39,16 +45,28 @@ urlpatterns = [
     path('query-users/', vw.query_users, name="query-users"),
     path('delete-student/<int:id>', vw.delete_student, name="delete-student"),
     path('delete-class/<int:id>', vw.delete_class, name="delete-class"),
-    path('delete-schedule/<int:id>', vw.delete_schedule, name="delete-schedule"),
-    path('delete-classroom/<int:id>', vw.delete_classroom, name="delete-classroom"),
-    path('delete-enrollments/<int:id>', vw.delete_enrollments, name="delete-enrollments"),
+    path('delete-schedule/<int:id>',
+         vw.delete_schedule,
+         name="delete-schedule"
+         ),
+    path('delete-classroom/<int:id>',
+         vw.delete_classroom,
+         name="delete-classroom"
+         ),
+    path('delete-enrollments/<int:id>',
+         vw.delete_enrollments,
+         name="delete-enrollments"
+         ),
     path('delete-users/<int:id>', vw.delete_users, name="delete-users"),
     path('delete-parents/<int:id>', vw.delete_parents, name="delete-parents"),
     path('edit-student/<int:id>', vw.edit_student, name="edit-student"),
     path('edit-class/<int:id>', vw.edit_class, name="edit-class"),
     path('edit-schedule/<int:id>', vw.edit_schedule, name="edit-schedule"),
     path('edit-classroom/<int:id>', vw.edit_classroom, name="edit-classroom"),
-    path('edit-enrollments<int:id>/', vw.edit_enrollments, name="edit-enrollments"),
+    path('edit-enrollments<int:id>/',
+         vw.edit_enrollments,
+         name="edit-enrollments"
+         ),
     path('edit-users/<int:id>', vw.edit_users, name="edit-users"),
     path('edit-parents/<int:id>', vw.edit_parents, name="edit-parents"),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -61,7 +79,10 @@ urlpatterns = [
     path('search-classroom/', vw.search_classroom, name='search-classroom'),
     path('search-class/', vw.search_class, name='search-class'),
     path('search-student/', vw.search_student, name='search-student'),
-    path('search-enrollments/', vw.search_enrollments, name='search-enrollments'),
+    path('search-enrollments/',
+         vw.search_enrollments,
+         name='search-enrollments'
+         ),
     path('search-parents/', vw.search_parents, name='search-parents'),
     path('search-teacher/', vw.search_teacher, name='search-teacher'),
     path('search-schedule/', vw.search_schedule, name='search-schedule'),
@@ -71,4 +92,4 @@ urlpatterns = [
 
 handler404 = vw.v_404
 handler500 = vw.v_500
-#vw.v_404 = 'error404.html'
+# vw.v_404 = 'error404.html'

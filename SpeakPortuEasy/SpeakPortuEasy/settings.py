@@ -143,3 +143,13 @@ LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu115.gitpod.io',
+    'http://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu115.gitpod.io',
+]
+
+# settings.py
+
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False

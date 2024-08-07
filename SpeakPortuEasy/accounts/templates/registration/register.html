@@ -6,11 +6,12 @@
 <div class="container col-6">
     <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
-        <label for="id_username">Username:</label>
-        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus
-            class="form-control" required id="id_username">
-
-        <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+        <p>
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus
+                class="form-control" required id="id_username">
+    
+            <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
         </p>
         <p>
             <label for="id_email">Email address:</label>
