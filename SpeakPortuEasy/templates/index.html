@@ -4,11 +4,55 @@
 
 {% block 'main' %}
 {% if user.is_authenticated %}
-<h1>Welcome, {{ user.first_name }}. Thank you for visiting.</h1>
+<h1 class="text-center text-white">Welcome, {{ user.first_name }} to your Teacher Management System. Thank you for visiting.</h1>
 <div class="card mb-3" style="background-color: #bbdece">
-  <div>
-    <img src="/static/images/welcome.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="Company logo"
-      style="width: 80%;">
+  <div class="container text-center">
+    <div>
+      <img src="/static/images/welcome.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="Company logo"
+        style="width: 80%;">
+    </div>
+    <div class="col-12 text-white my-2 py-2">
+      <div class="item-description text-grey mb-4">
+        <p>
+          This platform is designed to assist teachers in effectively managing their classes, classrooms,
+           schedules, and student information. Our comprehensive system provides the tools you need to
+           keep control of every aspect of your teaching responsibilities.
+        </p>
+      </div>
+      <div>
+        <h3 class="contenttitle text-white">Features: </h3>
+      </div>
+      <div class="leftitem text-grey">
+        <ul class="list-unstyled">
+          <li><strong>Class Management:</strong> Easily create, update, and organize your classes.</li>
+          <li><strong>Classroom Management:</strong> Assign and manage classrooms for your classes.</li>
+          <li><strong>Schedule Management:</strong> Plan and maintain your class schedules effortlessly.</li>
+          <li><strong>Student Information:</strong> Keep detailed records of your students, including 
+            their enrollment status and personal information.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="contenttitle text-white">How It Works: </h3>
+      </div>
+      <div class="leftitem text-grey">
+        <ul class="list-unstyled">
+          <li><strong>Register Menu:</strong> Use the register menu to input and store information about 
+           classes, classrooms, schedules, and students. This ensures that all your data is organized and
+           readily accessible.</li>
+          <li><strong>Query Function:</strong> The query feature allows you to search for specific records,
+             making it easy to find the information you need quickly. Additionally, you can edit or delete
+             records as necessary, ensuring your data remains accurate and up-to-date.</li>
+        </ul>
+      </div>
+      <div class="item-description text-white text-center mb-4">
+        <p class="mb-4 text-grey">
+          This system is designed with your needs in mind, streamlining administrative tasks so you can focus 
+          more on teaching and less on paperwork.
+          <br>
+          Start using the system today and experience the ease of managing your educational responsibilities with efficiency and precision.
+        </p>
+      </div>
+    </div>
   </div>
   {% else %}
   <div class="card mb-3">
@@ -44,7 +88,6 @@
       </div>
       <div class="rightitem">
         <div class="item-title text-white text-center">
-
           Join us on a linguistic journey
         </div>
         <div class="item-description text-grey text-center">
@@ -64,7 +107,6 @@
       </div>
       <div class="rightitem">
         <div class="item-title text-white text-center">
-
           Empower Teachers with Comprehensive Classroom Controls:
         </div>
         <div class="item-description text-grey text-center">
@@ -85,11 +127,10 @@
       </div>
       <div class="rightitem">
         <div class="item-title text-white text-center">
-
           Comprehensive Support and Community Engagement:
         </div>
         <div class="item-description text-grey text-center">
-          <p>
+          <p class="mb-4">
             Beyond language instruction, SpeakPortuEasy provides a supportive environment for every learner.
             Whether you're a beginner or advanced student, our team is dedicated to your success. From
             responsive customer service to a thriving community of language enthusiasts, you'll find the

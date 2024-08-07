@@ -17,7 +17,12 @@ class Classroom(models.Model):
 
 
 class Classes(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    name = models.CharField(
+        max_length=50,
+        blank=False,
+        null=False,
+        unique=True
+    )
     level = models.CharField(max_length=2, blank=False, null=False)
     description = models.CharField(max_length=255, blank=False, null=False)
 
@@ -44,7 +49,7 @@ class Parents(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=10, blank=False, null=False)
-    #student = models.IntegerField(blank=False, null=False)
+    # student = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
         return self.name

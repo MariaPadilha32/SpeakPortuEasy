@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect
 from .admin import CustomUserCreationForm
 from django.contrib import messages
+
 
 # Create your views here.
 def register(request):
@@ -15,5 +16,4 @@ def register(request):
             return redirect('home')
         else:
             print('erorr')
-            #return render(request,'registration/register.html', {'form' : form})
-    return render(request,'registration/register.html',{'form' : form})
+    return render(request, 'registration/register.html', {'form': form})
