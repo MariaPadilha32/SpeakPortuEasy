@@ -598,69 +598,246 @@ whitenoise==6.5.0
 
 Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
 
-## Deployment
+## Deployment and Local Development
+The live deployed version of the website can be found on [Heroku](https://speakportueasypp4-342d78e3516e.herokuapp.com/). The following sections detail the deployment process and the technologies used. Instructions for forking or cloning the repository are also provided.
 
-### Version Control
+### ElephantSQL Database
 
-The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘Gars-Steakhouse’.
+The PostgreSQL Database for this project was was set up using [ElephantSQL](https://www.elephantsql.com),  which you can sign up for using your GitHub account. After signing up, follow these steps:
 
-The following git commands were used throughout development to push code to the remote repo:
+- Click **Create New Instance** to start a new database.
+- Name used: `smartspeaksolution`.
+- Select the **Tiny Turtle (Free)** plan.
+- **Tags** can be left blank.
+- Normally you select the **Region** and **Data Center** closest to you in this case EU-West-1.
+- For my project, I had to select a differnt region (West-US) as this provided a newer Postgres version that was needed for my project requirements.
+- Once created, click on the new database name, where you can view the database URL which will be needed for the Heroku Config Vars.
 
-```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+### Amazon AWS
 
-```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+This project uses [Amazon Web Services (AWS)](https://aws.amazon.com) to store its media and static files.
 
-```git push``` - This command was used to push all committed code to the remote repository on github.
+Once you've created an AWS account and logged-in, navigate to the **AWS Management Console** page & follow these series of steps to get your project connected.
+
+#### S3 Bucket
+
+- Search for **S3**.
+- Create a new bucket, give it a name (matching your Heroku app name), and choose the region closest to you.
+- Uncheck **Block all public access**, and acknowledge that the bucket will be public (required for it to work on Heroku).
+- From **Object Ownership**, make sure to have **ACLs enabled**, and **Bucket owner preferred** selected.
+- From the **Properties** tab, turn on static website hosting, and type `index.html` and `error.html` in their respective fields, then click **Save**.
+- From the **Permissions** tab, paste in the following CORS configuration:
+
+	```shell
+	[
+		{
+			"AllowedHeaders": [
+				"Authorization"
+			],
+			"AllowedMethods": [
+				"GET"
+			],
+			"AllowedOrigins": [
+				"*"
+			],
+			"ExposeHeaders": []
+		}
+	]
+	```
+
+- Copy your **ARN** string.
+- From the **Bucket Policy** tab, select the **Policy Generator** link, and use the following steps:
+	- Policy Type: **S3 Bucket Policy**
+	- Effect: **Allow**
+	- Principal: `*`
+	- Actions: **GetObject**
+	- Amazon Resource Name (ARN): **paste-your-ARN-here**
+	- Click **Add Statement**
+	- Click **Generate Policy**
+	- Copy the entire Policy, and paste it into the **Bucket Policy Editor**
+
+		```shell
+		{
+			"Id": "Policy1234567890",
+			"Version": "2012-10-17",
+			"Statement": [
+				{
+					"Sid": "Stmt1234567890",
+					"Action": [
+						"s3:GetObject"
+					],
+					"Effect": "Allow",
+					"Resource": "arn:aws:s3:::your-bucket-name/*"
+					"Principal": "*",
+				}
+			]
+		}
+		```
+
+	- Before you click "Save", add `/*` to the end of the Resource key in the Bucket Policy Editor (like above).
+	- Click **Save**.
+- From the **Access Control List (ACL)** section, click "Edit" and enable **List** for **Everyone (public access)**, and accept the warning box.
+	- If the edit button is disabled, you need to change the **Object Ownership** section above to **ACLs enabled** (mentioned above).
+
+#### IAM
+
+Back on the AWS Services Menu, search for and open **IAM** (Identity and Access Management).
+Once on the IAM page, follow these steps:
+
+- From **User Groups**, click **Create New Group**.
+	- Name: `smartspeaksolutionp5`
+- Tags are optional, but you must click it to get to the **review policy** page.
+- From **User Groups**, select your newly created group, and go to the **Permissions** tab.
+- Open the **Add Permissions** dropdown, and click **Attach Policies**.
+- Select the policy, then click **Add Permissions** at the bottom when finished.
+- From the **JSON** tab, select the **Import Managed Policy** link.
+	- Search for **S3**, select the `AmazonS3FullAccess` policy, and then **Import**.
+	- You'll need your ARN from the S3 Bucket copied again, which is pasted into the "Resource" key on the Policy.
+
+		```shell
+		{
+			"Version": "2012-10-17",
+			"Statement": [
+				{
+					"Effect": "Allow",
+					"Action": "s3:*",
+					"Resource": [
+						"arn:aws:s3:::your-bucket-name",
+						"arn:aws:s3:::your-bucket-name/*"
+					]
+				}
+			]
+		}
+		```
+	
+	- Click **Review Policy**.
+	- Name: `smartspeaksolution`
+	- Provide a description:
+		- "Access to S3 Bucket for Smart Speak Solutions static files."
+	- Click **Create Policy**.
+- From **User Groups**, click `manage-smartspeaksolution`.
+- Click **Attach Policy**.
+- Search for the policy you've just created (`smartspeaksolution`) and select it, then click **Attach Policy**.
+- From **User Groups**, click **Add User**.
+	- Name: `TOBEADDED`
+- For "Select AWS Access Type", select **Programmatic Access**.
+- Select the group to add your new user to: `TOBEADDED`
+- Tags are optional, but you must click it to get to the **review user** page.
+- Click **Create User** once done.
+- You should see a button to **Download .csv**, so click it to save a copy on your system.
+- If you don't see an option to downlod the CSV file go to IAM and select **Users**
+- Select the user for whom you wish to create a CSV file.
+- Select the **Security Credentials** tab.
+- Scroll to **Access Keys** and click **Create access key**
+- Select **Application running outside AWS**, and click next.
+- On the next screen, you can leave the **Description tag** value blank. Click **Create Access Key**.
+- Click the **Download .csv file** button.
+    - **IMPORTANT**: once you pass this page, you cannot come back to download it again, so do it immediately!
+	- This contains the user's **Access key ID** and **Secret access key**.
+	- `AWS_ACCESS_KEY_ID` = **Access key ID**
+	- `AWS_SECRET_ACCESS_KEY` = **Secret access key**
+- These will be needed for the Heroku Config Vars.
+
+#### Final AWS Setup
+
+- Follow the steps described later for [Heroku Deployment](#heroku-deployment) and then return here to follow these final AWS steps below.
+- If Heroku Config Vars has `DISABLE_COLLECTSTATIC` still, this can be removed now, so that AWS will handle the static files.
+- Back within **S3**, create a new folder called: `media`.
+- Inside the media file select **Upload** and **Add Files**.
+- Select the images from your hard-drive that you wish to upload.
+- Under **Manage Public Permissions**, select **Grant public read access to this object(s)**.
+- No further settings are required, so click next through to the end and **Upload**.
 
 ### Heroku Deployment
 
-The site was deployed to Heroku. The steps to deploy are as follows:
+This project uses [Heroku](https://www.heroku.com) for deployment to the web. The deployment steps are as follows, after account setup:
 
-- Navigate to heroku and create an account
-- Click the new button in the top right corner
-- Select create new app
-- Enter app name
-- Select region and click create app
-- Click the resources tab and search for Heroku Postgres
-- Select hobby dev and continue
-- Go to the settings tab and then click reveal config vars
-- Add the following config vars:
-  - SECRET_KEY: (Your secret key)
-  - DATABASE_URL: (This should already exist with add on of postgres)
-  - EMAIL_HOST_USER: (email address)
-  - EMAIL_HOST_PASS: (email app password)
-  - CLOUNDINARY_URL: (cloudinary api url)
-- Click the deploy tab
-- Scroll down to Connect to GitHub and sign in / authorize when prompted
-- In the search box, find the repositoy you want to deploy and click connect
-- Scroll down to Manual deploy and choose the main branch
-- Click deploy
+- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables.
 
-The app should now be deployed.
+| Key | Value |
+| --- | --- |
+| `AWS_ACCESS_KEY_ID` | user's own value |
+| `AWS_SECRET_ACCESS_KEY` | user's own value |
+| `DATABASE_URL` | user's own postgres value |
+| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
+| `EMAIL_HOST_PASS` | user's own value |
+| `EMAIL_HOST_USER` | user's gmail |
+| `SECRET_KEY` | user's own value |
+| `STRIPE_PUBLIC_KEY` | user's own value |
+| `STRIPE_SECRET_KEY` | user's own value |
+| `STRIPE_WH_SECRET` | user's own value |
+| `USE_AWS` | True |
 
-The live link can be found here: [Live Site](TOBEADDED)
+Heroku needs two additional files in order to deploy properly.
 
-### Run Locally
+- requirements.txt
+- Procfile
 
-Navigate to the GitHub Repository you want to clone to use locally:
+You can install this project's **requirements** (where applicable) using:
 
-- Click on the code drop down button
-- Click on HTTPS
-- Copy the repository link to the clipboard
-- Open your IDE of choice (git must be installed for the next steps)
-- Type git clone copied-git-url into the IDE terminal
+- `pip3 install -r requirements.txt`
 
-The project will now have been cloned on your local machine for use.
+If you have your own packages that have been installed, then the requirements file need to be updated using:
 
-### Fork Project
+- `pip3 freeze --local > requirements.txt`
 
-Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+Create a **Procfile** at the root level of the project:
 
-- Navigate to the GitHub Repository you want to fork.
+- Open the Procfile and enter the following line of code: `web: gunicorn app_name.wsgi:application` and save.
+- *replace **app_name** with the name of your primary Django app name; the folder where settings.py is located*.
 
-- On the top right of the page under the header, click the fork button.
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
 
-- This will create a duplicate of the full project in your GitHub Repository.
+Either:
+
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+
+- Ensure Heroku is installed for these following commands to work.
+- If it is not run `curl https://cli-assets.heroku.com/install.sh | sh` in the terminal/CLI.
+- Then connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (replace *app_name* with your app name)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+	- `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
+
+### Local Development
+The steps below describe how to fork or clone the repository if desired.
+#### How to Fork
+1. Log in to Github.
+2. Navigate to the [repository](https://github.com/MariaPadilha32/SpeakPortuEasy) for this website.
+3. Click the Fork button in the top right corner.
+4. You will be brought to a new page with a short form to be completed.
+5. Upon completing, click on the "Create fork" button and this will create a fork of the repository in your personal account.
+
+#### How to Clone
+1. Log in to GitHub.
+2. Navigate to the [repository](https://github.com/MariaPadilha32/SpeakPortuEasy) for this website.
+3. Click on the **Code** button and a modal will appear.
+4. Within this modal select the local tab.
+5. Within this tab there are HTTPS, SSH, or GitHub CLI tabs.
+6. Click on the HTTPS tab and copy the link shown.
+7. In your development environment open the terminal.
+8. Change the current working directory to the location where you want the cloned directory to be.
+9. Type `git clone` into the terminal, then paste the URL you copied in step 6.
+10. Press **Enter** to create your local clone.
+11. In the terminal install the requirements by using the following: `pip3 install -r requirements.txt`.
+12. If you have your own packages that have been installed, then the requirements file needs to be updated using: `pip3 freeze --local > requirements.txt`.
+13. Next create the env.py file which tells our project which variables to use.
+14. Add env.py the file to a .gitignore file to prevent it from being pushed to github.
+15. Start the Django app: `python3 manage.py runserver`.
+16. Make migrations by running : `python3 manage.py makemigrations`
+17. Then migrate those changes with `python3 manage.py migrate`
+18. To view the website type `python3 manage.py runserver` into the terminal and open port 8000.
+19. The project is now ready to work on locally and any changes made can viewed using port 8000.
+
+[Back to top](#contents)
+
+## Credits
 
 ### Resources
 	- The Code Institute "Hello Django and I think Therefore I blog" project was very much relied upon to build this project.
