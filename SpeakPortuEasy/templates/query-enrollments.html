@@ -37,7 +37,7 @@
                 {% if enrollments %}
                 {% for enrollment in enrollments %}
                 <tr>
-                    <td>{{ enrollment.name }}</td>
+                    <td>{{ enrollment.student }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning col-2">Edit</button></a>
                         <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger col-2">Delete</button></a>
@@ -47,7 +47,7 @@
                 {% else %}
                 {% for enrollment in page_obj %}
                 <tr>
-                    <td>{{ enrollment.name }}</td>
+                    <td>{{ enrollment.classname }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning col-2">Edit</button></a>
                         <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger col-2">Delete</button></a>
