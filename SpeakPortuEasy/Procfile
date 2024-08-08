@@ -1,1 +1,1 @@
-web gunicorn speakportueasy.wsgi:application
+web: gunicorn SpeakPortuEasy.wsgi:application
