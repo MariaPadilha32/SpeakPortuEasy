@@ -1,9 +1,9 @@
 # SpeakPortuEasy
 
 SpeakPortuEasy is an innovative system designed for teachers to efficiently manage their classes and student information. Once a teacher signs up, they gain access to a comprehensive registration system where all relevant information is stored. This allows teachers to easily edit or delete records as necessary. The primary goal of SpeakPortuEasy is to simplify the process of finding information about enrollments, classes, students, and more, making classroom management straightforward and hassle-free.
-You can access the live application at this link: [Live Site - SpeakPortuEay](https://TOBEADD/)
+You can access the live application at this link: [Live Site - SpeakPortuEay](https://speakportueasypp4-342d78e3516e.herokuapp.com/home/)
 
-![Mock Up](WEBSITE IMAGE TO BE ADD)
+![Mock Up](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102458.png)
 
 ## Table of Contents
 - [SpeakPortuEasy](#speakportueasy)
@@ -17,7 +17,6 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
     - [Features](#features)
     - [Features Left To Implement](#features-left-to-implement)
   - [The-Skeleton-Plane](#the-skeleton-plane)
-    - [Wireframes](#wireframes)
     - [Database-Design](#database-design)
     - [Security](#security)
   - [The-Surface-Plane](#the-surface-plane)
@@ -157,7 +156,7 @@ Implementation:
 
 **Navigation Bar**
 
-The navigation menu in SpeakPortuEasy is designed to provide easy access to all major sections of the platform. The menu is available on all pages and adapts to smaller devices by displaying as a hamburger menu.
+The navigation bar in SpeakPortuEasy is designed to provide easy access to all major sections of the platform. The bar is available on all pages and adapts to smaller devices by displaying as a hamburger menu.
 
 The following navigation items are available on all pages:
   * SpeakPortuEasy (goes to home) - Visible to all
@@ -181,7 +180,7 @@ The following navigation items are available on all pages:
 
 The navigation bar is displayed on all pages and drops down into a hamburger menu on smaller devices. This will allow users to view the site from any device and not take up too much space on mobile devices.
 
-![Navbar](tobeadded)
+![Navbar](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102502.png)
 
 ``USER STORY - As a teacher, I would like a home page that provides an overview of the system and easy access to its features.``
 
@@ -195,9 +194,7 @@ Under the description, users must log in to access the system's features. This e
 
 The home page is designed to be simple and user-friendly, providing essential information and a clear call to action for logging in.
 
-![Hero Image](tobeadded)
-
-![Welcome Section](tobeadded)
+![Welcome Section](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102738.png)
 
 ``USER STORY - As a teacher, I want to createa simple footer``
 
@@ -207,7 +204,7 @@ The home page is designed to be simple and user-friendly, providing essential in
 
 A simple footer has been added to the bottom of the site. Since SpeakPortuEasy is a system for teachers to manage their work, the footer only includes essential registration information. It does not contain social media links or additional contact information, maintaining a clean and professional appearance.
 
-![Footer](tobeadded)
+![Footer](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102508.png)
 
 ``USER STORY - As a teacher, I want to be able to create a new class so that I can organize my teaching schedule.``
 
@@ -216,7 +213,7 @@ A simple footer has been added to the bottom of the site. Since SpeakPortuEasy i
 
 A create class page was implemented to allow teachers to create new classes via the UI without having to use the backend admin panel. This will enable teachers to quickly add new classes as needed.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102752.png)
 
 ``USER STORY - As a teacher, I want to be able to view the classes I have created so that I can manage them effectively.``
 
@@ -225,7 +222,7 @@ A create class page was implemented to allow teachers to create new classes via 
 
 A view classes page has been implemented to allow teachers to see all the classes they have created. This page includes a list of classes with relevant information and options to edit or delete each class.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103030.png)
 
 ``USER STORY - As a teacher, I want to be able to edit a class when updates are needed so that the information remains current.``
 
@@ -234,7 +231,7 @@ A view classes page has been implemented to allow teachers to see all the classe
 
 On the view classes page, an edit button was added to allow teachers to update class information when changes need to be made.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103037.png)
 
 ``USER STORY - As a teacher, I want to be able to delete a class when it is no longer needed so that my class list stays organized.``
 
@@ -243,7 +240,7 @@ On the view classes page, an edit button was added to allow teachers to update c
 
 On the view classes page, a delete button has been implemented that will take teachers to a confirmation page to allow them to delete a class. This helps maintain an up-to-date list of active classes.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103049.png)
 
 ``USER STORY - As a teacher, I want to be able to create a new student record so that I can manage student information.``
 
@@ -252,7 +249,7 @@ On the view classes page, a delete button has been implemented that will take te
 
 A create student page was implemented with a form that takes in student details, allowing teachers to easily add new students to their classes through the UI.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102752.png)
 
 ``USER STORY - As a teacher, I want to be able to view student records so that I can keep track of student information.``
 
@@ -261,16 +258,12 @@ A create student page was implemented with a form that takes in student details,
 
 A view students page was implemented to show all student records. Teachers can use this page to see detailed information about each student and manage their records.
 
-![Image](tobeadded)
-
 ``USER STORY - As a teacher, I want to be able to edit a student record so that I can update their information as needed.``
 
 **Implementation:**
 **Edit Student Page**
 
 On the view students page, an edit button is available that directs teachers to a form where they can update student information.
-
-![Image](tobeadded)
 
 ``USER STORY - As a teacher, I want to be able to delete a student record when it is no longer needed so that the student list remains accurate.``
 
@@ -279,8 +272,6 @@ On the view students page, an edit button is available that directs teachers to 
 
 A delete button was added to the view students page, allowing teachers to remove student records they no longer need.
 
-![Image](tobeadded)
-
 ``USER STORY - As a teacher, I want to be able to search for a specific class or student so that I can quickly find the information I need.``
 
 **Implementation:**
@@ -288,7 +279,7 @@ A delete button was added to the view students page, allowing teachers to remove
 
 A search box was added to the view classes and view students pages. This allows teachers to easily locate a specific class or student by entering relevant keywords.
 
-![Image](tobeadded)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103030.png)
 
 ``USER STORY - As a teacher, I want to be notified if I try to register the same information more than once to avoid duplicates.``
 
@@ -297,13 +288,9 @@ A search box was added to the view classes and view students pages. This allows 
 
 Validation logic was added to notify teachers if they attempt to register duplicate information. This helps maintain a clean and accurate database.
 
-![Image](tobeadded)
-
 **Favicon**
     * A site wide favicon was implemented.
     * This provides an image in the tabs header to allow the user to easily identify the website if they have multiple tabs open.
-
-![Favicon]((tobeadded))
 
 **Error Pages**
 
@@ -380,109 +367,60 @@ For future development, the following features are planned to enhance the functi
 
 - **Online Payment for Classes:** Implement a secure online payment system allowing students to pay for their classes directly through the platform. This feature will simplify the payment process and provide a convenient option for students to manage their class fees.
 
-
-## Wireframes
-
-- Home page
-
-
-![Home Page](tobeadded)
-
-
-- Signup page
-
-
-![Sign up Page](tobeadded)
-
-- Log in
-
-![Login Page](tobeadded)
-
-- Log Out
-
-![Logout Page](tobeadded)
-
-- Create Booking
-
-![Create Booking](tobeadded)
-
-- Edit Booking 
-
-![Edit Booking](tobeadded)
-
-- Manage Bookings
-
-![Manage Bookings](tobeadded)
-
-- Delete Booking 
-
-![Delete Booking](tobeadded)
-
-- Create Menu 
-
-![Create Menu](tobeadded)
-
-- Edit Menu 
-
-![Edit Menu](tobeadded)
-
-- View Menu 
-
-![View Menu](tobeadded)
-
-
-- Manage Menus
-
-![Manage Menu](tobeadded)
-
-- Delete Menu 
-
-![Delete Menu](tobeadded)
-
-- 404 Error 
-
-![404 Error](tobeadded)
-
-- 403 Error 
-
-![403 Error](tobeadded)
-
-- 500 Error 
-
-![500 Error](tobeadded)
-
 ### Database-Design
 
-The database was designed to allow CRUD functionality to be available to registered users, when signed in. The user model is at the heart of the application as it is connected the the main booking and menu tables, linked by primary/foreign key relationships.
-
-The Menu Items model holds objects that are linked to the Menu Models by a many to many relationship. This allows for staff to create menus with many menu items on.
-
-Bookings are related to the customer (user) by a Foreign Key which allows the users to be able to view and update bookings attached to their accounts.
-
-![Entity Relationship Diagram](docs/readme_images/erd.JPG)
-
-### Security
-
-Views were secured by using the django class based view mixin, UserPassesTextMixin. A test function was created to use the mixin and checks were ran to ensure that the user who is trying to access the page is authorized. Any staff restricted functionality, user edit/delete functionality listed in the features was secured using this method.
-
-Environment variables were stored in an env.py for local development for security purposes to ensure no secret keys, api keys or sensitive information was added the the repository. In production, these variables were added to the heroku config vars within the project.
+The database was designed to allow CRUD (Create, Read, Update, Delete) functionality for registered users, specifically teachers, when signed in.
 
 ## The-Surface-Plane
-### Design
+
+## Design
 
 ### Colour-Scheme
 
-The main color schemes for the website are black ( #000000 ) ground. White font (#FFF) and the gold (#8f773c9e) was added to borders, button text and hover affects to add a hint of color to the website.
+- #bbdece (Light Cyan/Teal)
+
+Feelings: Calm, refreshing, soothing.
+Description: This color often evokes feelings of tranquility and peace, reminiscent of clear skies or calm waters. It can be very refreshing and is often used to create a sense of cleanliness and purity.
+
+- #feedaa (Light Peach)
+
+Feelings: Warmth, comfort, friendliness.
+Description: Light peach is a warm and inviting color. It can create a cozy and welcoming atmosphere, making users feel comfortable and relaxed. It's often associated with a soft, nurturing environment.
+
+- #fff8f5 (Very Light Pink/Off-White)
+
+Feelings: Softness, innocence, simplicity.
+Description: This very light pink or off-white color is delicate and subtle. It often gives a sense of purity and simplicity, and can make users feel calm and content. It's a gentle color that doesn't overwhelm, providing a serene background.
+
+- #495551 (Dark Gray-Green)
+
+Feelings: Stability, seriousness, sophistication.
+Description: This dark gray-green color is more subdued and can evoke feelings of stability and seriousness. It has a sophisticated and professional feel to it, often used in contexts where a sense of reliability and depth is desired.
 
 ### Typography
 
-The Roboto font was used throughout the website. This font is from google fonts and was imported into the style sheet.
+**The Young Font**
+The Young Font is a playful and modern typeface that often conveys a sense of youthfulness, creativity, and fun. It's designed to be easily readable while also adding a touch of personality and flair to the text. This type of font is ideal for projects targeting younger audiences or aiming for a fresh, dynamic feel. It can be used in headings, logos, posters, or any creative work where a more informal and engaging tone is desired. The design of "The Young Font" typically includes:
+
+Rounded edges: To give it a soft and approachable appearance.
+Varied stroke widths: Adding to the playful and casual feel.
+Unique character shapes: Making it stand out and memorable.
+Good readability: Despite its playful design, it remains easy to read.
+
+**Sans-Serif Fonts**
+Sans-serif fonts are a category of typefaces that do not have the small projecting features called "serifs" at the end of strokes. These fonts are known for their clean, modern, and straightforward appearance, making them highly versatile and widely used across various mediums. Characteristics of sans-serif fonts include:
+
+Simplicity: The absence of serifs gives these fonts a sleek and minimalistic look.
+Readability: They are highly legible, especially on digital screens, making them a popular choice for websites, apps, and user interfaces.
+Modernity: Often associated with contemporary design, sans-serif fonts convey a sense of modernity and efficiency.
+Versatility: Suitable for a wide range of applications, from body text in books and articles to headings and branding.
+Uniform stroke width: Generally, the strokes in sans-serif fonts are more uniform compared to serif fonts, contributing to their clean look.
 
 ### Imagery
 
 The Website logo was made using Canva using the Gold colour to match in with the website color scheme.
 
-The hero image was taken from Pexels which is a royalty free image site.
+The hero image was taken from Canva pro which is a royalty free image site.
 
 
 ## Technolgies
@@ -494,9 +432,6 @@ The hero image was taken from Pexels which is a royalty free image site.
 
 ### CSS
  - Custom CSS was crafted to style the website as per design specifications and wireframes, ensuring a visually appealing and responsive layout.
-
-### JavaScript
- - Implemented to add interactivity and enhance user experience, such as enabling the menu on the index.html page and setting timeout functions for messages.
 
 ### Python
  -  The primary programming language used to handle backend logic, including processing data and handling requests.
@@ -594,7 +529,26 @@ whitenoise==6.5.0
 
 ## Testing
 
-Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
+Test cases: 
+
+### CSS
+
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+223836.png)
+
+### Python
+
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+225908.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+190003.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192851.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192932.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192948.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+193104.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+193329.png)
+
+### JS
+
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+224609.png)
+![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+224945.png)
 
 ## Deployment and Local Development
 The live deployed version of the website can be found on [Heroku](https://speakportueasypp4-342d78e3516e.herokuapp.com/). The following sections detail the deployment process and the technologies used. Instructions for forking or cloning the repository are also provided.
@@ -604,7 +558,7 @@ The live deployed version of the website can be found on [Heroku](https://speakp
 The PostgreSQL Database for this project was was set up using [ElephantSQL](https://www.elephantsql.com),  which you can sign up for using your GitHub account. After signing up, follow these steps:
 
 - Click **Create New Instance** to start a new database.
-- Name used: `smartspeaksolution`.
+- Name used: `speakportueasy`.
 - Select the **Tiny Turtle (Free)** plan.
 - **Tags** can be left blank.
 - Normally you select the **Region** and **Data Center** closest to you in this case EU-West-1.
@@ -683,7 +637,7 @@ Back on the AWS Services Menu, search for and open **IAM** (Identity and Access 
 Once on the IAM page, follow these steps:
 
 - From **User Groups**, click **Create New Group**.
-	- Name: `smartspeaksolutionp5`
+	- Name: `speakportueasypp4`
 - Tags are optional, but you must click it to get to the **review policy** page.
 - From **User Groups**, select your newly created group, and go to the **Permissions** tab.
 - Open the **Add Permissions** dropdown, and click **Attach Policies**.
@@ -709,13 +663,13 @@ Once on the IAM page, follow these steps:
 		```
 	
 	- Click **Review Policy**.
-	- Name: `smartspeaksolution`
+	- Name: `speakportueasy`
 	- Provide a description:
-		- "Access to S3 Bucket for Smart Speak Solutions static files."
+		- "Access to S3 Bucket for speakportueasy static files."
 	- Click **Create Policy**.
-- From **User Groups**, click `manage-smartspeaksolution`.
+- From **User Groups**, click `manage-speakportueasy`.
 - Click **Attach Policy**.
-- Search for the policy you've just created (`smartspeaksolution`) and select it, then click **Attach Policy**.
+- Search for the policy you've just created (`speakportueasy`) and select it, then click **Attach Policy**.
 - From **User Groups**, click **Add User**.
 	- Name: `TOBEADDED`
 - For "Select AWS Access Type", select **Programmatic Access**.
