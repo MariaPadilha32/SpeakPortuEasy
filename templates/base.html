@@ -1,57 +1,68 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/logop4.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
     <title>SpeakPortuEasy | {% block 'title' %}{% endblock %}</title>
-</head>
+  </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">SpeakPortuEasy</a>
+        <a class="navbar-brand" href="{% url 'home' %}">SpeakPortuEasy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Register
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Student</a></li>
-                <li><a class="dropdown-item" href="#">Class</a></li>
-                <li><a class="dropdown-item" href="#">Schedule</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-student' %}">Student</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-class' %}">Class</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-classroom' %}">Classroom</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-schedule' %}">Schedule</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-enrollments' %}">Enrollment</a></li>
+                <li><a class="dropdown-item" href="{% url 'register-teacher' %}">Teacher</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Query
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Student</a></li>
-                <li><a class="dropdown-item" href="#">Class</a></li>
-                <li><a class="dropdown-item" href="#">Schedule</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <button class="btn btn-success" type="submit">Login</button>
-          </form>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'query-student' %}">Student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'query-class' %}">Class</a></li>
+                  <li><a class="dropdown-item" href="{% url 'query-classroom' %}">Classroom</a></li>
+                  <li><a class="dropdown-item" href="{% url 'query-schedule' %}">Schedule</a></li>
+                  <li><a class="dropdown-item" href="{% url 'query-enrollments' %}">Enrollment</a></li>
+                  <li><a class="dropdown-item" href="{% url 'query-teacher' %}">Teacher</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="d-flex">
+              {% if user.is_authenticated %}
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning">Logout</button>
+            </form>
+            {% else  %}
+            <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success">Login</button>
+            </form>
+            {% endif %}
+          </div>
         </div>
       </div>
     </nav> 
@@ -60,9 +71,9 @@
     {% block 'main' %}
     {% endblock %}
   </main>
-  <footer>
-    {% block 'footer' %}{% endblock %}
+  <footer class="text-white bg-primary">
+    &reg;Maria Padilha
   </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

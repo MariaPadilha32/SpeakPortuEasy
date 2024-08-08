@@ -3,5 +3,43 @@
 {% block 'title' %}Schedule Registery{% endblock %}
 
 {% block 'main' %}
-<h1>Schedule</h1>
+<div class="container col-6">
+    <form method="post" action="{% url 'register-schedule' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="txtDay" class="form-label">Day of the Week: <span class="required">*</span></label>
+            <select name="day_week" class="form-select" id="txtDay" required>
+                <option value="" selected> Select day off the week</option>
+                <option value="monday" >Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="txtStartTime" class="form-label">Start Time: <span class="required">*</span></label>
+            <input name="start_time" type="time" class="form-control" id="txtStartTime" aria-describedby="StartTime" required>
+        </div>
+        <div class="mb-3">
+            <label for="txtEndTime" class="form-label">End Time: <span class="required">*</span></label>
+            <input name="end_time" type="time" class="form-control" id="txtEndTime" aria-describedby="EndTime" required>
+        </div>
+        <div class="mb-3">
+            <label for="txtEndTime" class="form-label">Date: <span class="required">*</span></label>
+            <input name="date" type="date" class="form-control" id="txtEndTime" aria-describedby="Date" required>
+        </div>
+        <div class="mb-3">
+            <label for="txtClass" class="form-label">Associated Class: <span class="required">*</span></label>
+            <select name="student" class="form-select" id="txtClass" required>
+                {% for class in classes %}
+                <option value="{{class.id}}">{{class.name}}</option>
+                {% endfor %}
+                <!-- Populate with available classes -->
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary col-2">Submit</button>
+        <button type="reset" class="btn btn-warning col-2">Reset</button>
+    </form>
+</div>
 {% endblock %}
