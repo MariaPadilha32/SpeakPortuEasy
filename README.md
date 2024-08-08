@@ -51,8 +51,6 @@ During the active development phases, I used a detailed Kanban board to manage e
 
 The Kanban board, which can be viewed [here](https://github.com/users/MariaPadilha32/projects/6) shows the progress and detailed project cards. Each user story includes specific acceptance criteria to define the functionality required for completion.
 
-![Kanban image](TBEADDD)
-
 ### User Stories
 
 #### Initialization and Setup
