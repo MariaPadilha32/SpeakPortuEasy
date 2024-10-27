@@ -10,7 +10,7 @@
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
             <select name="student" class="form-select" id="txtStudent" required>
                 {% for student in students %}
-                <option value="{{student.id}}" {% if enrollments.student.id == student.id %} selected {% endif %} >{{student.name}} - {{student.id}} = {{ enrollments.student.id }}</option>
+                <option value="{{student.id}}" {% if enrollments.student.id == student.id %} selected {% endif %} >{{student.name}} - {{student.id}} = {{ enrollments.student}}</option>
                 {% endfor %}
                 <!-- Populate with available students -->
             </select>
