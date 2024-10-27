@@ -39,8 +39,8 @@
                 <tr>
                     <td>{{ student.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-student' student.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-student' student.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-student' student.id %}"><button class="btn btn-warning">Edit</button></a>
+                        <a href="{% url 'delete-student' student.id %}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -49,8 +49,8 @@
                 <tr>
                     <td>{{ studentss.name }}</td>
                     <td class="text-end">
-                        <a href="{% url 'edit-student' studentss.id %}"><button class="btn btn-warning col-2">Edit</button></a>
-                        <a href="{% url 'delete-student' studentss.id %}"><button class="btn btn-danger col-2">Delete</button></a>
+                        <a href="{% url 'edit-student' studentss.id %}"><button class="btn btn-warning">Edit</button></a>
+                        <a href="{% url 'delete-student' studentss.id %}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
