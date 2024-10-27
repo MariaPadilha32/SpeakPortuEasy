@@ -523,7 +523,7 @@ def edit_teacher(request, id):
             form.save()
             return redirect('query-teacher')
         else:
-            return render(request, 'edit_teacher.html', data)
+            return render(request, 'edit-teacher.html', data)
     else:
         form = TeacherForm
         return render(request, 'edit-teacher.html', data)
