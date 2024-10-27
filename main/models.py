@@ -109,9 +109,9 @@ class Users(models.Model):
 class Teacher(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
     surname = models.CharField(max_length=50, blank=False, null=False)
-    email = models.CharField(max_length=100)
+    email = models.CharField(max_length=100, blank=True, null=True)
     phone1 = models.CharField(max_length=20, blank=False, null=False)
-    phone2 = models.CharField(max_length=20)
+    phone2 = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.name
