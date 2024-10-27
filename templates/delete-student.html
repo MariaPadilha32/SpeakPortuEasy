@@ -36,8 +36,8 @@
             <label for="txtParents" class="form-label">Parents/ Legal Guardian:</label>
             <input name="parents" {% if student.parents %} value="{{ student.parents }}" {% endif %} type="text" class="form-control" id="txtParents" aria-describedby="Parents/ Legal Guardian" disabled>
         </div>
-        <button type="submit" class="btn btn-danger col-2" >Delete</button>
-        <a href="{% url 'query-student' %}"><input type="button" value="Cancel" class="btn btn-warning col-2"></a>
+        <button type="submit" class="btn btn-danger" >Delete</button>
+        <a href="{% url 'query-student' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
     </form>
 </div>
 {% endblock %}
