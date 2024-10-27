@@ -588,10 +588,14 @@ def edit_classroom(request, id):
 @login_required(login_url='login')
 def edit_enrollments(request, id):
     enrollments = Enrollments.objects.get(id=id)
+    students = Student.objects.all()
+    classes = Classes.objects.all()
     form = EnrollmentsForm(request.POST or None, instance=enrollments)
     data = {}
     data['enrollments'] = enrollments
     data['form'] = form
+    data['students'] = students
+    data['classes'] = classes
     if request.method == 'POST':
         if form.is_valid():
             form.save()
