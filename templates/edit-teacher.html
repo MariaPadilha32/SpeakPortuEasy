@@ -12,20 +12,20 @@
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
+            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required value="{{ teacher.surname }}">
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email">
+            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email" value="{{ teacher.email }}">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
                 <label for="txtPhone1" class="form-label">Phone Number 1: <span class="required">*</span></label>
-                <input name="phone1" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required>
+                <input name="phone1" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required value="{{ teacher.phone1 }}">
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
+                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" value="{{ teacher.phone2 }}">
             </div>
         </div>
         <button type="submit" class="btn btn-success col-2">Edit</button>
