@@ -33,8 +33,8 @@
             <label for="txtClass" class="form-label">Associated Class: <span class="required">*</span></label>
             <input type="text" name="student" id="txtClass" value="{{classes.name}}" disabled class="form-control">
         </div>
-        <button type="submit" class="btn btn-danger col-2">Delete</button>
-        <a href="{% url 'query-schedule' %}"><input type="button" value="Cancel" class="btn btn-warning col-2"></a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'query-schedule' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
     </form>
 </div>
 {% endblock %}
