@@ -18,8 +18,8 @@
             <label for="txtPhone" class="form-label">Phone Number: <span class="required">*</span></label>
             <input name="phone" value="{{ parents.phone }}" type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required  disabled>
         </div>
-        <button type="submit" class="btn btn-danger col-2">Delete</button>
-        <a href="{% url 'query-parents' %}"><input type="button" value="Cancel" class="btn btn-warning col-2"></a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'query-parents' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
     </form>
 </div>
 {% endblock %}
