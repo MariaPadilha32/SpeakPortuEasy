@@ -63,7 +63,7 @@ urlpatterns = [
     path('edit-class/<int:id>', vw.edit_class, name="edit-class"),
     path('edit-schedule/<int:id>', vw.edit_schedule, name="edit-schedule"),
     path('edit-classroom/<int:id>', vw.edit_classroom, name="edit-classroom"),
-    path('edit-enrollments<int:id>/',
+    path('edit-enrollments/<int:id>/',
          vw.edit_enrollments,
          name="edit-enrollments"
          ),
