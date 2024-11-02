@@ -14,6 +14,8 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 import os
+if os.path.isfile('env.py'):
+    import env
 
 
 
@@ -25,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,7 +37,8 @@ ALLOWED_HOSTS = [
     'speakportueasypp4-342d78e3516e.herokuapp.com', 
     'localhost', 
     '127.0.0.1:8000', 
-    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io'
+    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io',
+    'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io/'
 ]
 
 
@@ -179,6 +182,7 @@ LOGOUT_REDIRECT_URL = '/'
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu115.gitpod.io',
     'http://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu115.gitpod.io',
+    'https://*.gitpod.io'
 ]
 
 # settings.py
