@@ -35,22 +35,12 @@
             </thead>
             <tbody>
                 {% if teachers%}
-                {% for teacher in teachers %}
+                {% for teacher in page_obj %}
                 <tr>
                     <td>{{ teacher.name }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-teacher' teacher.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-teacher' teacher.id %}"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                {% for teacherss in page_obj %}
-                <tr>
-                    <td>{{ teacherss.name }}</td>
-                    <td class="text-end">
-                        <a href="{% url 'edit-teacher' teacherss.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-teacher' teacherss.id %}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}

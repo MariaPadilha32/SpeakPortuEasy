@@ -32,6 +32,7 @@
         <div class="mb-3">
             <label for="txtClass" class="form-label">Associated Class: <span class="required">*</span></label>
             <select name="student" class="form-select" id="txtClass" required>
+                <option value="" selected>Select the class</option>
                 {% for class in classes %}
                 <option value="{{class.id}}">{{class.name}}</option>
                 {% endfor %}
