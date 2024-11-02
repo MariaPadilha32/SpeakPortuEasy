@@ -496,9 +496,11 @@ def query_teacher(request):
 @login_required(login_url='login')
 def edit_student(request, id):
     student = Student.objects.get(id=id)
+    parents = Parents.objects.all()
     form = StudentForm(request.POST or None, instance=student)
     data = {}
     data['student'] = student
+    data['parents'] = parents
     data['form'] = form
     if request.method == 'POST':
         if form.is_valid():
