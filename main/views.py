@@ -703,7 +703,8 @@ def search_class(request):
 def search_student(request):
     query = request.GET.get('search')
     student = Student.objects.filter(name__icontains=query)
-    return render(request, 'query-student.html', {'students': student})
+    total_students = student.count()
+    return render(request, 'query-student.html', {'students': student, 'total_student' : total_students})
 
 
 def search_enrollments(request):
