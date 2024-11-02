@@ -9,6 +9,7 @@
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
             <select name="student" class="form-select" id="txtStudent" required>
+                <option value="" selected>Select the student</option>
                 {% for student in students %}
                 <option value="{{student.id}}">{{student.name}}</option>
                 {% endfor %}
@@ -18,6 +19,7 @@
         <div class="mb-3">
             <label for="txtClass" class="form-label">Class: <span class="required">*</span></label>
             <select name="classname" class="form-select" id="txtClass" required>
+                <option value="" selected>Select the class</option>
                 {% for class in classes %}
                 <option value="{{class.id}}">{{class.name}}</option>
                 {% endfor %}
