@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input {% if student.email %} value="{{ student.email }}" {% endif %} name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email">
+            <input value="{% if student.email != None %}{{ student.email }}{% endif %}" name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input {% if student.phone2 %} value="{{ student.phone2 }}" {% endif %} name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
+                <input value="{% if student.phone2 != None %}{{ student.phone2 }}{% endif %}"  name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2">
             </div>
         </div>
         <div class="mb-3 form-check">

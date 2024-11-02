@@ -15,8 +15,8 @@
             <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required value="{{ teacher.surname }}">
         </div>
         <div class="mb-3">
-            <label for="txtEmail" class="form-label">Email Teste:</label>
-            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email" value="{{ teacher.email }}">
+            <label for="txtEmail" class="form-label">Email:</label>
+            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email" value="{% if teacher.email != None %}{{ teacher.email }}{% endif %}">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" value="{{ teacher.phone2 }}">
+                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" value="{% if teacher.phone2 != None %}{{ teacher.phone2 }}{% endif %}">
             </div>
         </div>
         <button type="submit" class="btn btn-success">Edit</button>
