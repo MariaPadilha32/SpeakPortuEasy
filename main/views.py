@@ -740,7 +740,8 @@ def search_parents(request):
 def search_teacher(request):
     query = request.GET.get('search')
     teacher = Teacher.objects.filter(name__icontains=query)
-    return render(request, 'query-teacher.html', {'teachers': teacher})
+    total_teacher = teacher.count()
+    return render(request, 'query-teacher.html', {'teachers': teacher, 'total_teacher' : total_teacher})
 
 
 def search_schedule(request):
