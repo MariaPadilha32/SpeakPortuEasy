@@ -712,11 +712,13 @@ def search_student(request):
 def search_enrollments(request):
     query = request.GET.get('search')
     enrollment = Enrollments.objects.filter(name__icontains=query)
+    total_enrollments = enrollment.count()
     return render(
         request,
         'query-enrollments.html',
         {
-            'enrollments': enrollment
+            'enrollments': enrollment,
+            'total_enrollments' : total_enrollments
         }
     )
 
