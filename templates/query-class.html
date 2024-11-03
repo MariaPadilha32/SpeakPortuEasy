@@ -35,22 +35,12 @@
             </thead>
             <tbody>
                 {% if classnames %}
-                {% for classname in classnames %}
+                {% for classname in page_obj %}
                 <tr>
                     <td>{{ classname.name }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-class' classname.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-class' classname.id %}"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                {% for classnames in page_obj %}
-                <tr>
-                    <td>{{ classnames.name }}</td>
-                    <td class="text-end">
-                        <a href="{% url 'edit-class' classnames.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-class' classnames.id %}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
                 {% endfor %}
