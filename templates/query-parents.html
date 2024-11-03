@@ -4,21 +4,23 @@
 
 {% block 'main' %}
 <div class="container">
-    <form action="{% url 'search-parents' %}">
-        <div>
-            <div class="row">
-                <label for="txtParent" class="form-label">Parent/ Legal Guardian Name:</label>
-            </div>
-            <div class="row col-12 d-flex">
-                <div class="col-10">
-                    <input name="search" type="text" class="form-control" id="txtParent" aria-describedby="Parent/ Legal Guardian Name" placeholder="Enter Parent/ Legal Guardian Name">
+    <div class="mx-auto col-11 mt-5">
+        <form action="{% url 'search-parents' %}">
+            <div>
+                <div class="row">
+                    <label for="txtParent" class="form-label">Parent/ Legal Guardian Name:</label>
                 </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                <div class="row col-12 d-flex">
+                    <div class="col-11">
+                        <input name="search" type="text" class="form-control" id="txtParent" aria-describedby="Parent/ Legal Guardian Name" placeholder="Enter Parent/ Legal Guardian Name">
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
     {% if total == 0 %}
     <div class="mt-2 col-10">
         <div>
