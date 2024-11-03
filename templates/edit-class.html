@@ -25,8 +25,12 @@
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
             <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required>{{ classes.description }}</textarea>
         </div>
+        {% if user.username == classes.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
+        {% else %}
+        <a href="{% url 'query-class' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}
