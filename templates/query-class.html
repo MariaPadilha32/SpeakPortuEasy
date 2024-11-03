@@ -21,7 +21,7 @@
             </div>
         </form>
     </div>
-    {% if total_class == 0 %} <!-- total resultante da pesquisa em search -->
+    {% if total_classes == 0 %} <!-- total resultante da pesquisa em search -->
     <div class="mx-auto mt-2 col-11">
         <div>
             <div class="alert alert-warning">Information not found!</div>
@@ -58,6 +58,8 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
+    {% if total > 0 %}
     <div class="pagination d-flex justify-content-center">
         <span class="step-links">
             {% if page_obj.has_previous %}
