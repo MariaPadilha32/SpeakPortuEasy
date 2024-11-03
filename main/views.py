@@ -706,7 +706,14 @@ def search_student(request):
     query = request.GET.get('search')
     student = Student.objects.filter(name__icontains=query)
     total_students = student.count()
-    return render(request, 'query-student.html', {'students': student, 'total_student' : total_students})
+    return render(
+        request,
+        'query-student.html',
+        {
+            'students': student, 
+            'total_student' : total_students
+        }
+    )
 
 
 def search_enrollments(request):
@@ -726,7 +733,8 @@ def search_enrollments(request):
 def search_parents(request):
     query = request.GET.get('search')
     parent = Parents.objects.filter(name__icontains=query)
-    return render(request, 'query-parents.html', {'parents': parent})
+    total_parents = parents.count()
+    return render(request, 'query-parents.html', {'parents': parent, 'total_parents' : total_parents})
 
 
 def search_teacher(request):
