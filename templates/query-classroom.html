@@ -4,28 +4,38 @@
 
 {% block 'main' %}
 <div class="container">
-    <form action="{% url 'search-classroom' %}">
-        <div>
-            <div class="row">
-                <label for="txtClassroomName" class="form-label">Classroom Name:</label>
-            </div>
-            <div class="row col-12 d-flex">
-                <div class="col-10">
-                    <input name="search" type="text" class="form-control" id="txtClassroomName" aria-describedby="ClasroomsName" placeholder="Enter Classroom Name">
+    <div class="mx-auto col-11 mt-5">
+        <form action="{% url 'search-classroom' %}">
+            <div>
+                <div>
+                    <label for="txtClassroomName" class="form-label">Classroom Name:</label>
                 </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                <div class="row col-12 d-flex">
+                    <div class="col-11">
+                        <input name="search" type="text" class="form-control" id="txtClassroomName" aria-describedby="ClasroomsName" placeholder="Enter Classroom Name">
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-    {% if total == 0 %}
-    <div class="mt-2 col-10">
+        </form>
+    </div>
+    {% if total_classrooms == 0 %} 
+    <div class="mx-auto mt-2 col-11">
         <div>
             <div class="alert alert-warning">Information not found!</div>
         </div>
     </div>
+    {% endif %}
+    {% if total == 0 %}
+    <div class="mx-auto mt-2 col-11">
+        <div>
+            <div class="alert alert-warning">No information registered at this moment!</div>
+        </div>
+    </div>
     {% else %}
+    {% if total > 0 %}
     <div class="mx-auto col-11 mt-5">
         <table class="table table-striped table-hover">
             <thead class="table-primary">
@@ -34,17 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% if classes %}
-                {% for class in classes %}
-                <tr>
-                    <td>{{ class.name }}</td>
-                    <td class="text-end">
-                        <a href="{% url 'edit-classroom' class.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-classroom' class.id %}"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-                </tr>
-                {% endfor %}
-                {% else %}
+                {% if classrooms %}
                 {% for classrooms in page_obj %}
                 <tr>
                     <td>{{ classrooms.name }}</td>
@@ -58,6 +58,8 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
+    {% if total > 0 %}
     <div class="pagination d-flex justify-content-center">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -76,7 +78,8 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
         </span>
-    </div>    
+    </div> 
+    {% endif %}   
     {% endif %}
     {% if messages %}
         {% for message in messages %}

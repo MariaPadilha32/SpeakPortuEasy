@@ -691,14 +691,15 @@ def recover_password(request):
 def search_classroom(request):
     query = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=query)
-    total_classes = classes.count()
-    return render(request, 'query-classroom.html', {'classes': classrooms, 'total_classes' : total_classes})
+    total_classrooms = classrooms.count()
+    return render(request, 'query-classroom.html', {'classes': classrooms, 'total_classrooms' : total_classrooms})
 
 
 def search_class(request):
     query = request.GET.get('search')
     classname = Classes.objects.filter(name__icontains=query)
-    return render(request, 'query-class.html', {'classnames': classname})
+    total_classes = classes.count()
+    return render(request, 'query-class.html', {'classnames': classname, 'total_classes' : total_classes})
 
 
 def search_student(request):
