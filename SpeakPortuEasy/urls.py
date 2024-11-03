@@ -26,7 +26,6 @@ urlpatterns = [
     path('home/', vw.index, name="home"),
     path('register-student/', vw.register_student, name="register-student"),
     path('register-class/', vw.register_class, name="register-class"),
-    path('register-schedule/', vw.register_schedule, name="register-schedule"),
     path('register-classroom/',
          vw.register_classroom,
          name="register-classroom"
@@ -40,15 +39,10 @@ urlpatterns = [
     path('query-classroom/', vw.query_classroom, name="query-classroom"),
     path('query-enrollments/', vw.query_enrollments, name="query-enrollments"),
     path('query-parents/', vw.query_parents, name="query-parents"),
-    path('query-schedule/', vw.query_schedule, name="query-schedule"),
     path('query-student/', vw.query_student, name="query-student"),
     path('query-users/', vw.query_users, name="query-users"),
     path('delete-student/<int:id>', vw.delete_student, name="delete-student"),
     path('delete-class/<int:id>', vw.delete_class, name="delete-class"),
-    path('delete-schedule/<int:id>',
-         vw.delete_schedule,
-         name="delete-schedule"
-         ),
     path('delete-classroom/<int:id>',
          vw.delete_classroom,
          name="delete-classroom"
@@ -61,7 +55,6 @@ urlpatterns = [
     path('delete-parents/<int:id>', vw.delete_parents, name="delete-parents"),
     path('edit-student/<int:id>', vw.edit_student, name="edit-student"),
     path('edit-class/<int:id>', vw.edit_class, name="edit-class"),
-    path('edit-schedule/<int:id>', vw.edit_schedule, name="edit-schedule"),
     path('edit-classroom/<int:id>', vw.edit_classroom, name="edit-classroom"),
     path('edit-enrollments/<int:id>/',
          vw.edit_enrollments,
@@ -85,7 +78,6 @@ urlpatterns = [
          ),
     path('search-parents/', vw.search_parents, name='search-parents'),
     path('search-teacher/', vw.search_teacher, name='search-teacher'),
-    path('search-schedule/', vw.search_schedule, name='search-schedule'),
     path('', vw.index, name="")
 ]
 

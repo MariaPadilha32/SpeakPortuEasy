@@ -5,9 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
 from main.models import Classroom, Student, Enrollments
-from main.models import Classes, Schedule, Parents, Teacher
+from main.models import Classes, Parents, Teacher
 from .forms import ClassroomForm, StudentForm, EnrollmentsForm, UserForm
-from .forms import ClassesForm, ScheduleForm, ParentsForm, TeacherForm
+from .forms import ClassesForm, ParentsForm, TeacherForm
 
 # Create your views here.
 
@@ -58,36 +58,6 @@ def register_class(request):
         form = ClassesForm()
         return render(request, 'register-class.html', {'form': form})
 
-
-@login_required(login_url='login')
-def register_schedule(request):
-    classes = Classes.objects.all().order_by('name')
-    if request.method == 'POST':
-        form = ScheduleForm(request.POST or None)
-        print(form)
-        if form.is_valid():
-            form.save()
-            return redirect('query-schedule')
-        return redirect('home')
-    return render(request,'register-schedule.html',{'classes' : classes})
-    # if request.method == 'POST':
-    #     if request.method == 'POST':
-    #         form = ScheduleForm(request.POST)
-    #         if form.is_valid():
-    #             form.save()
-    #             return redirect('query-schedule')
-    #         else:
-    #             return redirect('register-schedule')
-    # else:
-    #     form = ScheduleForm()
-    #     return render(
-    #         request,
-    #         'register-schedule.html',
-    #         {
-    #             'form': form,
-    #             'classes': classes
-    #         }
-    #     )
 
 
 @login_required(login_url='login')
@@ -266,26 +236,6 @@ def query_parents(request):
     )
 
 
-@login_required(login_url='login')
-def query_schedule(request):
-    form = ScheduleForm
-    schedule = Schedule.objects.all()
-    total = Schedule.objects.count()
-    list_schedule = Schedule.objects.all()
-    paginator = Paginator(list_schedule, 5)
-    page_num = request.GET.get('page')
-    page_obj = paginator.get_page(page_num)
-    return render(
-        request,
-        'query-schedule.html',
-        {
-            'form': form,
-            'schedule': schedule,
-            'total': total,
-            'page_obj': page_obj
-        }
-    )
-
 
 @login_required(login_url='login')
 def query_student(request):
@@ -394,22 +344,6 @@ def delete_class(request, id):
     else:
         return render(request, 'delete-class.html', data)
 
-
-@login_required(login_url='accounts/login')
-def delete_schedule(request, id):
-    schedule = Schedule.objects.get(id=id)
-    classes = Classes.objects.get(id=schedule.student)
-    form = ScheduleForm(request.POST or None, instance=schedule)
-    data = {}
-    data['schedule'] = schedule
-    data['form'] = form
-    data['classes'] = classes
-    if request.method == "POST":
-        schedule.delete()
-        messages.success(request, "Successfull Deleted!")
-        return redirect('query-schedule')
-    else:
-        return render(request, 'delete-schedule.html', data)
 
 
 @login_required(login_url='accounts/login')
@@ -548,25 +482,6 @@ def edit_class(request, id):
         form = ClassesForm
         return render(request, 'edit-class.html', data)
 
-
-@login_required(login_url='login')
-def edit_schedule(request, id):
-    schedule = Schedule.objects.get(id=id)
-    classes = Classes.objects.all().order_by('name')
-    form = ScheduleForm(request.POST or None, instance=schedule)
-    data = {}
-    data['schedule'] = schedule
-    data['form'] = form
-    data['classes'] = classes
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('query-schedule')
-        else:
-            return render(request, 'edit-schedule.html', data)
-    else:
-        form = ScheduleForm
-        return render(request, 'edit-schedule.html', data)
 
 
 @login_required(login_url='login')
@@ -748,12 +663,6 @@ def search_teacher(request):
     total_teacher = teacher.count()
     return render(request, 'query-teacher.html', {'teachers': teacher, 'total_teacher' : total_teacher})
 
-
-def search_schedule(request):
-    query = request.GET.get('search')
-    schedules = Schedule.objects.filter(day_week__icontains=query)
-    total_schedule = schedules.count()
-    return render(request, 'query-schedule.html', {'schedule': schedules, 'total_schedule' : total_schedule})
 
 
 def v_404(request, exception):

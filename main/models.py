@@ -8,6 +8,7 @@ class Classroom(models.Model):
     capacity = models.IntegerField(blank=False, null=False)
     is_online = models.BooleanField()
     description = models.CharField(max_length=255)
+    
 
     def __str__(self):
         return self.name
@@ -79,7 +80,6 @@ class Schedule(models.Model):
     start_time = models.TimeField(blank=False, null=False)
     end_time = models.TimeField(blank=False, null=False)
     date = models.DateField(blank=False, null=False)
-    student = models.ForeignKey(to=Student, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.day_week
