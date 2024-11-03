@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3">
             <label for="txtPhone" class="form-label">Phone Number: <span class="required">*</span></label>
-            <input name="phone" type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required>
+            <input name="phone" type="text" class="form-control" id="txtPhone" aria-describedby="PhoneNumber" required onkeydown="numbers_only(this)" maxlength="12">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-warning">Reset</button>

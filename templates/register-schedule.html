@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'register-schedule' %}">
+    <form method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtDay" class="form-label">Day of the Week: <span class="required">*</span></label>
@@ -30,9 +30,9 @@
             <input name="date" type="date" class="form-control" id="txtEndTime" aria-describedby="Date" required>
         </div>
         <div class="mb-3">
-            <label for="txtClass" class="form-label">Associated Class: <span class="required">*</span></label>
-            <select name="student" class="form-select" id="txtClass" required>
-                <option value="" selected>Select the class</option>
+            <label for="id_student" class="form-label">Associated Class: <span class="required">*</span></label>
+            <select name="student" class="form-select" id="id_student" required>
+                <option value="0" selected>Select the class</option>
                 {% for class in classes %}
                 <option value="{{class.id}}">{{class.name}}</option>
                 {% endfor %}

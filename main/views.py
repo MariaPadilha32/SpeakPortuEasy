@@ -63,31 +63,31 @@ def register_class(request):
 def register_schedule(request):
     classes = Classes.objects.all().order_by('name')
     if request.method == 'POST':
-        id = request.POST.get('id')
-        count = Schedule.objects.filter(id=id).count()
-        if count > 0:
-            messages.error(
-                request,
-                'No schedule available, please try a different time.'
-            )
-            return redirect('register-schedule')
-        if request.method == 'POST':
-            form = ScheduleForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('query-schedule')
-            else:
-                return redirect('register-schedule')
-    else:
-        form = ScheduleForm()
-        return render(
-            request,
-            'register-schedule.html',
-            {
-                'form': form,
-                'classes': classes
-            }
-        )
+        form = ScheduleForm(request.POST or None)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return redirect('query-schedule')
+        return redirect('home')
+    return render(request,'register-schedule.html',{'classes' : classes})
+    # if request.method == 'POST':
+    #     if request.method == 'POST':
+    #         form = ScheduleForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return redirect('query-schedule')
+    #         else:
+    #             return redirect('register-schedule')
+    # else:
+    #     form = ScheduleForm()
+    #     return render(
+    #         request,
+    #         'register-schedule.html',
+    #         {
+    #             'form': form,
+    #             'classes': classes
+    #         }
+    #     )
 
 
 @login_required(login_url='login')
