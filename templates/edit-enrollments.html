@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'edit-enrollments' enrollments.id %}">
+    <form method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
@@ -28,8 +28,13 @@
             <label for="txtEnrollmentDate" class="form-label">Enrollment Date: <span class="required">*</span></label>
             <input name="date" type="text" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required value="{{ enrollments.date }}">
         </div>
+        <input type="hidden" name="username" value="{{enrollments.username}}">
+        {% if user.username == enrollments.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
+        {% else %}
+        <a href="{% url 'query-enrollments' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

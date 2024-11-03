@@ -18,8 +18,13 @@
             <label for="txtEnrollmentDate" class="form-label">Enrollment Date: <span class="required">*</span></label>
             <input name="date" type="text" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required  disabled value="{{enrollments.date}}">
         </div>
+        <input type="hidden" name="username" value="{{enrollments.username}}">
+        {% if user.username == enrollments.username %}
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="{% url 'query-enrollments' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
+        {% else %}
+        <a href="{% url 'query-enrollments' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

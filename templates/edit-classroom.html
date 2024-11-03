@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'edit-classroom' classroom.id %}">
+    <form method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassroomName" class="form-label">Classroom Name: <span class="required">*</span></label>
@@ -23,8 +23,13 @@
             <label for="txtDescription" class="form-label">Description:</label>
             <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255">{{ classroom.description }}</textarea>
         </div>
+        <input type="hidden" name="username" value="{{classroom.username}}">
+        {% if user.username == classroom.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
+        {% else %}
+        <a href="{% url 'query-classroom' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

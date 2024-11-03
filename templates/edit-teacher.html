@@ -28,8 +28,13 @@
                 <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" value="{% if teacher.phone2 != None %}{{ teacher.phone2 }}{% endif %}" onkeydown="numbers_only(this)" maxlength="12">
             </div>
         </div>
+        <input type="hidden" name="username" value="{{teacher.username}}">
+        {% if user.username == teacher.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
+        {% else %}
+        <a href="{% url 'query-teacher' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

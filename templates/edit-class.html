@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'edit-class' classes.id %}">
+    <form method="post">
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
@@ -25,6 +25,7 @@
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
             <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required>{{ classes.description }}</textarea>
         </div>
+        <input type="hidden" name="username" value="{{classes.username}}">
         {% if user.username == classes.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>

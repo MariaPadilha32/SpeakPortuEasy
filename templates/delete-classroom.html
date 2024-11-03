@@ -23,8 +23,13 @@
             <label for="txtDescription" class="form-label">Description:</label>
             <textarea name="description" class="form-control" id="txtDescription" rows="3"  disabled maxlength="255">{{ classroom.description }}</textarea>
         </div>
+        <input type="hidden" name="username" value="{{classroom.username}}">
+        {% if user.username == classroom.username %}
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="{% url 'query-classroom' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
+        {% else %}
+        <a href="{% url 'query-classroom' %}" class="btn btn-primary">Back</a>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

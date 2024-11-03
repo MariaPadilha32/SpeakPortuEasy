@@ -25,6 +25,7 @@
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
             <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required  disabled>{{ classes.description }}</textarea>
         </div>
+        <input type="hidden" name="username" value="{{classes.username}}">
         {% if user.username == classes.username %}
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="{% url 'query-class' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>

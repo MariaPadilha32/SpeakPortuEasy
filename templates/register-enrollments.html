@@ -6,6 +6,7 @@
 <div class="container col-6">
     <form method="post" action="{% url 'register-enrollments' %}">
         {% csrf_token %}
+        <input type="hidden" name="username" value="{{ user.username }}">
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
             <select name="student" class="form-select" id="txtStudent" required>
