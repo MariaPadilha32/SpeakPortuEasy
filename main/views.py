@@ -698,8 +698,13 @@ def search_classroom(request):
 def search_class(request):
     query = request.GET.get('search')
     classname = Classes.objects.filter(name__icontains=query)
-    total_classes = classes.count()
-    return render(request, 'query-class.html', {'classnames': classname, 'total_classes' : total_classes})
+    total_classes = classname.count()
+    return render(request, 'query-class.html', 
+                        {
+                            'classnames': classname, 
+                            'total_classes' : total_classes
+                        }
+                )
 
 
 def search_student(request):
@@ -718,7 +723,7 @@ def search_student(request):
 
 def search_enrollments(request):
     query = request.GET.get('search')
-    enrollment = Enrollments.objects.filter(name__icontains=query)
+    enrollment = Enrollments.objects.filter(classname__icontains=query)
     total_enrollments = enrollment.count()
     return render(
         request,
@@ -733,7 +738,7 @@ def search_enrollments(request):
 def search_parents(request):
     query = request.GET.get('search')
     parent = Parents.objects.filter(name__icontains=query)
-    total_parents = parents.count()
+    total_parents = parent.count()
     return render(request, 'query-parents.html', {'parents': parent, 'total_parents' : total_parents})
 
 
@@ -746,8 +751,9 @@ def search_teacher(request):
 
 def search_schedule(request):
     query = request.GET.get('search')
-    schedules = Schedule.objects.filter(name__icontains=query)
-    return render(request, 'query-schedule.html', {'schedule': schedules})
+    schedules = Schedule.objects.filter(day_week__icontains=query)
+    total_schedule = schedules.count()
+    return render(request, 'query-schedule.html', {'schedule': schedules, 'total_schedule' : total_schedule})
 
 
 def v_404(request, exception):

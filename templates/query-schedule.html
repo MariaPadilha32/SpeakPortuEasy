@@ -21,13 +21,21 @@
             </div>
         </form>
     </div>
-    {% if total == 0 %}
-    <div class="mt-2 col-10">
+    {% if total_schedule == 0 %}
+    <div class="mx-auto mt-2 col-11">
         <div>
             <div class="alert alert-warning">Information not found!</div>
         </div>
     </div>
+    {% endif %}
+    {% if total == 0 %}
+    <div class="mx-auto mt-2 col-11">
+        <div>
+            <div class="alert alert-warning">No information registered at this moment!</div>
+        </div>
+    </div>
     {% else %}
+    {% if total > 0 %}
     <div class="mx-auto col-11 mt-5">
         <table class="table table-striped table-hover">
             <thead class="table-primary">
@@ -39,17 +47,7 @@
                 {% if schedule %}
                 {% for schedules in schedule %}
                 <tr>
-                    <td>{{ schedules.date }}</td>
-                    <td class="text-end">
-                        <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-schedule' schedules.id  %}"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                {% for schedules in page_obj %}
-                <tr>
-                    <td>{{ schedules.name }}</td>
+                    <td>{{ schedules.day_week }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-schedule' schedules.id %}"><button class="btn btn-danger">Delete</button></a>
@@ -60,6 +58,31 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <div class="mx-auto col-11 mt-5">
+        <table class="table table-striped table-hover">
+            {% if total_schedule > 0 %}
+            <thead class="table-primary">
+                <tr>
+                    <th colspan="2">List of Schedule</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedules in schedule %}
+                <tr>
+                    <td>{{ schedules.day_week }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-schedule' schedules.id %}"><button class="btn btn-warning">Edit</button></a>
+                        <a href="{% url 'delete-schedule' schedules.id %}"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+        </table>
+    </div>
+    {% endif %}
+    {% if total > 0 %}
     <div class="pagination d-flex justify-content-center">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -78,7 +101,8 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
         </span>
-    </div>    
+    </div> 
+    {% endif %}   
     {% endif %}
     {% if messages %}
         {% for message in messages %}

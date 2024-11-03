@@ -58,6 +58,29 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    {% if total_student > 0 %}
+    <div class="mx-auto col-11 mt-5">
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th colspan="2">List of Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-student' student.id %}"><button class="btn btn-warning">Edit</button></a>
+                        <a href="{% url 'delete-student' student.id %}"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
     {% endif %}
     {% if total > 0 %}
     <div class="pagination d-flex justify-content-center">

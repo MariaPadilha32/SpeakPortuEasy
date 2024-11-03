@@ -47,7 +47,7 @@
                 {% if parents %}
                 {% for parents in page_obj %}
                 <tr>
-                    <td>{{ parent.name }}</td>
+                    <td>{{ parents.name }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-parents' parents.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-parents' parents.id %}"><button class="btn btn-danger">Delete</button></a>
@@ -56,6 +56,29 @@
                 {% endfor %}
                 {% endif %}
             </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="mx-auto col-11 mt-5">
+        <table class="table table-striped table-hover">
+            {% if total_parents > 0 %}
+            <thead class="table-primary">
+                <tr>
+                    <th colspan="2">List of Parents</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for parent in parents %}
+                <tr>
+                    <td>{{ parent.name }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'edit-parents' parent.id %}"><button class="btn btn-warning">Edit</button></a>
+                        <a href="{% url 'delete-parents' parent.id %}"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
         </table>
     </div>
     {% endif %}
