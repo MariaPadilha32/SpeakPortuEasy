@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import Classroom, Classes, Enrollments
-from .models import Parents, Student, Schedule, Teacher, Users
+from .models import Student, Schedule, Teacher, Users
 
 
 class ClassroomForm(ModelForm):
@@ -18,12 +18,6 @@ class ClassesForm(ModelForm):
 class EnrollmentsForm(ModelForm):
     class Meta:
         model = Enrollments
-        fields = '__all__'
-
-
-class ParentsForm(ModelForm):
-    class Meta:
-        model = Parents
         fields = '__all__'
 
 

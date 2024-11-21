@@ -52,20 +52,6 @@ class Classes(models.Model):
         db_table = 'classes'
 
 
-
-class Parents(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False)
-    email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=10, blank=False, null=False)
-    username = models.CharField(max_length=50, blank=False, null=False)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'parents'
-
-
 class Student(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
     surname = models.CharField(max_length=50, blank=False, null=False)
@@ -73,8 +59,11 @@ class Student(models.Model):
     phone1 = models.CharField(max_length=20, blank=False, null=False)
     phone2 = models.CharField(max_length=20, blank=True, null=True)
     under_age = models.BooleanField(blank=True)
-    parents = models.ForeignKey(to=Parents, on_delete=models.PROTECT)
     username = models.CharField(max_length=50, blank=False, null=False)
+    name_guardian =  models.CharField(max_length=50, blank=True, null=True)
+    email_guardian = models.CharField(max_length=100, blank=True, null=True)
+    phone1_guardian = models.CharField(max_length=20, blank=True, null=True)
+    phone2_guardian = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.name

@@ -5,9 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
 from main.models import Classroom, Student, Enrollments
-from main.models import Classes, Parents, Teacher
+from main.models import Classes, Teacher
 from .forms import ClassroomForm, StudentForm, EnrollmentsForm, UserForm
-from .forms import ClassesForm, ParentsForm, TeacherForm
+from .forms import ClassesForm, TeacherForm
 
 # Create your views here.
 
@@ -19,7 +19,6 @@ def index(request):
 
 @login_required(login_url='login')
 def register_student(request):
-    parents = Parents.objects.all().order_by('name')
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -32,7 +31,7 @@ def register_student(request):
         return render(
         request,
         'register-student.html',
-        {'form': form, 'parents': parents}
+        {'form': form}
     )
 
 
@@ -112,20 +111,6 @@ def register_enrollments(request):
                 'classes': classes
             }
         )
-
-
-@login_required(login_url='login')
-def register_parents(request):
-    if request.method == 'POST':
-        form = ParentsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('query-parents')
-        else:
-            return redirect('register-parents')
-    else:
-        form = ParentsForm()
-        return render(request, 'register-parents.html', {'form': form})
 
 
 @login_required(login_url='login')
@@ -213,28 +198,6 @@ def query_enrollments(request):
             'page_obj': page_obj
         }
     )
-
-
-@login_required(login_url='login')
-def query_parents(request):
-    form = ParentsForm
-    parents = Parents.objects.all()
-    total = Parents.objects.count()
-    list_parents = Parents.objects.all()
-    paginator = Paginator(list_parents, 5)
-    page_num = request.GET.get('page')
-    page_obj = paginator.get_page(page_num)
-    return render(
-        request,
-        'query-parents.html',
-        {
-            'form': form,
-            'parents': parents,
-            'total': total,
-            'page_obj': page_obj
-        }
-    )
-
 
 
 @login_required(login_url='login')
@@ -391,21 +354,6 @@ def delete_users(request, id):
         return render(request, 'delete-users.html', data)
 
 
-@login_required(login_url='accounts/login')
-def delete_parents(request, id):
-    parents = Parents.objects.get(id=id)
-    form = ParentsForm(request.POST or None, instance=parents)
-    data = {}
-    data['parents'] = parents
-    data['form'] = form
-    if request.method == "POST":
-        parents.delete()
-        messages.success(request, "Successfull Deleted!")
-        return redirect('query-parents')
-    else:
-        return render(request, 'delete-parents.html', data)
-
-
 @login_required(login_url='login')
 def query_teacher(request):
     form = TeacherForm
@@ -430,18 +378,16 @@ def query_teacher(request):
 @login_required(login_url='login')
 def edit_student(request, id):
     student = Student.objects.get(id=id)
-    parents = Parents.objects.all()
     form = StudentForm(request.POST or None, instance=student)
     data = {}
     data['student'] = student
-    data['parents'] = parents
     data['form'] = form
     if request.method == 'POST':
         if form.is_valid():
             form.save()
             return redirect('query-student')
         else:
-            return render(request, 'edit_student.html', data)
+            return render(request, 'edit-student.html', data)
     else:
         form = StudentForm
         return render(request, 'edit-student.html', data)
@@ -542,24 +488,6 @@ def edit_users(request, id):
         return render(request, 'edit-users.html', data)
 
 
-@login_required(login_url='login')
-def edit_parents(request, id):
-    parents = Parents.objects.get(id=id)
-    form = ParentsForm(request.POST or None, instance=parents)
-    data = {}
-    data['parents'] = parents
-    data['form'] = form
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('query-parents')
-        else:
-            return render(request, 'edit-parents.html', data)
-    else:
-        form = ParentsForm
-    return render(request, 'edit-parents.html', data)
-
-
 def search_classroom(request):
     search = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=search)
@@ -638,7 +566,7 @@ def search_student(request):
 
 def search_enrollments(request):
     query = request.GET.get('search')
-    enrollment = Enrollments.objects.filter(classname__icontains=query)
+    enrollment = Enrollments.objects.filter(date__icontains=query)
     total_enrollments = enrollment.count()
     return render(
         request,
@@ -648,13 +576,6 @@ def search_enrollments(request):
             'total_enrollments' : total_enrollments
         }
     )
-
-
-def search_parents(request):
-    query = request.GET.get('search')
-    parent = Parents.objects.filter(name__icontains=query)
-    total_parents = parent.count()
-    return render(request, 'query-parents.html', {'parents': parent, 'total_parents' : total_parents})
 
 
 def search_teacher(request):

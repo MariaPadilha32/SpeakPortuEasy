@@ -33,12 +33,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu115.gitpod.io', 
     'speakportueasypp4-342d78e3516e.herokuapp.com', 
     'localhost', 
-    '127.0.0.1:8000', 
-    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io',
-    'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io/'
+    '127.0.0.1:8000',
+    'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io/',
+    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-us116.gitpod.io'
 ]
 
 

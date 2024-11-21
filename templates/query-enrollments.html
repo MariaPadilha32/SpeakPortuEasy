@@ -47,7 +47,7 @@
                 {% if enrollments %}
                 {% for enrollment in page_obj %}
                 <tr>
-                    <td>{{ enrollment.classname }}</td>
+                    <td>{{ enrollment.date }} - {{ enrollment.classname }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger">Delete</button></a>
@@ -70,7 +70,7 @@
             <tbody>
                 {% for enrollment in enrollments %}
                 <tr>
-                    <td>{{ enrollment.classname }}</td>
+                    <td>{{ enrollment.date }} - {{ enrollment.classname }}</td>
                     <td class="text-end">
                         <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger">Delete</button></a>

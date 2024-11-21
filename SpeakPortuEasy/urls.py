@@ -34,11 +34,9 @@ urlpatterns = [
          vw.register_enrollments,
          name="register-enrollments"
          ),
-    path('register-parents/', vw.register_parents, name="register-parents"),
     path('query-class/', vw.query_class, name="query-class"),
     path('query-classroom/', vw.query_classroom, name="query-classroom"),
     path('query-enrollments/', vw.query_enrollments, name="query-enrollments"),
-    path('query-parents/', vw.query_parents, name="query-parents"),
     path('query-student/', vw.query_student, name="query-student"),
     path('query-users/', vw.query_users, name="query-users"),
     path('delete-student/<int:id>', vw.delete_student, name="delete-student"),
@@ -52,7 +50,6 @@ urlpatterns = [
          name="delete-enrollments"
          ),
     path('delete-users/<int:id>', vw.delete_users, name="delete-users"),
-    path('delete-parents/<int:id>', vw.delete_parents, name="delete-parents"),
     path('edit-student/<int:id>', vw.edit_student, name="edit-student"),
     path('edit-class/<int:id>', vw.edit_class, name="edit-class"),
     path('edit-classroom/<int:id>', vw.edit_classroom, name="edit-classroom"),
@@ -61,7 +58,6 @@ urlpatterns = [
          name="edit-enrollments"
          ),
     path('edit-users/<int:id>', vw.edit_users, name="edit-users"),
-    path('edit-parents/<int:id>', vw.edit_parents, name="edit-parents"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', v_accounts.register, name='register'),
     path('recover-password/', vw.recover_password, name="recover-password"),
@@ -76,7 +72,6 @@ urlpatterns = [
          vw.search_enrollments,
          name='search-enrollments'
          ),
-    path('search-parents/', vw.search_parents, name='search-parents'),
     path('search-teacher/', vw.search_teacher, name='search-teacher'),
     path('', vw.index, name="")
 ]

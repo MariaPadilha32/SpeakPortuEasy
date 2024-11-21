@@ -4,7 +4,7 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="{% url 'register' %}">
+    <form method="post" action="">
         {% csrf_token %}
         <p>
             <label for="id_username">Username:</label>
@@ -45,13 +45,7 @@
             <span class="helptext">Enter the same password as before, for verification.</span>
         </p>
         <p>
-            <input type="checkbox" name="is_staff" id="ckb_is_staff" disabled><label for="ckb_is_staff"> Access to Admin Page </label>
-        </p>
-        <p>
             <input type="checkbox" name="is_active" id="ckb_is_active"><label for="ckb_is_active"> Active </label>
-        </p>
-        <p>
-            <input type="checkbox" name="is_superuser" id="ckb_is_superuser" disabled><label for="ckb_is_superuser">Super User</label>
         </p>
         <button type="submit" class="btn btn-primary register-btn">Submit</button>
         <button type="reset" class="btn btn-warning">Reset</button>

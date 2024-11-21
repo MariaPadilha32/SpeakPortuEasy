@@ -28,7 +28,6 @@
                   <input name="phone2" value="{% if teacher.phone2 != None %}{{ teacher.phone2 }}{% endif %}" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2"  disabled>
               </div>
           </div>
-          <button type="submit" class="btn btn-danger">Delete</button>
           <input type="hidden" name="username" value="{{teacher.username}}">
           {% if user.username == teacher.username %}
           <button type="submit" class="btn btn-danger">Delete</button>
