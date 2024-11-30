@@ -20,7 +20,7 @@
             <label class="form-check-label" for="chkOnlineClass">Online Class</label>
         </div>
        <div class="mb-3">
-            <label for="txtDescription" class="form-label">Description:</label>
+            <label for="txtDescription" class="form-label">Description:</label><span class="required">*</span></label>
             <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255">{{ classroom.description }}</textarea>
         </div>
         <input type="hidden" name="username" value="{{classroom.username}}">
