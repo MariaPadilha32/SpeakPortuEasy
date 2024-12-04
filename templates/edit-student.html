@@ -10,7 +10,6 @@
 <div class="container col-6">
     <form method="post" action="{% url 'edit-student' student.id %}">
         {% csrf_token %}
-        <input type="hidden" name="username" value="{{student.username}}">
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
           <input value="{{ student.name }}" name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" required>
@@ -58,8 +57,13 @@
                 </div>
             </div>
         </fieldset>
+        <input type="hidden" name="username" value="{{student.username}}">
+        {% if user.username == student.username %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
+        {% else %}
+        <a href="{% url 'query-student' %}" class="btn btn-primary">Back</a>
+        {% endif %}
       </form>
 </div>
 {% endblock %}
