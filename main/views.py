@@ -514,21 +514,20 @@ def v_authenticate(request):
             login(request, user)
             return render(request, 'index.html')
         else:
-            print("Account disabled")
-            # Redirection to a page of unactive account.
+            # User account is disabled
+            messages.warning(request, "Your account is disabled. Please contact support.")
+            return redirect('login')  # Redirect to the login page
     else:
-        # print("invalid Login/Password ")
-        return HttpResponse('login/ senha invalidos')
-        # Redirect to invalid login.
+        # Invalid credentials
+        messages.error(request, "Incorrect login or password. Please try again.")
+        return redirect('login')  # Redirect to the login page
+
+    return render(request, 'login.html')
 
 
 def v_logout(request):
     logout(request)
     return render(request, 'login.html')
-
-
-def recover_password(request):
-    return render(request, 'recover-password.html')
 
 
 def search_classroom(request):
