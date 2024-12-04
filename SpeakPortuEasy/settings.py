@@ -37,7 +37,7 @@ ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1:8000',
     'https://8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu116.gitpod.io/',
-    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-us116.gitpod.io'
+    '8000-mariapadilh-speakportue-8xql2s0vnq2.ws-eu117.gitpod.io'
 ]
 
 

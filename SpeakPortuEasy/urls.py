@@ -60,7 +60,7 @@ urlpatterns = [
     path('edit-users/<int:id>', vw.edit_users, name="edit-users"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', v_accounts.register, name='register'),
-    path('recover-password/', vw.recover_password, name="recover-password"),
+    path('recover-password/', v_accounts.recover_password, name="recover-password"),
     path('register-teacher/', vw.register_teacher, name="register-teacher"),
     path('query-teacher/', vw.query_teacher, name="query-teacher"),
     path('edit-teacher/<int:id>', vw.edit_teacher, name="edit-teacher"),

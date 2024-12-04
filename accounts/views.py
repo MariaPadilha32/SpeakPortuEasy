@@ -17,3 +17,7 @@ def register(request):
         else:
             print('erorr')
     return render(request, 'registration/register.html', {'form': form})
+
+
+def recover_password(request):
+    return render(request, 'registration/recover-password.html')

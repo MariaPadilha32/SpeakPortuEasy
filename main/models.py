@@ -74,12 +74,12 @@ class Student(models.Model):
 
 class Enrollments(models.Model):
     date = models.DateField(blank=False, null=False)
-    student = models.ForeignKey(to=Student, on_delete=models.PROTECT)
-    classname = models.ForeignKey(to=Classes, on_delete=models.PROTECT)
+    student = models.ForeignKey(to=Student, on_delete=models.SET_NULL, null=True)
+    classname = models.ForeignKey(to=Classes, on_delete=models.SET_NULL, null=True)
     username = models.CharField(max_length=50, blank=False, null=False)
 
     def __str__(self):
-        return self.classname
+        return self.classname.name
 
     class Meta:
         db_table = 'enrollment'
