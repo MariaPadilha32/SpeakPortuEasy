@@ -23,6 +23,7 @@ def register_student(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'New student successfully added.')
             return redirect('query-student')
         else:
             return redirect('home')
@@ -50,6 +51,7 @@ def register_class(request):
             form = ClassesForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.success(request, 'New class successfully added.')
                 return redirect('query-class')
             else:
                 return redirect('register-class')
@@ -74,6 +76,7 @@ def register_classroom(request):
             form = ClassroomForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.success(request, 'New classroom successfully added.')
                 return redirect('query-classroom')
             else:
                 return redirect('register-classroom')
@@ -97,6 +100,7 @@ def register_enrollments(request):
             form = EnrollmentsForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.success(request, 'New enrollment successfully added.')
                 return redirect('query-enrollments')
             else:
                 return redirect('register-enrollments')
@@ -117,18 +121,20 @@ def register_enrollments(request):
 def register_teacher(request):
     if request.method == 'POST':
         name = request.POST.get('name')
-        count = Teacher.objects.filter(name=name).count()
+        surname = request.POST.get('surname')
+        count = Teacher.objects.filter(name=name, surname=surname).count()
         if count > 0:
             messages.error(
                 request,
                 'That name is already used, please use a different name.'
             )
-            return redirect('register-teacher')
+            return redirect('query-teacher')
 
         if request.method == 'POST':
             form = TeacherForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.success(request, 'New teacher successfully added.')
                 return redirect('query-teacher')
         else:
             return redirect('register-teacher')
@@ -272,7 +278,7 @@ def delete_student(request, id):
     data['form'] = form
     if request.method == "POST":
         student.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-student')
     else:
         return render(request, 'delete-student.html', data)
@@ -287,7 +293,7 @@ def delete_teacher(request, id):
     data['form'] = form
     if request.method == "POST":
         teacher.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-teacher')
     else:
         return render(request, 'delete-teacher.html', data)
@@ -302,7 +308,7 @@ def delete_class(request, id):
     data['form'] = form
     if request.method == "POST":
         classes.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-class')
     else:
         return render(request, 'delete-class.html', data)
@@ -318,7 +324,7 @@ def delete_classroom(request, id):
     data['form'] = form
     if request.method == "POST":
         classroom.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-classroom')
     else:
         return render(request, 'delete-classroom.html', data)
@@ -333,7 +339,7 @@ def delete_enrollments(request, id):
     data['form'] = form
     if request.method == "POST":
         enrollments.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-enrollments')
     else:
         return render(request, 'delete-enrollments.html', data)
@@ -348,7 +354,7 @@ def delete_users(request, id):
     data['form'] = form
     if request.method == "POST":
         users.delete()
-        messages.success(request, "Successfull Deleted!")
+        messages.success(request, "Record successfully deleted")
         return redirect('query-users')
     else:
         return render(request, 'delete-users.html', data)
@@ -385,6 +391,7 @@ def edit_student(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request,'Student successfully updated.')
             return redirect('query-student')
         else:
             return render(request, 'edit-student.html', data)
@@ -403,8 +410,10 @@ def edit_teacher(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, f'Teacher {teacher.name} {teacher.surname} was successfully updated.')
             return redirect('query-teacher')
         else:
+            messages.error(request, 'An error occurred while updating the teacher. Please check the form and try again.')
             return render(request, 'edit-teacher.html', data)
     else:
         form = TeacherForm
@@ -421,6 +430,7 @@ def edit_class(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Class was successfully updated.')
             return redirect('query-class')
         else:
             return render(request, 'edit_class.html', data)
@@ -440,6 +450,7 @@ def edit_classroom(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Classroom was successfully updated.')
             return redirect('query-classroom')
         else:
             return render(request, 'edit-classroom.html', data)
@@ -462,6 +473,7 @@ def edit_enrollments(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Enrollment information was successfully updated.')
             return redirect('query-enrollments')
         else:
             return render(request, 'edit-enrollments.html', data)
