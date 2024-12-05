@@ -47,7 +47,7 @@
                 {% if teachers%}
                 {% for teacher in page_obj %}
                 <tr>
-                    <td>{{ teacher.name }}</td>
+                    <td>{{ teacher.name }} {{ teacher.surname }} - <small>phone: {{ teacher.phone1 }}</small></td>
                     <td class="text-end">
                         <a href="{% url 'edit-teacher' teacher.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-teacher' teacher.id %}"><button class="btn btn-danger">Delete</button></a>
