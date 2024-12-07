@@ -20,6 +20,4 @@ def register(request):
                 print(f"Field '{field}' errors: {errors}")
     return render(request, 'registration/register.html', {'form': form})
 
-
-def recover_password(request):
-    return render(request, 'registration/recover-password.html')
+    
