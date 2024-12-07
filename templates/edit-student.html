@@ -59,10 +59,10 @@
         </fieldset>
         <input type="hidden" name="username" value="{{student.username}}">
         {% if user.username == student.username %}
-        <button type="submit" class="btn btn-success">Edit</button>
-        <button type="reset" class="btn btn-warning text-white">Reset</button>
+        <button type="submit" class="btn btn-success btn-custom">Edit</button>
+        <button type="reset" class="btn btn-warning text-white btn-custom">Reset</button>
         {% else %}
-        <a href="{% url 'query-student' %}" class="btn btn-primary">Back</a>
+        <a href="{% url 'query-student' %}" class="btn btn-primary btn-custom">Back</a>
         {% endif %}
       </form>
 </div>

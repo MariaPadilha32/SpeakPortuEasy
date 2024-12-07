@@ -15,7 +15,9 @@ def register(request):
             user.save()
             return redirect('home')
         else:
-            print('erorr')
+            print('error')
+            for field, errors in form.errors.items():
+                print(f"Field '{field}' errors: {errors}")
     return render(request, 'registration/register.html', {'form': form})
 
 
