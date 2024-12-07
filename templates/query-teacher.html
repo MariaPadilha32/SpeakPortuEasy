@@ -49,8 +49,10 @@
                 <tr>
                     <td>{{ teacher.name }} {{ teacher.surname }} - <small>phone: {{ teacher.phone1 }}</small></td>
                     <td class="text-end">
+                        {% if user.username == teacher.username or user.is_superuser %}
                         <a href="{% url 'edit-teacher' teacher.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-teacher' teacher.id %}"><button class="btn btn-danger">Delete</button></a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
@@ -72,8 +74,10 @@
                 <tr>
                     <td>{{ teacher.name }}</td>
                     <td class="text-end">
+                        {% if user.username == teacher.username or user.is_superuser %}
                         <a href="{% url 'edit-teacher' teacher.id %}"><button class="btn btn-warning">Edit</button></a>
                         <a href="{% url 'delete-teacher' teacher.id %}"><button class="btn btn-danger">Delete</button></a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
