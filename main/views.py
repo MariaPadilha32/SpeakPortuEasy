@@ -429,10 +429,14 @@ def edit_class(request, id):
     data['form'] = form
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            try:
+                form.save()
+            except:
+                return render(request, 'edit_class.html', data)
             messages.success(request, 'Class was successfully updated.')
             return redirect('query-class')
         else:
+            messages.error(request, 'An error occurred while updating the class. Try a different name.')
             return render(request, 'edit_class.html', data)
     else:
         form = ClassesForm
