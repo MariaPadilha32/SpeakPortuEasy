@@ -13,11 +13,12 @@ def register(request):
             user = form.save(commit=False)
             user.is_valid = False
             user.save()
-            return redirect('home')
+            return redirect('success')
         else:
             print('error')
             for field, errors in form.errors.items():
                 print(f"Field '{field}' errors: {errors}")
     return render(request, 'registration/register.html', {'form': form})
 
-    
+def success(request):
+    return render(request, 'registration/success.html')

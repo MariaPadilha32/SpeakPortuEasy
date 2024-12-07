@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Account Created{% endblock %}
+
+{% block 'main' %}
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card" style="width: 18rem;">
+        <img src="/static/images/checkmark.png" class="card-img-top" alt="check mark">
+        <div class="card-body">
+          <h5 class="card-title">Account Created Successfully</h5>
+          <p class="card-text">Your account has been successfully created. Please login to access your account.</p>
+          <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+        </div>
+      </div>
+</div>
+{% endblock %}
