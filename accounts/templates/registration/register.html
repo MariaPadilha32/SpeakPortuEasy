@@ -4,49 +4,49 @@
 
 {% block 'main' %}
 <div class="container col-6">
-    <form method="post" action="">
+    <form method="post">
         {% csrf_token %}
-        <p>
+        <div>
             <label for="id_username">Username:</label>
             <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus
                 class="form-control" required id="id_username">
     
             <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
-        </p>
-        <p>
+        </div>
+        <div>
             <label for="id_email">Email address:</label>
             <input type="email" name="email" maxlength="254" class="form-control" id="id_email">
-        </p>
-        <p>
+        </div>
+        <div>
             <label for="id_first_name">First name:</label>
             <input type="text" name="first_name" maxlength="150" class="form-control" id="id_first_name">
-        </p>
-        <p>
+        </div>
+        <div>
             <label for="id_last_name">Last name:</label>
             <input type="text" name="last_name" maxlength="150" class="form-control" id="id_last_name">
-        </p>
-        <p>
+        </div>
+        <div>
             <label for="id_password1">Password:</label>
             <input type="password" name="password1" autocomplete="new-password" class="form-control" required
                 id="id_password1">
-            <span class="helptext">
+            <div class="helptext">
                 <ul>
                     <li>Your password can’t be too similar to your other personal information.</li>
                     <li>Your password must contain at least 8 characters.</li>
                     <li>Your password can’t be a commonly used password.</li>
                     <li>Your password can’t be entirely numeric.</li>
                 </ul>
-            </span>
-        </p>
-        <p>
+            </div>
+        </div>
+        <div>
             <label for="id_password2">Password confirmation:</label>
             <input type="password" name="password2" autocomplete="new-password" class="form-control" required
                 id="id_password2">
             <span class="helptext">Enter the same password as before, for verification.</span>
-        </p>
-        <p>
+        </div>
+        <div>
             <input type="checkbox" name="is_active" id="ckb_is_active"><label for="ckb_is_active"> Active </label>
-        </p>
+        </div>
         {% if form.errors %}
         <ul class="errorlist">
             {% for field, errors in form.errors.items %}
