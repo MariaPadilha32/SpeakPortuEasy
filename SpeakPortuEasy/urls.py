@@ -21,6 +21,9 @@ import main.views as vw
 from accounts import views as v_accounts
 from django.conf.urls import handler404, handler500
 
+#handler404 = 'main.views.v_404'
+handler500 = 'main.views.v_500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', vw.index, name="home"),
@@ -76,7 +79,5 @@ urlpatterns = [
     path('', vw.index, name="")
 ]
 
-
-handler404 = 'SpeakPortuEasy-main.main.views.v_404'
 
 
