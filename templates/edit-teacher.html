@@ -8,24 +8,24 @@
     {% csrf_token %}
         <div class="mb-3">
             <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" pattern="(?=.*\S)[A-z\s]+" required value="{{ teacher.name }}">
+            <input name="name" type="text" class="form-control" id="txtName" pattern="(?=.*\S)[A-z\s]+" required value="{{ teacher.name }}">
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" pattern="(?=.*\S)[A-z\s]+" required value="{{ teacher.surname }}">
+            <input name="surname" type="text" class="form-control" id="txtSurname" pattern="(?=.*\S)[A-z\s]+" required value="{{ teacher.surname }}">
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input name="email" type="email" class="form-control" id="txtEmail" aria-describedby="Email" value="{% if teacher.email != None %}{{ teacher.email }}{% endif %}">
+            <input name="email" type="email" class="form-control" id="txtEmail" value="{% if teacher.email != None %}{{ teacher.email }}{% endif %}">
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
                 <label for="txtPhone1" class="form-label">Phone Number 1: <span class="required">*</span></label>
-                <input name="phone1" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required value="{{ teacher.phone1 }}" onkeydown="numbers_only(this)" maxlength="12">
+                <input name="phone1" type="text" class="form-control" id="txtPhone1" required value="{{ teacher.phone1 }}" onkeydown="numbers_only(this)" maxlength="12">
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input name="phone2" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" value="{% if teacher.phone2 != None %}{{ teacher.phone2 }}{% endif %}" onkeydown="numbers_only(this)" maxlength="12">
+                <input name="phone2" type="text" class="form-control" id="txtPhone2" value="{% if teacher.phone2 != None %}{{ teacher.phone2 }}{% endif %}" onkeydown="numbers_only(this)" maxlength="12">
             </div>
         </div>
         <input type="hidden" name="username" value="{{teacher.username}}">

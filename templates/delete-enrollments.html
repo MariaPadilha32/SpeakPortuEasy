@@ -8,20 +8,20 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtStudent" class="form-label">Student: <span class="required">*</span></label>
-            <input type="text" name="student" id="" class="form-control" value="{{enrollments.student}} {{ enrollments.student.surname }}" disabled>
+            <input type="text" name="student" id="txtStudent" class="form-control" value="{{enrollments.student}} {{ enrollments.student.surname }}" disabled>
         </div>
         <div class="mb-3">
             <label for="txtClass" class="form-label">Class: <span class="required">*</span></label>
-            <input type="text" name="classname" id="" value="{{enrollments.classname}}" disabled class="form-control">
+            <input type="text" name="classname" id="txtClass" value="{{enrollments.classname}}" disabled class="form-control">
         </div>
         <div class="mb-3">
             <label for="txtEnrollmentDate" class="form-label">Enrollment Date: <span class="required">*</span></label>
-            <input name="date" type="text" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required  disabled value="{{enrollments.date}}">
+            <input name="date" type="text" class="form-control" id="txtEnrollmentDate" required  disabled value="{{enrollments.date}}">
         </div>
         <input type="hidden" name="username" value="{{enrollments.username}}">
         {% if user.username == enrollments.username or user.is_superuser %}
         <button type="submit" class="btn btn-danger">Delete</button>
-        <a href="{% url 'query-enrollments' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
+        <a href="/query-enrollments/" class="btn btn-warning">Cancel</a>
         {% else %}
         <a href="{% url 'query-enrollments' %}" class="btn btn-primary">Back</a>
         {% endif %}

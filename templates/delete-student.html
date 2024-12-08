@@ -8,24 +8,24 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
-          <input name="name" value="{{ student.name }}" type="text" class="form-control" id="txtName" aria-describedby="Name" required  disabled>
+          <input name="name" value="{{ student.name }}" type="text" class="form-control" id="txtName" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input name="surname" value="{{ student.surname }}" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required  disabled>
+            <input name="surname" value="{{ student.surname }}" type="text" class="form-control" id="txtSurname" required  disabled>
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
-            <input name="email" value="{% if student.email != None %}{{ student.email }}{% endif %}" type="email" class="form-control" id="txtEmail" aria-describedby="Email"  disabled>
+            <input name="email" value="{% if student.email != None %}{{ student.email }}{% endif %}" type="email" class="form-control" id="txtEmail" disabled>
         </div>
         <div class="row">
             <div class="mb-3 col-6" >
                 <label for="txtPhone1" class="form-label">Phone Number 1: <span class="required">*</span></label>
-                <input name="phone1" value="{{ student.phone1 }}" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" required  disabled>
+                <input name="phone1" value="{{ student.phone1 }}" type="text" class="form-control" id="txtPhone1" required  disabled>
             </div>
             <div class="mb-3 col-6" >
                 <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                <input name="phone2" value="{% if student.phone2 != None %}{{ student.phone2 }}{% endif %}" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2"  disabled>
+                <input name="phone2" value="{% if student.phone2 != None %}{{ student.phone2 }}{% endif %}" type="text" class="form-control" id="txtPhone2" disabled>
             </div>
         </div>
         <div class="mb-3 form-check">
@@ -35,28 +35,28 @@
         <fieldset>
             <legend>Legal Guardian Information</legend>
             <div class="mb-3">
-                <label for="txtName" class="form-label">Full Name:</label>
-                <input disabled name="name_guardian" type="text" class="form-control" id="txtName" aria-describedby="Name" value="{% if student.name_guardian != None %}{{ student.name_guardian }}{% endif %}">
+                <label for="txtNameGuardian" class="form-label">Full Name:</label>
+                <input disabled name="name_guardian" type="text" class="form-control" id="txtNameGuardian" value="{% if student.name_guardian != None %}{{ student.name_guardian }}{% endif %}">
               </div>
               <div class="mb-3">
-                <label for="txtEmail" class="form-label">Email:</label>
-                <input disabled name="email_guardian" type="email" class="form-control" id="txtEmail" aria-describedby="Email" value="{% if student.email_guardian != None %}{{ student.email_guardian }}{% endif %}">
+                <label for="txtEmailGuardian" class="form-label">Email:</label>
+                <input disabled name="email_guardian" type="email" class="form-control" id="txtEmailGuardian" value="{% if student.email_guardian != None %}{{ student.email_guardian }}{% endif %}">
             </div>
             <div class="row">
                 <div class="mb-3 col-6" >
-                    <label for="txtPhone1" class="form-label">Phone Number 1:</label>
-                    <input disabled name="phone1_guardian" type="text" class="form-control" id="txtPhone1" aria-describedby="Phone Number 1" onkeydown="numbers_only(this)" maxlength="12" value="{% if student.phone1_guardian != None %}{{ student.phone1_guardian }}{% endif %}">
+                    <label for="txtPhone1Guardian" class="form-label">Phone Number 1:</label>
+                    <input disabled name="phone1_guardian" type="text" class="form-control" id="txtPhone1Guardian" onkeydown="numbers_only(this)" maxlength="12" value="{% if student.phone1_guardian != None %}{{ student.phone1_guardian }}{% endif %}">
                 </div>
                 <div class="mb-3 col-6" >
-                    <label for="txtPhone2" class="form-label">Phone Number 2:</label>
-                    <input disabled name="phone2_guardian" type="text" class="form-control" id="txtPhone2" aria-describedby="Phone Number 2" onkeydown="numbers_only(this)" maxlength="12" value="{% if student.phone2_guardian != None %}{{ student.phone2_guardian }}{% endif %}">
+                    <label for="txtPhone2Guardian" class="form-label">Phone Number 2:</label>
+                    <input disabled name="phone2_guardian" type="text" class="form-control" id="txtPhone2Guardian" onkeydown="numbers_only(this)" maxlength="12" value="{% if student.phone2_guardian != None %}{{ student.phone2_guardian }}{% endif %}">
                 </div>
             </div>
         </fieldset>
         <input type="hidden" name="username" value="{{student.username}}">
         {% if user.username == student.username or user.is_superuser %}
         <button type="submit" class="btn btn-danger btn-custom" >Delete</button>
-        <a href="{% url 'query-student' %}"><input type="button" value="Cancel" class="btn btn-warning btn-custom"></a>
+        <a href="/query-student/" class="btn btn-warning btn-custom">Cancel</a>
         {% else %}
         <a href="{% url 'query-student' %}" class="btn btn-primary btn-custom">Back</a>
         {% endif %}

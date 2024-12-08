@@ -8,7 +8,7 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
-            <input name="name" value="{{ classes.name }}" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required disabled>
+            <input name="name" value="{{ classes.name }}" type="text" class="form-control" id="txtClassName" required disabled>
         </div>
         <div class="mb-3">
             <select name="level" class="form-select" aria-label="Default select example" required  disabled>
@@ -23,12 +23,12 @@
         </div>
         <div class="mb-3">
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
-            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required  disabled>{{ classes.description }}</textarea>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" required  disabled>{{ classes.description }}</textarea>
         </div>
         <input type="hidden" name="username" value="{{classes.username}}">
         {% if user.username == classes.username or user.is_superuser %}
         <button type="submit" class="btn btn-danger">Delete</button>
-        <a href="{% url 'query-class' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
+        <a href="/query-class/" class="btn btn-warning">Cancel</a>
         {% else %}
         <a href="{% url 'query-class' %}" class="btn btn-primary">Back</a>
         {% endif %}
