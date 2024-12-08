@@ -17,7 +17,7 @@
           <ul class="errorlist">
               {% for field, errors in form.errors.items %}
                   {% for error in errors %}
-                      <li>{{ error }}</li>
+                      <li style="color: red; font-weight: bold;">{{ error }}</li>
                   {% endfor %}
               {% endfor %}
           </ul>
