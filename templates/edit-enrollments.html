@@ -33,7 +33,7 @@
             <input name="date" type="date" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" value="{{ enrollments.date|date:'Y-m-d' }}"  required>
         </div>
         <input type="hidden" name="username" value="{{enrollments.username}}">
-        {% if user.username == enrollments.username %}
+        {% if user.username == enrollments.username or user.is_superuser %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
         {% else %}

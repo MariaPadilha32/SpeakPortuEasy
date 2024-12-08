@@ -19,7 +19,7 @@
             <input name="date" type="text" class="form-control" id="txtEnrollmentDate" aria-describedby="EnrollmentDate" required  disabled value="{{enrollments.date}}">
         </div>
         <input type="hidden" name="username" value="{{enrollments.username}}">
-        {% if user.username == enrollments.username %}
+        {% if user.username == enrollments.username or user.is_superuser %}
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="{% url 'query-enrollments' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
         {% else %}

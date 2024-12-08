@@ -29,7 +29,7 @@
             </div>
         </div>
         <input type="hidden" name="username" value="{{teacher.username}}">
-        {% if user.username == teacher.username %}
+        {% if user.username == teacher.username or user.is_superuser %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
         {% else %}

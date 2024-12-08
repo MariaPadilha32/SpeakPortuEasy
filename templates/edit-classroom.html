@@ -24,7 +24,7 @@
             <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255">{{ classroom.description }}</textarea>
         </div>
         <input type="hidden" name="username" value="{{classroom.username}}">
-        {% if user.username == classroom.username %}
+        {% if user.username == classroom.username or user.is_superuser %}
         <button type="submit" class="btn btn-success">Edit</button>
         <button type="reset" class="btn btn-warning text-white">Reset</button>
         {% else %}

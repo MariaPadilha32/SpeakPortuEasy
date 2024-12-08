@@ -24,7 +24,7 @@
             <textarea name="description" class="form-control" id="txtDescription" rows="3"  disabled maxlength="255">{{ classroom.description }}</textarea>
         </div>
         <input type="hidden" name="username" value="{{classroom.username}}">
-        {% if user.username == classroom.username %}
+        {% if user.username == classroom.username or user.is_superuser %}
         <button type="submit" class="btn btn-danger">Delete</button>
         <a href="{% url 'query-classroom' %}"><input type="button" value="Cancel" class="btn btn-warning"></a>
         {% else %}
