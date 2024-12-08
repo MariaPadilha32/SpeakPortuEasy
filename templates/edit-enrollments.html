@@ -11,7 +11,7 @@
             <select name="student" class="form-select" id="txtStudent" required>
                 {% for student in students %}
                 <option value="{{ student.id }}" {% if enrollments.student.id == student.id %} selected {% endif %}>
-                    {{ student.name }}
+                    {{ student.name }} {{student.surname}}
                 </option>
                 {% endfor %}
                 <!-- Populate with available students -->

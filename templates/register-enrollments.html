@@ -12,7 +12,7 @@
             <select name="student" class="form-select" id="txtStudent" required>
                 <option value="" selected>Select the student</option>
                 {% for student in students %}
-                <option value="{{student.id}}">{{student.name}}</option>
+                <option value="{{student.id}}">{{student.name}} {{student.surname}}</option>
                 {% endfor %}
                 <!-- Populate with available students -->
             </select>
