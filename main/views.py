@@ -445,11 +445,6 @@ def edit_class(request, id):
             messages.success(request, 'Class was successfully updated.')
             return redirect('query-class')
         else:
-            messages.error(
-                request,
-                'An error occurred while updating the class.'
-                'Try a different name.'
-            )
             return render(request, 'edit-class.html', data)
     else:
         form = ClassesForm
