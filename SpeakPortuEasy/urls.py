@@ -77,6 +77,6 @@ urlpatterns = [
 ]
 
 
-handler404 = vw.v_404
-handler500 = vw.v_500
-# vw.v_404 = 'error404.html'
+handler404 = 'SpeakPortuEasy-main.main.views.v_404'
+
+
