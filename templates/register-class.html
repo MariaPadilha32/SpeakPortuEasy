@@ -9,10 +9,10 @@
         <input type="hidden" name="username" value="{{ user.username }}">
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required>
+            <input name="name" type="text" class="form-control" id="txtClassName" required>
         </div>
         <div class="mb-3">
-            <select name="level" class="form-select" aria-label="Default select example" required>
+            <select name="level" class="form-select" required>
                 <option value="" selected disabled>Select option folowing CEFR levels:</option>
                 <option value="A1">A1- Beginner/ Novice</option>
                 <option value="A2">A2- Intermediate Low/ Intermediate Mid</option>
@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3">
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
-            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required></textarea>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-warning">Reset</button>

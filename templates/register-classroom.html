@@ -9,11 +9,11 @@
         <input type="hidden" name="username" value="{{ user.username }}">
         <div class="mb-3">
             <label for="txtClassroomName" class="form-label">Classroom Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtClassroomName" aria-describedby="ClassroomName" required>
+            <input name="name" type="text" class="form-control" id="txtClassroomName" required>
         </div>
         <div class="mb-3">
             <label for="txtCapacity" class="form-label">Capacity: <span class="required">*</span></label>
-            <input name="capacity" type="number" class="form-control" id="txtCapacity" aria-describedby="Capacity" required min="1" max="3">
+            <input name="capacity" type="number" class="form-control" id="txtCapacity" required min="1" max="3">
             <small id="capacityHelp" class="form-text text-muted">Maximum 3 students per class.</small>
         </div>
         <div class="mb-3 form-check">
@@ -21,7 +21,7 @@
             <label class="form-check-label" for="chkOnlineClass">Online Class</label>
         </div>
        <div class="mb-3">
-            <label for="txtDescription" class="form-label">Description:</label> <span class="required">*</span></label>
+            <label for="txtDescription" class="form-label">Description:<span class="required">*</span></label> 
             <textarea name="description" class="form-control" id="txtDescription" rows="3" maxlength="255" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
