@@ -10,6 +10,15 @@
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
             <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required value="{{ classes.name}}" >
         </div>
+        {% if form.errors %}
+        <ul class="errorlist">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li style="color: red; font-weight: bold;">{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+      {% endif %}
         <div class="mb-3">
             <select name="level" class="form-select" aria-label="Default select example" required>
                 <option value="" selected disabled>Select option folowing CEFR levels:</option>

@@ -441,7 +441,7 @@ def edit_class(request, id):
             try:
                 form.save()
             except Exception:
-                return render(request, 'edit_class.html', data)
+                return render(request, 'edit-class.html', data)
             messages.success(request, 'Class was successfully updated.')
             return redirect('query-class')
         else:
@@ -450,7 +450,7 @@ def edit_class(request, id):
                 'An error occurred while updating the class.'
                 'Try a different name.'
             )
-            return render(request, 'edit_class.html', data)
+            return render(request, 'edit-class.html', data)
     else:
         form = ClassesForm
         return render(request, 'edit-class.html', data)
