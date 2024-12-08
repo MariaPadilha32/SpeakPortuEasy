@@ -1,8 +1,15 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Users(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False, unique=True)
+    name = models.CharField(
+        max_length=50,
+        blank=False,
+        null=False,
+        unique=True
+    )
     password = models.CharField(max_length=50, blank=False, null=False)
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
@@ -25,7 +32,6 @@ class Classroom(models.Model):
     is_online = models.BooleanField()
     description = models.CharField(max_length=255)
     username = models.CharField(max_length=50, blank=False, null=False)
-    
 
     def __str__(self):
         return self.name
@@ -60,7 +66,7 @@ class Student(models.Model):
     phone2 = models.CharField(max_length=20, blank=True, null=True)
     under_age = models.BooleanField(blank=True)
     username = models.CharField(max_length=50, blank=False, null=False)
-    name_guardian =  models.CharField(max_length=50, blank=True, null=True)
+    name_guardian = models.CharField(max_length=50, blank=True, null=True)
     email_guardian = models.CharField(max_length=100, blank=True, null=True)
     phone1_guardian = models.CharField(max_length=20, blank=True, null=True)
     phone2_guardian = models.CharField(max_length=20, blank=True, null=True)
@@ -74,8 +80,16 @@ class Student(models.Model):
 
 class Enrollments(models.Model):
     date = models.DateField(blank=False, null=False)
-    student = models.ForeignKey(to=Student, on_delete=models.SET_NULL, null=True)
-    classname = models.ForeignKey(to=Classes, on_delete=models.SET_NULL, null=True)
+    student = models.ForeignKey(
+        to=Student,
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    classname = models.ForeignKey(
+        to=Classes,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     username = models.CharField(max_length=50, blank=False, null=False)
 
     def __str__(self):

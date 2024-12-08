@@ -30,10 +30,10 @@ def register_student(request):
     else:
         form = StudentForm()
         return render(
-        request,
-        'register-student.html',
-        {'form': form}
-    )
+            request,
+            'register-student.html',
+            {'form': form}
+        )
 
 
 @login_required(login_url='login')
@@ -58,7 +58,6 @@ def register_class(request):
     else:
         form = ClassesForm()
         return render(request, 'register-class.html', {'form': form})
-
 
 
 @login_required(login_url='login')
@@ -92,7 +91,10 @@ def register_enrollments(request):
     if request.method == 'POST':
         student_id = request.POST.get('student')
         class_id = request.POST.get('classname')
-        count = Enrollments.objects.filter(student=student_id, classname=class_id).count()
+        count = Enrollments.objects.filter(
+            student=student_id,
+            classname=class_id
+        ).count()
         if count > 0:
             messages.error(request, 'Please use a different name.')
             return redirect('register-enrollments')
@@ -314,7 +316,6 @@ def delete_class(request, id):
         return render(request, 'delete-class.html', data)
 
 
-
 @login_required(login_url='accounts/login')
 def delete_classroom(request, id):
     classroom = Classroom.objects.get(id=id)
@@ -391,7 +392,7 @@ def edit_student(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            messages.success(request,'Student successfully updated.')
+            messages.success(request, 'Student successfully updated.')
             return redirect('query-student')
         else:
             return render(request, 'edit-student.html', data)
@@ -410,10 +411,18 @@ def edit_teacher(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            messages.success(request, f'Teacher {teacher.name} {teacher.surname} was successfully updated.')
+            messages.success(
+                request,
+                f'Teacher {teacher.name} {teacher.surname} was successfully'
+                'updated.'
+            )
             return redirect('query-teacher')
         else:
-            messages.error(request, 'An error occurred while updating the teacher. Please check the form and try again.')
+            messages.error(
+                request,
+                'An error occurred while updating the teacher. Please check'
+                'the form and try again.'
+            )
             return render(request, 'edit-teacher.html', data)
     else:
         form = TeacherForm
@@ -431,17 +440,20 @@ def edit_class(request, id):
         if form.is_valid():
             try:
                 form.save()
-            except:
+            except Exception:
                 return render(request, 'edit_class.html', data)
             messages.success(request, 'Class was successfully updated.')
             return redirect('query-class')
         else:
-            messages.error(request, 'An error occurred while updating the class. Try a different name.')
+            messages.error(
+                request,
+                'An error occurred while updating the class.'
+                'Try a different name.'
+            )
             return render(request, 'edit_class.html', data)
     else:
         form = ClassesForm
         return render(request, 'edit-class.html', data)
-
 
 
 @login_required(login_url='login')
@@ -477,7 +489,10 @@ def edit_enrollments(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            messages.success(request, 'Enrollment information was successfully updated.')
+            messages.success(
+                request,
+                'Enrollment information was successfully updated.'
+            )
             return redirect('query-enrollments')
         else:
             return render(request, 'edit-enrollments.html', data)
@@ -531,11 +546,17 @@ def v_authenticate(request):
             return render(request, 'index.html')
         else:
             # User account is disabled
-            messages.warning(request, "Your account is disabled. Please contact support.")
+            messages.warning(
+                request,
+                "Your account is disabled. Please contact support."
+            )
             return redirect('login')  # Redirect to the login page
     else:
         # Invalid credentials
-        messages.error(request, "Incorrect login or password. Please try again.")
+        messages.error(
+            request,
+            "Incorrect login or password. Please try again."
+        )
         return redirect('login')  # Redirect to the login page
 
     return render(request, 'login.html')
@@ -550,19 +571,21 @@ def search_classroom(request):
     query = request.GET.get('search')
     classrooms = Classroom.objects.filter(name__icontains=query)
     total_classrooms = classrooms.count()
-    return render(request, 'query-classroom.html', {'classes': classrooms, 'total_classrooms' : total_classrooms})
+    return render(
+        request,
+        'query-classroom.html',
+        {'classes': classrooms, 'total_classrooms': total_classrooms}
+    )
 
 
 def search_class(request):
     query = request.GET.get('search')
     classname = Classes.objects.filter(name__icontains=query)
     total_classes = classname.count()
-    return render(request, 'query-class.html', 
-                        {
-                            'classnames': classname, 
-                            'total_classes' : total_classes
-                        }
-                )
+    return render(request, 'query-class.html', {
+                            'classnames': classname,
+                            'total_classes': total_classes
+                        })
 
 
 def search_student(request):
@@ -573,8 +596,8 @@ def search_student(request):
         request,
         'query-student.html',
         {
-            'students': student, 
-            'total_student' : total_students
+            'students': student,
+            'total_student': total_students
         }
     )
 
@@ -588,7 +611,7 @@ def search_enrollments(request):
         'query-enrollments.html',
         {
             'enrollments': enrollment,
-            'total_enrollments' : total_enrollments
+            'total_enrollments': total_enrollments
         }
     )
 
@@ -597,8 +620,14 @@ def search_teacher(request):
     query = request.GET.get('search')
     teacher = Teacher.objects.filter(name__icontains=query)
     total_teacher = teacher.count()
-    return render(request, 'query-teacher.html', {'teachers': teacher, 'total_teacher' : total_teacher})
-
+    return render(
+        request,
+        'query-teacher.html',
+        {
+            'teachers': teacher,
+            'total_teacher': total_teacher
+        }
+    )
 
 
 def v_404(request, exception):
