@@ -9,11 +9,11 @@
         <input type="hidden" name="username" value="{{ user.username }}">
         <div class="mb-3">
           <label for="txtName" class="form-label">Name: <span class="required">*</span></label>
-          <input name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" required>
+          <input name="name" type="text" class="form-control" id="txtName" aria-describedby="Name" pattern="(?=.*\S)[A-z\s]+"  required>
         </div>
         <div class="mb-3">
             <label for="txtSurname" class="form-label">Surname: <span class="required">*</span></label>
-            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" required>
+            <input name="surname" type="text" class="form-control" id="txtSurname" aria-describedby="Surname" pattern="(?=.*\S)[A-z\s]+"  required>
         </div>
         <div class="mb-3">
             <label for="txtEmail" class="form-label">Email:</label>
