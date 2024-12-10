@@ -26,6 +26,15 @@
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
             <textarea name="description" class="form-control" id="txtClassDescription" rows="5" required></textarea>
         </div>
+        {% if form.errors %}
+        <ul class="errorlist">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li style="color: red; font-weight: bold;">{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+       {% endif %} 
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-warning">Reset</button>
     </form>
