@@ -717,9 +717,6 @@ This project uses [Heroku](https://www.heroku.com) for deployment to the web. Th
 | `EMAIL_HOST_PASS` | user's own value |
 | `EMAIL_HOST_USER` | user's gmail |
 | `SECRET_KEY` | user's own value |
-| `STRIPE_PUBLIC_KEY` | user's own value |
-| `STRIPE_SECRET_KEY` | user's own value |
-| `STRIPE_WH_SECRET` | user's own value |
 | `USE_AWS` | True |
 
 Heroku needs two additional files in order to deploy properly.
