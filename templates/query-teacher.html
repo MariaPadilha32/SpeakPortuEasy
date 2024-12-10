@@ -12,7 +12,7 @@
                 </div>
                 <div class="row col-12 d-flex">
                     <div class="col-11">
-                        <input name="search" type="text" class="form-control" id="txtClassroomName" aria-describedby="ClasroomsName" placeholder="Enter Teacher's First Name">
+                        <input name="search" type="text" class="form-control" id="txtClassroomName" placeholder="Enter Teacher's First Name">
                     </div>
                     <div class="col-1">
                         <button type="submit" class="btn btn-primary">Search</button>
@@ -50,8 +50,8 @@
                     <td>{{ teacher.name }} {{ teacher.surname }} - <small>phone: {{ teacher.phone1 }}</small></td>
                     <td class="text-end">
                         {% if user.username == teacher.username or user.is_superuser %}
-                        <a href="{% url 'edit-teacher' teacher.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-teacher' teacher.id %}"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'edit-teacher' teacher.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-teacher' teacher.id %}" class="btn btn-danger">Delete</a>
                         {% endif %}
                     </td>
                 </tr>

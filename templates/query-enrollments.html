@@ -12,7 +12,7 @@
                 </div>
                 <div class="row col-12 d-flex">
                     <div class="col-11">
-                        <input name="search" type="text" class="form-control" id="txtEnrollment" aria-describedby="ClassEnrollment" placeholder="Enrollment: Search by date (day or month or year)">
+                        <input name="search" type="text" class="form-control" id="txtEnrollmentName" placeholder="Enrollment: Search by date (day or month or year)">
                     </div>
                     <div class="col-1">
                         <button type="submit" class="btn btn-primary">Search</button>
@@ -50,8 +50,8 @@
                     <td>{{ enrollment.date }} - {{ enrollment.classname }}</td>
                     <td class="text-end">
                         {% if user.username == enrollment.username or user.is_superuser %}
-                        <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'edit-enrollments' enrollment.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-enrollments' enrollment.id %}" class="btn btn-danger">Delete</a>
                         {% endif %}  
                     </td>
                 </tr>
@@ -75,8 +75,8 @@
                     <td>{{ enrollment.date }} - {{ enrollment.classname }}</td>
                     <td class="text-end">
                         {% if user.username == enrollment.username or user.is_superuser %}
-                        <a href="{% url 'edit-enrollments' enrollment.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-enrollments' enrollment.id %}"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'edit-enrollments' enrollment.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-enrollments' enrollment.id %}" class="btn btn-danger">Delete</a>
                         {% endif %}  
                     </td>
                 </tr>

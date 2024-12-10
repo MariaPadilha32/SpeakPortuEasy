@@ -8,7 +8,7 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="txtClassName" class="form-label">Class Name: <span class="required">*</span></label>
-            <input name="name" type="text" class="form-control" id="txtClassName" aria-describedby="ClassName" required value="{{ classes.name}}" >
+            <input name="name" type="text" class="form-control" id="txtClassName" required value="{{ classes.name}}" >
         </div>
         {% if form.errors %}
         <ul class="errorlist">
@@ -20,19 +20,19 @@
         </ul>
       {% endif %}
         <div class="mb-3">
-            <select name="level" class="form-select" aria-label="Default select example" required>
-                <option value="" selected disabled>Select option folowing CEFR levels:</option>
-                <option value="A1" {% if classes.level == "A1" %} selected {% endif %} >A1- Beginner/ Novice</option>
-                <option value="A2" {%  if classes.level == "A2" %} selected {% endif %} >A2- Intermediate Low/ Intermediate Mid</option>
-                <option value="B1" {% if classes.level == "B1" %} selected {% endif %}>B1- Intermidiate High</option>
-                <option value="B2" {% if classes.level == "B2" %} selected {%  endif %}>B2- Advanced Low/ Mid/ High </option>
+            <select name="level" class="form-select" required>
+                <option value="" disabled {% if not classes.level %} selected {% endif %}>Select option following CEFR levels:</option>
+                <option value="A1" {% if classes.level == "A1" %} selected {% endif %}>A1- Beginner/ Novice</option>
+                <option value="A2" {% if classes.level == "A2" %} selected {% endif %}>A2- Intermediate Low/ Intermediate Mid</option>
+                <option value="B1" {% if classes.level == "B1" %} selected {% endif %}>B1- Intermediate High</option>
+                <option value="B2" {% if classes.level == "B2" %} selected {% endif %}>B2- Advanced Low/ Mid/ High</option>
                 <option value="C1" {% if classes.level == "C1" %} selected {% endif %}>C1- Superior</option>
-                <option value="C2" {% if classes.level == "C2" %} selected {% endif %}  >C2- Distinguished</option>
+                <option value="C2" {% if classes.level == "C2" %} selected {% endif %}>C2- Distinguished</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="txtClassDescription" class="form-label">Class Description:<span class="required">*</span></label>
-            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" aria-describedby="Class Description" required>{{ classes.description }}</textarea>
+            <textarea name="description" class="form-control" id="txtClassDescription" rows="5" required>{{ classes.description }}</textarea>
         </div>
         <input type="hidden" name="username" value="{{classes.username}}">
         {% if user.username == classes.username  or user.is_superuser %}

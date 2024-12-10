@@ -50,8 +50,8 @@
                     <td>{{ student.name }}</td>
                     <td class="text-end">
                         {% if user.username == student.username or user.is_superuser %}
-                        <a href="{% url 'edit-student' student.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-student' student.id %}"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'edit-student' student.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-student' student.id %}" class="btn btn-danger">Delete</a>
                         {% endif %}
                     </td>
                 </tr>
@@ -75,8 +75,8 @@
                     <td>{{ student.name }}</td>
                     <td class="text-end">
                         {% if user.username == student.username or user.is_superuser %}
-                        <a href="{% url 'edit-student' student.id %}"><button class="btn btn-warning">Edit</button></a>
-                        <a href="{% url 'delete-student' student.id %}"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'edit-student' student.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-student' student.id %}" class="btn btn-danger">Delete</a>
                         {% endif %}
                     </td>
                 </tr>

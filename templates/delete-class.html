@@ -11,8 +11,8 @@
             <input name="name" value="{{ classes.name }}" type="text" class="form-control" id="txtClassName" required disabled>
         </div>
         <div class="mb-3">
-            <select name="level" class="form-select" aria-label="Default select example" required  disabled>
-                <option value="" selected disabled>Select option folowing CEFR levels:</option>
+            <select name="level" class="form-select" aria-label="Default select example" required disabled>
+                <option value="" disabled {% if not classes.level %} selected {% endif %}>Select option following CEFR levels:</option>
                 <option value="A1" {% if classes.level == "A1" %} selected {% endif %} >A1- Beginner/ Novice</option>
                 <option value="A2" {%  if classes.level == "A2" %} selected {% endif %} >A2- Intermediate Low/ Intermediate Mid</option>
                 <option value="B1" {% if classes.level == "B1" %} selected {% endif %} >B1- Intermidiate High</option>
