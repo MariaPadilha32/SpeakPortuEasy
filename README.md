@@ -386,45 +386,24 @@ The Website logo was made using Canva using the Gold colour to match in with the
 The hero image was taken from Canva pro which is a royalty free image site.
 
 
-### Features
+## System Features
 
-``USER STORY - As a developer, I need to create the navbar so that users can navigate the website from any device``
+### General Features
 
-Implementation:
+1. Main Page
+ The home page introduces users to the platform's functionality, allowing quick access to login and menu.
 
-**Navigation Bar**
+<details><summary>Main Large screen</summary>
+<img src="docs/images/homelg.png">
+</details>
 
-The navigation bar in SpeakPortuEasy is designed to provide easy access to all major sections of the platform. The bar is available on all pages and adapts to smaller devices by displaying as a hamburger menu.
+<details><summary>Main Medium screen</summary>
+<img src="docs/images/homemd.png">
+</details>
 
-The following navigation items are available on all pages:
-  * SpeakPortuEasy (goes to home) - Visible to all
-  * Home (goes to home) - Visible to all
-  * Register (Drop Down) - Provides options for registering different entities:
-    * Register Student (register-student.html) - Visible to logged in users
-    * Register Class (register-class.html) - Visible to logged in users
-    * Register Classroom (register-classroom.html) - Visible to logged in users
-    * Register Schedule (register-schedule.html) - Visible to logged in users
-    * Register Enrollment (register-enrollment.html) - Visible to logged in users
-    * Register Teacher (register-teacher.html) - Visible to logged in users
-  * Query (Drop Down) - Provides options for querying different entities
-    * Query Student (query-student.html) - Visible to logged in users
-    * Query Class (query-class.html) - Visible to logged in users
-    * Query Classroom (query-classroom.html) - Visible to logged in users
-    * Query Schedule (query-schedule.html) - Visible to logged in users
-    * Query Enrollment (query-enrollment.html) - Visible to logged in users
-    * Query Teacher (query-teacher.html) - Visible to logged in users
-  * Login -> login.html - Visible to logged out users
-  * Logout -> logout.html - Visible to logged in users
-
-The navigation bar is displayed on all pages and drops down into a hamburger menu on smaller devices. This will allow users to view the site from any device and not take up too much space on mobile devices.
-
-![Navbar](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102502.png)
-
-``USER STORY - As a teacher, I would like a home page that provides an overview of the system and easy access to its features.``
-
-Implementation:
-
-**Home Page**
+<details><summary>Main Small screen</summary>
+<img src="docs/images/homesm.png">
+</details>
 
 The home page contains a hero image with the SpeakPortuEasy logo and a brief description of the website's purpose. This section immediately informs the user about the platform's function, which is to assist teachers in managing their classes and student information.
 
@@ -432,19 +411,558 @@ Under the description, users must log in to access the system's features. This e
 
 The home page is designed to be simple and user-friendly, providing essential information and a clear call to action for logging in.
 
-![Welcome Section](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102738.png)
+2. Navigation Bar
+Accessible from all pages, the navigation bar provides links to all key sections of the platform. Adapts to smaller screens with a responsive hamburger menu.
 
-``USER STORY - As a teacher, I want to createa simple footer``
+<details><summary>Navbar Large screen</summary>
+<img src="docs/images/navbig.png">
+</details>
 
-**Implementation:**
+<details><summary>Navbar Medium screen</summary>
+<img src="docs/images/navmedium.png">
+</details>
 
-**Footer**
+<details><summary>Navbar Small screen</summary>
+<img src="docs/images/navsmall.png">
+</details>
 
+<details><summary>Menu Large screen</summary>
+<img src="docs/images/menulg.png">
+<img src="docs/images/menulg2.png">
+</details>
+
+<details><summary>Menu Medium screen</summary>
+<img src="docs/images/menumd3.png">
+<img src="docs/images/menumd.png">
+<img src="docs/images/menumd2.png">
+</details>
+
+<details><summary>Menu Small screen</summary>
+<img src="docs/images/menusm3.png">
+<img src="docs/images/menusm.png">
+<img src="docs/images/menusm2.png">
+</details>
+
+Implementation:
+
+The following navigation items are available on all pages:
+  * SpeakPortuEasy (goes to home) - Visible to all
+  * Home (goes to home) - Visible to all
+  * Register (Drop Down) - Provides options for registering different entities:
+    * Add a new student (register-student.html) - Visible to logged in users
+    * Create a new class (register-class.html) - Visible to logged in users
+    * Add a classroom (register-classroom.html) - Visible to logged in users
+    * Enroll students in class (register-enrollment.html) - Visible to logged in users
+    * Add a new teacher (register-teacher.html) - Visible to logged in users
+  * Manage Records (Drop Down) - Provides options for querying different entities
+    * Student records (query-student.html) - Visible to logged in users
+    * Class information (query-class.html) - Visible to logged in users
+    * Classroom information (query-classroom.html) - Visible to logged in users
+    * Enrollments (query-enrollment.html) - Visible to logged in users
+    * Teacher Information (query-teacher.html) - Visible to logged in users
+  * Login -> login.html - Visible to logged out users
+  * Logout -> logout.html - Visible to logged in users
+
+3. Footer
 A simple footer has been added to the bottom of the site. Since SpeakPortuEasy is a system for teachers to manage their work, the footer only includes essential registration information. It does not contain social media links or additional contact information, maintaining a clean and professional appearance.
 
-![Footer](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102508.png)
+<details><summary>Footer Large screen</summary>
+<img src="docs/images/footerlg.png">
+</details>
 
-``USER STORY - As a teacher, I want to be able to create a new class so that I can organize my teaching schedule.``
+<details><summary>Footer Medium screen</summary>
+<img src="docs/images/footermd.png">
+</details>
+
+<details><summary>Navbar Small screen</summary>
+<img src="docs/images/footsm.png">
+</details>
+
+**User Authentication**
+
+4. Login
+Allows users to log in securely to access system features.
+
+<details><summary>Login Large screen</summary>
+<img src="docs/images/loginlg.png">
+</details>
+
+<details><summary>Login Medium screen</summary>
+<img src="docs/images/loginmd.png">
+</details>
+
+<details><summary>Login Small screen</summary>
+<img src="docs/images/loginsm.png">
+</details>
+
+5. Create User
+Enables new users to register and create an account for access.
+
+<details><summary>Create User Large screen</summary>
+<img src="docs/images/createuserlg.png">
+</details>
+
+<details><summary>Create User Medium screen</summary>
+<img src="docs/images/createusermd.png">
+</details>
+
+<details><summary>Create User Small screen</summary>
+<img src="docs/images/createusersm.png">
+<img src="docs/images/createusersm2.png">
+</details>
+
+**CRUD Operations for Students**
+
+6. Add a New Student
+Allows administrators or teachers to register a new student.
+
+<details><summary>Add a new Student Large screen</summary>
+<img src="docs/images/addstudent.png">
+</details>
+
+<details><summary>Add a new Student Medium screen</summary>
+<img src="docs/images/addstudentmd.png">
+</details>
+
+<details><summary>Add a new Student Small screen</summary>
+<img src="docs/images/addstudentsm.png">
+<img src="docs/images/addstudentsm1.png">
+</details>
+
+7. Search Student
+Enables users to search and view detailed student records.
+
+<details><summary>Search Student Large screen</summary>
+<img src="docs/images/searchstudentlg.png">
+</details>
+
+<details><summary>Search Student Medium screen</summary>
+<img src="docs/images/searchstudentmd.png">
+</details>
+
+<details><summary>Search Student Small screen</summary>
+<img src="docs/images/searchstudentsm.png">
+</details>
+
+8. Edit Student
+Users can update student information when necessary.
+
+<details><summary>Edit Student Large screen</summary>
+<img src="docs/images/editstudentlg.png">
+</details>
+
+<details><summary>Edit Student Medium screen</summary>
+<img src="docs/images/editstudentmd.png">
+</details>
+
+<details><summary>Edit Student Small screen</summary>
+<img src="docs/images/editstudentsm.png">
+<img src="docs/images/editstudentsm2.png">
+</details>
+
+9. Delete Student
+Allows the removal of a student record from the system.
+
+<details><summary>Delete Student Large screen</summary>
+<img src="docs/images/deletestudentlg.png">
+</details>
+
+<details><summary>Delete Student Medium screen</summary>
+<img src="docs/images/deletestudentmd.png">
+</details>
+
+<details><summary>Delete Student Small screen</summary>
+<img src="docs/images/deletestudentsm.png">
+</details>
+
+**CRUD Operations for Class**
+
+10. Create a New Class
+Facilitates the addition of a new class to the system.
+
+<details><summary>Add a new Class Large screen</summary>
+<img src="docs/images/addclasslg.png">
+</details>
+
+<details><summary>Add a new Class Medium screen</summary>
+<img src="docs/images/addclassmd.png">
+</details>
+
+<details><summary>Add a new Class Small screen</summary>
+<img src="docs/images/addclasssmall.png">
+</details>
+
+11. Class Search
+Enables users to search and view detailed student records.
+
+<details><summary>Search Class Large screen</summary>
+<img src="docs/images/searchclasslg.png">
+</details>
+
+<details><summary>Search Class Medium screen</summary>
+<img src="docs/images/searchclassmd.png">
+</details>
+
+<details><summary>Search Class Small screen</summary>
+<img src="docs/images/searchclasssm.png">
+</details>
+
+12. Edit Class
+Enables users to modify class details.
+
+<details><summary>Edit Class Large screen</summary>
+<img src="docs/images/editclasslg.png">
+</details>
+
+<details><summary>Edit Class Medium screen</summary>
+<img src="docs/images/editclassmd.png">
+</details>
+
+<details><summary>Edit Class Small screen</summary>
+<img src="docs/images/editclasssm.png">
+</details>
+
+13. Delete Class
+Allows deletion of classes that are no longer needed.
+
+<details><summary>Delete Class Large screen</summary>
+<img src="docs/images/classdeletelg.png">
+</details>
+
+<details><summary>Delete Class Medium screen</summary>
+<img src="docs/images/deleteclassmd.png">
+</details>
+
+<details><summary>Delete Class Small screen</summary>
+<img src="docs/images/deleteclasssm.png">
+</details>
+
+**CRUD Operations for Classroom**
+
+14. Create a New Classroom
+Lets users register new classrooms.
+
+<details><summary>Add a new Classrooms Large screen</summary>
+<img src="docs/images/addclassroomlg.png">
+</details>
+
+<details><summary>Add a new Classrooms Medium screen</summary>
+<img src="docs/images/addclassroommd.png">
+</details>
+
+<details><summary>Add a new Classrooms Small screen</summary>
+<img src="docs/images/addclasssroomsm.png">
+</details>
+
+15. Classroom Search
+Displays detailed information about a specific classroom.
+
+<details><summary>Search Classrooms Large screen</summary>
+<img src="docs/images/searchclassroomlg.png">
+</details>
+
+<details><summary>Search Classrooms Medium screen</summary>
+<img src="docs/images/searchclassroommd.png">
+</details>
+
+<details><summary>Search Classrooms Small screen</summary>
+<img src="docs/images/searchclassroomsm.png">
+</details>
+
+16. Edit Classroom
+Allows editing of classroom details.
+
+<details><summary>Edit Classrooms Large screen</summary>
+<img src="docs/images/editclassroomlg.png">
+</details>
+
+<details><summary>Edit Classrooms Medium screen</summary>
+<img src="docs/images/editclassroommd.png">
+</details>
+
+<details><summary>Edit Classrooms Small screen</summary>
+<img src="docs/images/editclassroomsm.png">
+</details>
+
+17. Delete Classroom
+Enables users to delete a classroom.
+
+<details><summary>Delete Classrooms Large screen</summary>
+<img src="docs/images/deleteclassroomlg.png">
+</details>
+
+<details><summary>Delete Classrooms Medium screen</summary>
+<img src="docs/images/deleteclassroommd.png">
+</details>
+
+<details><summary>Delete Classrooms Small screen</summary>
+<img src="docs/images/deleteclassroomsm.png">
+</details>
+
+**CRUD Operations for Enrollment**
+
+18. Enroll Student
+Facilitates enrolling students into classes.
+
+<details><summary>Enrollment Large screen</summary>
+<img src="docs/images/addenrolllg.png">
+</details>
+
+<details><summary>Enrollment Medium screen</summary>
+<img src="docs/images/addenrollmd.png">
+</details>
+
+<details><summary>Enrollment Small screen</summary>
+<img src="docs/images/addenrollsm.png">
+</details>
+
+19. Enrollment Search
+Provides an overview of student enrollments.
+
+<details><summary>Search Enrollment Large screen</summary>
+<img src="docs/images/searchenrolllg.png">
+</details>
+
+<details><summary>Search Enrollment Medium screen</summary>
+<img src="docs/images/searchenrollmd.png">
+</details>
+
+<details><summary>Search Enrollment Small screen</summary>
+<img src="docs/images/searchenrollsm.png">
+</details>
+
+20. Edit Enrollment
+Allows modifications to enrollment details.
+
+<details><summary>Edit Enrollment Large screen</summary>
+<img src="docs/images/editenrolllg.png">
+</details>
+
+<details><summary>Edit Enrollment Medium screen</summary>
+<img src="docs/images/editenrollmd.png">
+</details>
+
+<details><summary>Edit Enrollment Small screen</summary>
+<img src="docs/images/editenrollsm.png">
+</details>
+
+21. Delete Enrollment
+Enables deletion of enrollment records.
+
+<details><summary>Delete Enrollment Large screen</summary>
+<img src="docs/images/deleteenrolllg.png">
+</details>
+
+<details><summary>Delete Enrollment Medium screen</summary>
+<img src="docs/images/deleteenrollmd.png">
+</details>
+
+<details><summary>Delete Enrollment Small screen</summary>
+<img src="docs/images/deleteenrollsm.png">
+</details>
+
+**CRUD Operations for Teacher**
+
+22. Add a New Teacher
+Allows registration of new teachers into the system.
+
+<details><summary>Teacher Large screen</summary>
+<img src="docs/images/addteacherlg.png">
+</details>
+
+<details><summary>Teacher Medium screen</summary>
+<img src="docs/images/addteachermd.png">
+</details>
+
+<details><summary>Teacher Small screen</summary>
+<img src="docs/images/addteachersmall.png">
+</details>
+
+23. Teacher Search
+Search teacher information.
+
+<details><summary>Search Teacher Large screen</summary>
+<img src="docs/images/searchteacherlg.png">
+</details>
+
+<details><summary>Search Teacher Medium screen</summary>
+<img src="docs/images/searchteachermd.png">
+</details>
+
+<details><summary>Search Teacher Small screen</summary>
+<img src="docs/images/searchteachersm.png">
+</details>
+
+24. Edit Teacher
+Enables users to update teacher information.
+
+<details><summary>Edit Teacher Large screen</summary>
+<img src="docs/images/editteacherlg.png">
+</details>
+
+<details><summary>Edit Teacher Medium screen</summary>
+<img src="docs/images/editteachermd.png">
+</details>
+
+<details><summary>Edit Teacher Small screen</summary>
+<img src="docs/images/editteachersm.png">
+</details>
+
+25. Delete Teacher
+Allows the removal of a teacher record from the system.
+
+<details><summary>Delete Teacher Large screen</summary>
+<img src="docs/images/deleteteacherlg.png">
+</details>
+
+<details><summary>Delete Teacher Medium screen</summary>
+<img src="docs/images/deleteteachermd.png">
+</details>
+
+<details><summary>Delete Teacher Small screen</summary>
+<img src="docs/images/deleteteachersm.png">
+</details>
+
+**Notes Functionality**
+
+26. Add Notes
+User have a notification that the records were added successfully.
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteclassmd.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteclassroommd.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteclassroomsmall.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteclasslg.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteclasssm.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteedited.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteenrolllg.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteenrollmd.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteenrollsm.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/notelg.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/notesmall.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteteacherlg.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteteacherlg.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteteachermd.png">
+</details>
+
+<details><summary>Notification successfully added</summary>
+<img src="docs/images/noteteachersm.png">
+</details>
+
+27. Edit Notes
+User have a notification that the records were added successfully.
+
+<details><summary>Notification of edited successfull</summary>
+<img src="docs/images/noteedited.png">
+</details>
+
+28. Delete Notes
+User have a notification that the records were added successfully.
+
+<details><summary>Delete Note Small screen</summary>
+<img src="docs/images/deletenotelg.png">
+</details>
+
+<details><summary>Delete Note Small screen</summary>
+<img src="docs/images/deletenotemd.png">
+</details>
+
+<details><summary>Delete Note Small screen</summary>
+<img src="docs/images/deletenotesm.png">
+</details>
+
+**Additional Features**
+
+29. Error Pages
+Custom 404 error pages provide user-friendly feedback for errors.
+
+<details><summary>404 error Large screen</summary>
+<img src="docs/images/errorlg.png">
+</details>
+
+<details><summary>404 error Medium screen</summary>
+<img src="docs/images/errormd.png">
+</details>
+
+<details><summary>404 error Small screen</summary>
+<img src="docs/images/errorsm.png">
+</details>
+
+30. Pagination
+Pagination is implemented across search pages, such as student or class records, to improve usability on large datasets.
+
+<details><summary>Pagination</summary>
+<img src="docs/images/pagination.png">
+<img src="docs/images/pagination2.png">
+<img src="docs/images/pagination3.png">
+</details>
+
+### Access Control for Edit and Delete Features
+
+For security and data integrity, the ability to edit or delete records in the system is restricted to:
+
+1. Admins (Superusers): Administrators have full access to edit and delete all records in the system, regardless of who created them.
+2. Record Creators: A user who created a specific record (e.g., Student, Class, Classroom, Enrollment, or Teacher) can edit or delete only the records they created.
+
+**This ensures that:**
+
+Sensitive information remains protected.
+Unauthorized users cannot modify or delete records they did not create.
+
+**Other Users:**
+
+- Cannot see the record in the interface unless it is explicitly shared with them.
+- Can gain view-only access to a record if they manually enter the record's ID in the URL.
+- Even with view-only access, they cannot edit or delete the record.
+
+**This access control implementation ensures:**
+
+- Accountability: Only the appropriate users can modify records.
+- Security: Unauthorized users cannot accidentally or maliciously alter or delete records.
+- Limited Visibility: Users are restricted from seeing or interacting with records they do not own unless they explicitly access them by ID.
+
+<details><summary>A not authorized user - manually typed the id on the URL</summary>
+<img src="docs/images/notauthorized.png">
+</details>
 
 **Implementation:**
 **Create Class Page**
