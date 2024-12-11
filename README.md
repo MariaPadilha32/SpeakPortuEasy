@@ -180,7 +180,6 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 <details><summary>Delete Page</summary>
 <img src="docs/wireframes/delete.png">
 </details>
-
 </details>
 
 <details><summary>Medium screens - tablet</summary>
@@ -207,6 +206,7 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 
 <details><summary>Delete Page</summary>
 <img src="docs/wireframes/delete_tablet.png">
+</details>
 </details>
 
 <details><summary>Small screens - mobile</summary>
