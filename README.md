@@ -234,6 +234,7 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 <details><summary>Delete Page</summary>
 <img src="docs/wireframes/delete_smartphone.png">
 </details>
+</details>
 
 ## The-Structure-Plane
 
