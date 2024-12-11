@@ -13,7 +13,7 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
     - [Site-Goals](#site-goals)
     - [Agile Planning](#agile-planning)
       - [User Stories](#user-stories)
-	- [Wireframes] (#wireframes) (NEW)
+	- [Wireframes] (#wireframes)
   - [The-Structure-Plane](#the-structure-plane)
     - [Features](#features)
     - [Features Left To Implement](#features-left-to-implement)
