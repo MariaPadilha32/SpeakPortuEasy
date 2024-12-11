@@ -1,16 +1,23 @@
 # SpeakPortuEasy
-
-SpeakPortuEasy is an innovative system designed for teachers to efficiently manage their classes and student information. Once a teacher signs up, they gain access to a comprehensive registration system where all relevant information is stored. This allows teachers to easily edit or delete records as necessary. The primary goal of SpeakPortuEasy is to simplify the process of finding information about enrollments, classes, students, and more, making classroom management straightforward and hassle-free.
-You can access the live application at this link: [Live Site - SpeakPortuEay](https://speakportueasypp4-342d78e3516e.herokuapp.com/home/)
-
 ![Mock Up](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102458.png)
 
+##Introduction:
+
+Welcome to SpeakPortuEasy!
+SpeakPortuEasy is a versatile system designed for schools to efficiently manage class, classroom, and student information. It caters to administrators and teachers, providing them with a streamlined platform to organize and oversee their educational resources. This allows teachers to easily edit or delete records as necessary. The primary goal of SpeakPortuEasy is to simplify the process of finding information about enrollments, classes, students, and more, making classroom management straightforward and hassle-free. The technologies used for this project are HTML, CSS, JavaScript, Python, Django and Heroku Postgres as a relational database.
+You can access the live application at this link: 
+
+[Live Site - SpeakPortuEay](https://speakportueasypp4-342d78e3516e.herokuapp.com/home/)
+[Repository](https://github.com/MariaPadilha32/SpeakPortuEasy)
+__Developed by Maria Fernanda Dias Padilha__
+
 ## Table of Contents
-- [SpeakPortuEasy](#speakportueasy)
+- [SpeakPortuEasy](#speakportueasy) *UPDATE*
   - [Table of Contents](#table-of-contents)
+
 - [User-Experience-Design](#user-experience-design)
   - [The-Strategy-Plane](#the-strategy-plane)
-    - [Site-Goals](#site-goals)
+    - [Site-Goals](#site-goals) *UPDATE*
     - [Agile Planning](#agile-planning)
       - [User Stories](#user-stories)
 	- [Wireframes](#wireframes) *NEW*
@@ -22,7 +29,7 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
     - [Security](#security)
   - [The-Surface-Plane](#the-surface-plane)
     - [Design](#design)
-    - [Colour-Scheme](#colour-scheme)
+    - [Colour-Scheme](#colour-scheme) *UPDATE*
     - [Typography](#typography)
     - [Imagery](#imagery)
   - [Technolgies](#technolgies)
@@ -37,11 +44,49 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
 
 # User-Experience-Design
 
-## The-Strategy-Plane
+## The-Strategy-Plane *UPDATE*
 
-### Site-Goals
+The site is aimed at helping language teachers, specifically those teaching English or Portuguese. The user can enroll students, keep track of their classes, and perform create, read, update, and delete (CRUD) operations on student and class information as needed. This ensures that teachers can easily manage their classrooms and student records efficiently.
 
-The site is aimed at helping language teachers, specifically those teaching English or Portuguese. Teachers can enroll students, keep track of their classes, and perform create, read, update, and delete (CRUD) operations on student and class information as needed. This ensures that teachers can easily manage their classrooms and student records efficiently.
+### Creater Goals
+
+ - **Efficient Data Management:** Ensure smooth CRUD (Create, Read, Update, Delete) operations for managing classes, classrooms, and student information.
+ - **User-Friendly Interface:** Design an intuitive and responsive UI for both administrators and teachers.
+ - **Streamlined Navigation:** Provide easy navigation through well-organized menus and pages.
+ - **Search and Filters:** Enable advanced search and filtering options for quick access to records.
+ - **Documentation:** Provide comprehensive documentation, including a README file, to guide users and developers.
+
+### User Stories
+
+ - **As a user,** I want to register an account so I can access the system’s features.
+ - **As a user,** I want to log in securely so that my data remains protected.
+ - **As a user,** I want to easily view all available information so I can choose the one I need.
+ - **As a user,** I want to search for specific students, classes, or enrollments to quickly access the required information.
+ - **As a user,** I want to be able to filter results to narrow down my search.
+ - **As a user,** I want to access a detailed view of a student's profile to review their information.
+ - **As a user,** I want to receive notifications or messages about system updates or errors to stay informed.
+ - **As a user,** I want the interface to be responsive so I can use it on my phone, tablet, or desktop.
+ - **As a user,** I want to be notified when a new information is registered, edited, deleted or if something goes wrong.
+
+## The-Scope-Plane
+
+	The initial plan for this project was more ambitious than the final result. Initially, I envisioned multiple options, templates, and functionalities, but as the project progressed, I realized that some of these features were not feasible within the available timeframe. Adjustments were made to focus on delivering a functional and successful product.
+
+	To achieve my goals, I adopted a phased approach to ensure the core features were implemented effectively, with room for improvement in later iterations.
+
+### Initial Development
+The project began with a focus on creating the foundational features:
+	- Home Page: Designed as the entry point, introducing the system's purpose.
+	- Registration Templates: Developed for managing students, teachers, classes, enrollments, and classrooms.
+	- Search Pages: Implemented to enable users to retrieve information efficiently.
+	- CRUD Functionality: Ensured users could create, edit, and delete records seamlessly.
+
+### Iterative Refinements and Incorporating Feedback
+After receiving feedback from reviewers, I worked to address the highlighted issues and polish the project:
+	- Enhanced UI and Navigation: Improved the interface for better usability and consistency.
+	- Testing and Adjustments: Conducted comprehensive testing to validate that the system met all required criteria.
+	- Bug Fixes: Resolved issues affecting the functionality and performance of the system.
+	- Improved README Documentation: Ensured it fully captured the project's scope, features, and usage instructions.
 
 ### Agile Planning
 
@@ -140,12 +185,6 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 
 4. Documentation
  - Complete README and testing documentation to provide comprehensive information on the project.
-
-
-## The-Scope-Plane
-
-* Responsive Design - Site should be fully functional on all devices from 320px up
-* Ability to perform CRUD functionality on each on "Queries"
 
 ### Wireframes
 
@@ -469,24 +508,28 @@ The database was designed to allow CRUD (Create, Read, Update, Delete) functiona
 
 ### Colour-Scheme
 
+<details><summary>Delete Page</summary>
+<img src="docs/images/colors.png">
+</details>
+
 - #bbdece (Light Cyan/Teal)
 
-Feelings: Calm, refreshing, soothing.
+**Feelings:** Calm, refreshing, soothing.
 Description: This color often evokes feelings of tranquility and peace, reminiscent of clear skies or calm waters. It can be very refreshing and is often used to create a sense of cleanliness and purity.
 
 - #feedaa (Light Peach)
 
-Feelings: Warmth, comfort, friendliness.
+**Feelings:** Warmth, comfort, friendliness.
 Description: Light peach is a warm and inviting color. It can create a cozy and welcoming atmosphere, making users feel comfortable and relaxed. It's often associated with a soft, nurturing environment.
 
 - #fff8f5 (Very Light Pink/Off-White)
 
-Feelings: Softness, innocence, simplicity.
+**Feelings:** Softness, innocence, simplicity.
 Description: This very light pink or off-white color is delicate and subtle. It often gives a sense of purity and simplicity, and can make users feel calm and content. It's a gentle color that doesn't overwhelm, providing a serene background.
 
 - #495551 (Dark Gray-Green)
 
-Feelings: Stability, seriousness, sophistication.
+**Feelings:** Stability, seriousness, sophistication.
 Description: This dark gray-green color is more subdued and can evoke feelings of stability and seriousness. It has a sophisticated and professional feel to it, often used in contexts where a sense of reliability and depth is desired.
 
 ### Typography
