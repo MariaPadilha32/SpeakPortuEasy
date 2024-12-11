@@ -13,6 +13,7 @@ You can access the live application at this link: [Live Site - SpeakPortuEay](ht
     - [Site-Goals](#site-goals)
     - [Agile Planning](#agile-planning)
       - [User Stories](#user-stories)
+	- [Wireframes] (#wireframes) (NEW)
   - [The-Structure-Plane](#the-structure-plane)
     - [Features](#features)
     - [Features Left To Implement](#features-left-to-implement)
@@ -145,6 +146,94 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 
 * Responsive Design - Site should be fully functional on all devices from 320px up
 * Ability to perform CRUD functionality on each on "Queries"
+
+### Wireframes
+
+ - Wireframes were created to visualize the layout and structure of key pages in the system. These designs helped ensure that the site's functionality aligned with user stories and goals. Below are the wireframes for the most critical pages:
+
+<details><summary>Big screens - laptop & desktop</summary>
+
+<details><summary>Home page</summary>
+<img src="docs/wireframes/main.png" >
+</details>
+
+<details><summary>Menu</summary>
+<img src="docs/wireframes/menu.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/wireframes/login.png">
+</details>
+
+<details><summary>Registery</summary>
+<img src="docs/wireframes/register.png">
+</details>
+
+<details><summary>Search page</summary>
+<img src="docs/wireframes/search.png">
+</details>
+
+<details><summary>Edit Page</summary>
+<img src="docs/wireframes/edit.png">
+</details>
+
+<details><summary>Delete Page</summary>
+<img src="docs/wireframes/delete.png">
+</details>
+
+</details>
+
+<details><summary>Medium screens - tablet</summary>
+
+<details><summary>Home page/ Menu</summary>
+<img src="docs/wireframes/main_tablet.png" >
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/wireframes/login_tablet.png">
+</details>
+
+<details><summary>Registery</summary>
+<img src="docs/wireframes/register_tablet.png">
+</details>
+
+<details><summary>Search page</summary>
+<img src="docs/wireframes/search_tablet.png">
+</details>
+
+<details><summary>Edit Page</summary>
+<img src="docs/wireframes/edit_tablet.png">
+</details>
+
+<details><summary>Delete Page</summary>
+<img src="docs/wireframes/delete_tablet.png">
+</details>
+
+<details><summary>Small screens - mobile</summary>
+
+<details><summary>Home Page/ Menu</summary>
+<img src="docs/wireframes/main_smartphone.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/wireframes/login_smartphone.png">
+</details>
+
+<details><summary>Registery</summary>
+<img src="docs/wireframes/register_smartphone.png">
+</details>
+
+<details><summary>Search page</summary>
+<img src="docs/wireframes/search_smartphone.png">
+</details>
+
+<details><summary>Edit Page</summary>
+<img src="docs/wireframes/edit_smartphone.png">
+</details>
+
+<details><summary>Delete Page</summary>
+<img src="docs/wireframes/delete_smartphone.png">
+</details>
 
 ## The-Structure-Plane
 
@@ -353,6 +442,8 @@ The following user stories were completed to lay the groundwork for all HTML pag
 In addition to the stories highlighted here, nearly 300 user stories have been meticulously documented and tracked on our Kanban board(https://github.com/users/MariaPadilha32/projects/6/views/1). These stories encompass the full scope of the project's development, covering all features, enhancements, and bug fixes.
 
 To gain a comprehensive understanding of the project's depth and the full range of functionalities implemented, please explore the complete list of user stories on our Kanban board
+
+
 
 **Favicon**
 
