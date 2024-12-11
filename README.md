@@ -1,14 +1,16 @@
 # SpeakPortuEasy
 ![Mock Up](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102458.png)
 
-##Introduction:
+## Introduction:
 
 Welcome to SpeakPortuEasy!
 SpeakPortuEasy is a versatile system designed for schools to efficiently manage class, classroom, and student information. It caters to administrators and teachers, providing them with a streamlined platform to organize and oversee their educational resources. This allows teachers to easily edit or delete records as necessary. The primary goal of SpeakPortuEasy is to simplify the process of finding information about enrollments, classes, students, and more, making classroom management straightforward and hassle-free. The technologies used for this project are HTML, CSS, JavaScript, Python, Django and Heroku Postgres as a relational database.
 You can access the live application at this link: 
 
 [Live Site - SpeakPortuEay](https://speakportueasypp4-342d78e3516e.herokuapp.com/home/)
+
 [Repository](https://github.com/MariaPadilha32/SpeakPortuEasy)
+
 __Developed by Maria Fernanda Dias Padilha__
 
 ## Table of Contents
@@ -70,57 +72,112 @@ The site is aimed at helping language teachers, specifically those teaching Engl
 
 ## The-Scope-Plane
 
-	The initial plan for this project was more ambitious than the final result. Initially, I envisioned multiple options, templates, and functionalities, but as the project progressed, I realized that some of these features were not feasible within the available timeframe. Adjustments were made to focus on delivering a functional and successful product.
+The initial plan for this project was more ambitious than the final result. Initially, I envisioned multiple options, templates, and functionalities, but as the project progressed, I realized that some of these features were not feasible within the available timeframe. Adjustments were made to focus on delivering a functional and successful product.
 
-	To achieve my goals, I adopted a phased approach to ensure the core features were implemented effectively, with room for improvement in later iterations.
+To achieve my goals, I adopted a phased approach to ensure the core features were implemented effectively, with room for improvement in later iterations.
 
 ### Initial Development
 The project began with a focus on creating the foundational features:
-	- Home Page: Designed as the entry point, introducing the system's purpose.
-	- Registration Templates: Developed for managing students, teachers, classes, enrollments, and classrooms.
-	- Search Pages: Implemented to enable users to retrieve information efficiently.
-	- CRUD Functionality: Ensured users could create, edit, and delete records seamlessly.
+- Home Page: Designed as the entry point, introducing the system's purpose.
+- Registration Templates: Developed for managing students, teachers, classes, enrollments, and classrooms.
+- Search Pages: Implemented to enable users to retrieve information efficiently.
+- CRUD Functionality: Ensured users could create, edit, and delete records seamlessly.
 
 ### Iterative Refinements and Incorporating Feedback
 After receiving feedback from reviewers, I worked to address the highlighted issues and polish the project:
-	- Enhanced UI and Navigation: Improved the interface for better usability and consistency.
-	- Testing and Adjustments: Conducted comprehensive testing to validate that the system met all required criteria.
-	- Bug Fixes: Resolved issues affecting the functionality and performance of the system.
-	- Improved README Documentation: Ensured it fully captured the project's scope, features, and usage instructions.
+- Enhanced UI and Navigation: Improved the interface for better usability and consistency.
+- Testing and Adjustments: Conducted comprehensive testing to validate that the system met all required criteria.
+- Bug Fixes: Resolved issues affecting the functionality and performance of the system.
+- Improved README Documentation: Ensured it fully captured the project's scope, features, and usage instructions.
 
 ### Agile Planning
 
-The project was developed using agile methodologies. However, due to unforeseen circumstances in my family, I had to pause the project, which resulted in a longer-than-expected timeline for completion.
+The development of this project followed Agile methodologies to maintain flexibility and ensure continuous improvement. While unforeseen family circumstances led to pauses in the project, the Agile framework helped me adapt and refocus when needed. This experience underscored the importance of iterative progress and responsive planning.
+
+**Approach and Tools**
+
+- [Kanban Board](https://github.com/users/MariaPadilha32/projects/6)
 
 During the active development phases, I used a detailed Kanban board to manage each step of the project. The Kanban board was divided into three sections: Backlog, Pending, and Done. All user stories were meticulously detailed with expectations and acceptance criteria for each step.
 
 The Kanban board, which can be viewed [here](https://github.com/users/MariaPadilha32/projects/6) shows the progress and detailed project cards. Each user story includes specific acceptance criteria to define the functionality required for completion.
 
-### User Stories
+**User Stories**
+Each feature was broken down into user stories with clear expectations and acceptance criteria. Initially, these user stories served as rough guidelines, which were refined as the project progressed. This iterative process allowed for better alignment with project goals and user needs.
 
-#### Initialization and Setup
+**Challanges and Learnings**
+
+- Adapting to Unforeseen Events:
+Pausing the project due to personal circumstances taught me the importance of flexibility. By reorganizing tasks on the Kanban board and prioritizing based on impact, I ensured that progress resumed smoothly without losing focus on critical features.
+
+- First Experience with Agile:
+As a solo developer, implementing Agile for the first time was a learning curve. While the iterative, collaborative nature of Agile felt unconventional to manage alone, it highlighted the value of incremental progress and self-reflection. The process helped me identify areas for improvement, particularly in planning and execution.
+
+**Key Techniques Used**
+
+- Moscow Prioritization:
+I adopted the Moscow prioritization technique to classify requirements into Must-Have, Should-Have, Could-Have, and Won't-Have. This framework ensured that the most critical features were completed first, balancing scope with available time and resources.
+
+- Time-Boxed Iterations:
+I worked in time-boxed iterations focusing on prioritized tasks. This approach allowed me to deliver functional increments consistently, despite the challenges faced.
+
+**Sample User Stories and Tasks**
+User stories were instrumental in breaking down the project into actionable tasks. Each story was designed to reflect a specific user goal, providing a clear roadmap for development and testing.
+Here are examples of user stories and development tasks completed during the project:
+
+1. User Story 1:
+<img src="docs/images/userstory.png">
+
+2. User Story 4:
+<img src="docs/images/userstory4.png">
+
+3. User Story 12:
+<img src="docs/images/userstory12.png">
+
+4. User Story 29:
+<img src="docs/images/userstory29.png">
+
+5. User Story 53:
+<img src="docs/images/userstory53.png">
+
+6. User Story 274:
+<img src="docs/images/userstory274.png">
+
+7. User Story 287:
+<img src="docs/images/userstory287.png">
+
+**Reflection and Future Improvements**
+
+While this project introduced me to Agile principles, I recognize that there is room for improvement. For example:
+
+- Increasing the frequency of updates to the Kanban board would have made tracking progress more effective.
+- Incorporating formal sprints with clearer objectives could have further streamlined development.
+
+Despite these limitations, the experience has provided invaluable lessons, preparing me to adopt a more structured Agile approach in future projects.
+
+### Initialization and Setup
 
 1. Project Initialization
  - Initialize the project to set up the development environment.
 
 2. Configuration Setup
- - Set up initial configurations to ensure the project structure is properly organized.
+ - Establish initial project configurations for scalability and maintainability.
  
 3. Main App Creation
- - Create the main app to house core functionalities.
+ - Develop the primary app to house core functionalities.
 
 #### Template and UI Development
 
 1. Base HTML Template Creation
- - Create a base HTML template to ensure consistent styling across all pages.
+ - Develop a reusable base template for consistent styling across all pages.
 
 2. Index.html Creation
- - Create the index.html page to serve as the landing page.
+ - Design the landing page to introduce the system's purpose and guide users.
  
 3. Template Integration and Inheritance
- - Implement and integrate templates to ensure proper layout and avoid code duplication.
+ - Implement inheritance to streamline page layouts and reduce code redundancy.
 
-#### View and URL Configuration
+### View and URL Configuration
 
 1. View Configuration
  - Configure views to render the correct templates.
@@ -128,18 +185,19 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 2. URL Configuration
  - Configure URLs to route requests to appropriate views.
 
-#### User Authentication
+### User Authentication
+Implemented secure access and user management:
 
 1. Create Login Template and Implement Login Page
- - Create and implement the login page for user authentication.
+ - Develop the login page to authenticate users.
 
 2. Authentication Features
- - Implement authentication functionalities, including password reset and user control configuration.
+ - Enable password reset and user role management.
 
-#### CRUD Functionalities for Different Models
+### CRUD Functionalities for Different Models
 
 1. Student Management
- - Enhance the student registration form and implement CRUD functionalities.
+ - Develop forms and views for creating, reading, updating, and deleting (CRUD) student records.
 
 2. Teacher Management
  - Implement CRUD functionalities for teachers, including registration, editing, and deletion.
@@ -147,19 +205,16 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 3. Class Management
  - Implement CRUD functionalities for classes, including registration, editing, and deletion.
 
-4. Schedule Management
- - Implement CRUD functionalities for schedules, including registration, editing, and deletion.
+4. Enrollment Management
+ - Implement CRUD functionalities for enrollments, including registration, editing, and deletion.
 
-5. Parent and Enrollment Management
- - Implement CRUD functionalities for parents and enrollments, including registration, editing, and deletion.
-
-6. Zipcode Management
- - Implement CRUD functionalities for zip codes, including registration, editing, and deletion.
+5. Classroom
+ - Implement CRUD functionalities forclassroom, including registration, editing, and deletion.
 
 #### Error Handling and Notifications
 
 1. Error Pages
- - Create error pages for 404, 403, and 500 errors to inform users of issues.
+ - Create error pages for 404 and 500 errors to inform users of issues.
 
 2. User Notifications
  - Implement feedback mechanisms for users during CRUD operations to ensure they are informed of successful actions.
@@ -172,7 +227,7 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 2. Navigation Links
  - Add navigation links to the nav bar for easy access to different parts of the site.
 
-#### Miscellaneous
+### Miscellaneous
 
 1. Query Functions
  - Implement query functions for different models to allow users to search and find specific data.
@@ -276,6 +331,60 @@ The Kanban board, which can be viewed [here](https://github.com/users/MariaPadil
 </details>
 
 ## The-Structure-Plane
+
+## Design
+
+### Colour-Scheme
+
+
+<img src="docs/images/colors.png">
+
+
+- #bbdece (Light Cyan/Teal)
+
+**Feelings:** Calm, refreshing, soothing.
+Description: This color often evokes feelings of tranquility and peace, reminiscent of clear skies or calm waters. It can be very refreshing and is often used to create a sense of cleanliness and purity.
+
+- #feedaa (Light Peach)
+
+**Feelings:** Warmth, comfort, friendliness.
+Description: Light peach is a warm and inviting color. It can create a cozy and welcoming atmosphere, making users feel comfortable and relaxed. It's often associated with a soft, nurturing environment.
+
+- #fff8f5 (Very Light Pink/Off-White)
+
+**Feelings:** Softness, innocence, simplicity.
+Description: This very light pink or off-white color is delicate and subtle. It often gives a sense of purity and simplicity, and can make users feel calm and content. It's a gentle color that doesn't overwhelm, providing a serene background.
+
+- #495551 (Dark Gray-Green)
+
+**Feelings:** Stability, seriousness, sophistication.
+Description: This dark gray-green color is more subdued and can evoke feelings of stability and seriousness. It has a sophisticated and professional feel to it, often used in contexts where a sense of reliability and depth is desired.
+
+### Typography
+
+**The Young Font**
+The Young Font is a playful and modern typeface that often conveys a sense of youthfulness, creativity, and fun. It's designed to be easily readable while also adding a touch of personality and flair to the text. This type of font is ideal for projects targeting younger audiences or aiming for a fresh, dynamic feel. It can be used in headings, logos, posters, or any creative work where a more informal and engaging tone is desired. The design of "The Young Font" typically includes:
+
+Rounded edges: To give it a soft and approachable appearance.
+Varied stroke widths: Adding to the playful and casual feel.
+Unique character shapes: Making it stand out and memorable.
+Good readability: Despite its playful design, it remains easy to read.
+
+**Sans-Serif Fonts**
+Sans-serif fonts are a category of typefaces that do not have the small projecting features called "serifs" at the end of strokes. These fonts are known for their clean, modern, and straightforward appearance, making them highly versatile and widely used across various mediums. Characteristics of sans-serif fonts include:
+
+Simplicity: The absence of serifs gives these fonts a sleek and minimalistic look.
+Readability: They are highly legible, especially on digital screens, making them a popular choice for websites, apps, and user interfaces.
+Modernity: Often associated with contemporary design, sans-serif fonts convey a sense of modernity and efficiency.
+Versatility: Suitable for a wide range of applications, from body text in books and articles to headings and branding.
+Uniform stroke width: Generally, the strokes in sans-serif fonts are more uniform compared to serif fonts, contributing to their clean look.
+
+### Imagery
+
+The Website logo was made using Canva using the Gold colour to match in with the website color scheme.
+
+The hero image was taken from Canva pro which is a royalty free image site.
+
 
 ### Features
 
@@ -503,60 +612,6 @@ For future development, the following features are planned to enhance the functi
 The database was designed to allow CRUD (Create, Read, Update, Delete) functionality for registered users, specifically teachers, when signed in.
 
 ## The-Surface-Plane
-
-## Design
-
-### Colour-Scheme
-
-<details><summary>Delete Page</summary>
-<img src="docs/images/colors.png">
-</details>
-
-- #bbdece (Light Cyan/Teal)
-
-**Feelings:** Calm, refreshing, soothing.
-Description: This color often evokes feelings of tranquility and peace, reminiscent of clear skies or calm waters. It can be very refreshing and is often used to create a sense of cleanliness and purity.
-
-- #feedaa (Light Peach)
-
-**Feelings:** Warmth, comfort, friendliness.
-Description: Light peach is a warm and inviting color. It can create a cozy and welcoming atmosphere, making users feel comfortable and relaxed. It's often associated with a soft, nurturing environment.
-
-- #fff8f5 (Very Light Pink/Off-White)
-
-**Feelings:** Softness, innocence, simplicity.
-Description: This very light pink or off-white color is delicate and subtle. It often gives a sense of purity and simplicity, and can make users feel calm and content. It's a gentle color that doesn't overwhelm, providing a serene background.
-
-- #495551 (Dark Gray-Green)
-
-**Feelings:** Stability, seriousness, sophistication.
-Description: This dark gray-green color is more subdued and can evoke feelings of stability and seriousness. It has a sophisticated and professional feel to it, often used in contexts where a sense of reliability and depth is desired.
-
-### Typography
-
-**The Young Font**
-The Young Font is a playful and modern typeface that often conveys a sense of youthfulness, creativity, and fun. It's designed to be easily readable while also adding a touch of personality and flair to the text. This type of font is ideal for projects targeting younger audiences or aiming for a fresh, dynamic feel. It can be used in headings, logos, posters, or any creative work where a more informal and engaging tone is desired. The design of "The Young Font" typically includes:
-
-Rounded edges: To give it a soft and approachable appearance.
-Varied stroke widths: Adding to the playful and casual feel.
-Unique character shapes: Making it stand out and memorable.
-Good readability: Despite its playful design, it remains easy to read.
-
-**Sans-Serif Fonts**
-Sans-serif fonts are a category of typefaces that do not have the small projecting features called "serifs" at the end of strokes. These fonts are known for their clean, modern, and straightforward appearance, making them highly versatile and widely used across various mediums. Characteristics of sans-serif fonts include:
-
-Simplicity: The absence of serifs gives these fonts a sleek and minimalistic look.
-Readability: They are highly legible, especially on digital screens, making them a popular choice for websites, apps, and user interfaces.
-Modernity: Often associated with contemporary design, sans-serif fonts convey a sense of modernity and efficiency.
-Versatility: Suitable for a wide range of applications, from body text in books and articles to headings and branding.
-Uniform stroke width: Generally, the strokes in sans-serif fonts are more uniform compared to serif fonts, contributing to their clean look.
-
-### Imagery
-
-The Website logo was made using Canva using the Gold colour to match in with the website color scheme.
-
-The hero image was taken from Canva pro which is a royalty free image site.
-
 
 ## Technolgies
 
