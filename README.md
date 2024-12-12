@@ -149,13 +149,39 @@ The site is aimed at helping language teachers, specifically those teaching Engl
 
  - **As a user,** I want to register an account so I can access the system’s features.
  - **As a user,** I want to log in securely so that my data remains protected.
+ - **As a user,** I want to log out securely to protect my account.
  - **As a user,** I want to easily view all available information so I can choose the one I need.
  - **As a user,** I want to search for specific students, classes, or enrollments to quickly access the required information.
  - **As a user,** I want to be able to filter results to narrow down my search.
  - **As a user,** I want to access a detailed view of a student's profile to review their information.
  - **As a user,** I want to receive notifications or messages about system updates or errors to stay informed.
  - **As a user,** I want the interface to be responsive so I can use it on my phone, tablet, or desktop.
- - **As a user,** I want to be notified when a new information is registered, edited, deleted or if something goes wrong.
+ - **As a user,** I want to be notified when a new information is registered, edited or deleted.
+ - **As a user,** I want to be informed of any errors or invalid inputs while using the system, so I can take corrective action.
+ - **As a user,** I want clear instructions on how to use the platform, so I can navigate the system effectively.
+
+ ### Teacher/Admin-Specific Stories
+
+- **As a teacher/admin,** I want to create new classes, students, and enrollments so that I can manage my work efficiently.
+- **As a teacher/admin,** I want to edit student, class, and enrollment records to ensure accuracy and reflect updates.
+- **As a teacher/admin,** I want to delete unnecessary or duplicate records to keep the database clean.
+- **As a teacher/admin,** I want to be the only one, aside from the admin, who can edit or delete records I’ve created to maintain control over my data.
+
+### Viewing and Navigation Stories
+
+- **As a user,** I want the navigation bar to include links to all key features, making it easy to navigate through the site.
+- **As a user,** I want pagination on results pages so I can easily browse large datasets.
+- **As a user,** I want to sort student, class, and enrollment data by different criteria, such as date or name, for better organization.
+
+### Security and Accessibility Stories
+
+- **As a user,** I want my account to be protected with strong password requirements to enhance security.
+- **As a user,**  I want detailed error pages (404 and 500) to guide me when something goes wrong.
+
+### Notifications and Feedback Stories
+
+- **As a user,** I want visual or text notifications confirming the success of actions like saving, editing, or deleting records.
+- **As a user,** I want feedback when my search or query yields no results so that I can refine my search.
 
 ## The-Scope-Plane
 
@@ -363,7 +389,7 @@ Implemented secure access and user management:
 </details>
 </details>
 
-<details><summary>Medium screens - tablet</summary>
+<details><summary>Medium screens - tablet (Ipad mini 768px by 1024px)</summary>
 
 <details><summary>Home page/ Menu</summary>
 <img src="docs/wireframes/main_tablet.png" >
@@ -390,7 +416,7 @@ Implemented secure access and user management:
 </details>
 </details>
 
-<details><summary>Small screens - mobile</summary>
+<details><summary>Small screens - mobile (Samsung Galaxy S20 Ultra - 412px by 915px)</summary>
 
 <details><summary>Home Page/ Menu</summary>
 <img src="docs/wireframes/main_smartphone.png">
@@ -418,6 +444,10 @@ Implemented secure access and user management:
 </details>
 
 ## The-Structure-Plane
+
+### Project Structure
+
+
 
 ## Design
 
@@ -1110,9 +1140,6 @@ The database was designed to allow CRUD (Create, Read, Update, Delete) functiona
 ### AWS S3 and IAM
 - Employed to host static and media files for the project, with IAM managing permission-based roles for accessing the S3 buckets.
 
-### Canva
-- This was used to create the logo in header 
-
 ### Django-Crispy-Forms
 - A Django application used to enhance the styling of forms, providing a more user-friendly and aesthetically pleasing form interface.
 
@@ -1211,6 +1238,15 @@ whitenoise==6.5.0
 - [Canva](https://www.canva.com/) For creating the log and the images. 
 
 ## Testing
+
+SpeakPortuEasy was rigorously tested during and after development to ensure its functionality and usability. The following testing methods were employed:
+
+- Device Testing: Conducted on various devices to confirm responsive design and compatibility across screen sizes.
+- Browser Compatibility: Verified across multiple browsers to ensure consistent behavior and user experience.
+- Manual Testing: Performed to check for functionality, navigation, and expected behavior throughout the application.
+- Automated Testing: Implemented using testing frameworks to validate critical features and prevent regressions.
+
+All detailed results and processes are documented in the [TESTING.md](/docs/testing.md) file, which you can view [here](/docs/testing.md).
 
 ### Validation: 
 
@@ -1469,16 +1505,129 @@ whitenoise==6.5.0
     <img src="docs/images/deleteteacher.png">
     </details>
 
-	<details><summary>404 Erre</summary>
+	<details><summary>404 Error</summary>
     <img src="docs/images/404errorpage.png">
     </details>
+
+## Bugs
+
+### Known Bugs and Issues
+During the development process, I encountered a variety of bugs and challenges. While most of these were successfully resolved, some issues were documented here to provide insight into the debugging and problem-solving process.
+
+### Bugs Addressed
+
+<details><summary>Name the tags for the classroom</summary>
+<img src="docs/images/bug44.png">
+</details>
+
+<details><summary>Fix the views when user is not logged in</summary>
+<img src="docs/images/bug45.png">
+</details>
+
+<details><summary>Add "name" tags for enrollments</summary>
+<img src="docs/images/bug59.png">
+</details>
+
+<details><summary>Add "name" tags for profiles</summary>
+<img src="docs/images/bug61.png">
+</details>
+
+<details><summary>Add "name" tags for student</summary>
+<img src="docs/images/bug62.png">
+</details>
+
+<details><summary>Add "name" tags for user</summary>
+<img src="docs/images/bug64.png">
+</details>
+
+<details><summary>Correct the link from the Nav bar</summary>
+<img src="docs/images/bug101.png">
+</details>
+
+<details><summary>correct the import and views structure</summary>
+<img src="docs/images/bug102.png">
+</details>
+
+<details><summary>apply migrate from table</summary>
+<img src="docs/images/bug103.png">
+</details>
+
+<details><summary>adjust query-classroom to identify the id from delete-classroom</summary>
+<img src="docs/images/bug104.png">
+</details>
+
+<details><summary>Correct edit-classroom</summary>
+<img src="docs/images/bug105.png">
+</details>
+
+<details><summary>implement url parameter on edit class</summary>
+<img src="docs/images/bug108.png">
+</details>
+
+<details><summary>remove action from query-classroom</summary>
+<img src="docs/images/bug200.png">
+</details>
+
+<details><summary>remove action from query- student</summary>
+<img src="docs/images/bug212.png">
+</details>
+
+<details><summary>remove action from query-class</summary>
+<img src="docs/images/bug214.png">
+</details>
+
+<details><summary>remove action from query-teacher</summary>
+<img src="docs/images/bug215.png">
+</details>
+
+<details><summary>remove action from query-profiles</summary>
+<img src="docs/images/bug216.png">
+</details>
+
+<details><summary>remove action from query-enrollments</summary>
+<img src="docs/images/bug218.png">
+</details>
+
+<details><summary>remove action from query-schedule</summary>
+<img src="docs/images/bug220.png">
+</details>
+
+<details><summary>remove disable from teacher register</summary>
+<img src="docs/images/bug221.png">
+</details>
+
+<details><summary>remove url from delete-parents</summary>
+<img src="docs/images/bug231.png">
+</details>
+
+<details><summary>remove url from delete-enrollments</summary>
+<img src="docs/images/bug232.png">
+</details>
+
+<details><summary>remove url from delete-profiles</summary>
+<img src="docs/images/bug233.png">
+</details>
+
+<details><summary>remove url from delete-schedule</summary>
+<img src="docs/images/bug234.png">
+</details>
+
+<details><summary>consult of class is not listing the name of classes</summary>
+<img src="docs/images/bug236.png">
+</details>
+
+<details><summary>Correct systmem functionality</summary>
+<img src="docs/images/bug298.png">
+</details>
+
+This section highlights issues encountered and resolved but does not cover all bugs. Minor or low-priority issues were addressed during development and were not deemed critical to the overall functionality. Moving forward, these will be monitored for further refinement as needed.
 
 ## Deployment and Local Development
 The live deployed version of the website can be found on [Heroku](https://speakportueasypp4-342d78e3516e.herokuapp.com/). The following sections detail the deployment process and the technologies used. Instructions for forking or cloning the repository are also provided.
 
-### ElephantSQL Database
+### PostgreSQL Database
 
-The PostgreSQL Database for this project was was set up using [ElephantSQL](https://www.elephantsql.com),  which you can sign up for using your GitHub account. After signing up, follow these steps:
+The PostgreSQL Database for this project was was set up using [PostgreSQL](https://www.postgresql.org/),  which you can sign up for using your GitHub account. After signing up, follow these steps:
 
 - Click **Create New Instance** to start a new database.
 - Name used: `speakportueasy`.
@@ -1713,11 +1862,13 @@ The steps below describe how to fork or clone the repository if desired.
 
 ### Resources
 	- The Code Institute "Hello Django and I think Therefore I blog" project was very much relied upon to build this project.
+    - The README files from [Nourish and Lift](https://github.com/Harry-Leepz/Nourish-and-Lift) and [Knowledge Flow](https://github.com/rockroman/CI_PP4-Knowledge-Flow) inspired and guided me in structuring and writing my own README.
 
 ### Acknowledgements
 
-- I would like to say thank to the Tutoring team for the multiple times that I could count on them.
-- Specially Sarah Collins, Roman Racik and my mentor Harry Dhillon for all the help.
+- I would like to express my gratitude to the Tutoring team for their continuous support and guidance throughout this project.
+- Special thanks to Sarah Collins, Roman Racik, and my mentor Harry Dhillon for all their help and encouragement.
+ -I want to show appreciation to my mentor Harry Dhillon for all the help.
 
 - Most special thanks to Ger Hickey, my father-in-law, who passed away while I was working on this project. He was always an amazing support.
 
