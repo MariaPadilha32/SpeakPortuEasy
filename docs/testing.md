@@ -190,7 +190,3 @@ Additionally, during testing on Google Chrome, an intermittent error was observe
 “Dangerous site. Attackers on the site you tried visiting might trick you into installing software or revealing things like your passwords, phone, or credit card numbers. Chrome strongly recommends going back to safety. Learn more about this warning.”
 
 This error did not occur consistently and was not reproducible in incognito mode, suggesting that it may be related to browser settings or cached data. The issue did not affect the core functionality of the system, but it was noted for further investigation.
-
-<details><summary>Security Error</summary>
-<img src="docs/images/securityerror.png">
-</details>
