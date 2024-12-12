@@ -7,6 +7,7 @@ Welcome to SpeakPortuEasy!
 SpeakPortuEasy is a versatile system designed for schools to efficiently manage class, classroom, and student information. It caters to administrators and teachers, providing them with a streamlined platform to organize and oversee their educational resources. This allows teachers to easily edit or delete records as necessary. The primary goal of SpeakPortuEasy is to simplify the process of finding information about enrollments, classes, students, and more, making classroom management straightforward and hassle-free. The technologies used for this project are HTML, CSS, JavaScript, Python, Django and Heroku Postgres as a relational database.
 You can access the live application at this link: 
 
+## Live Site and Repository Links
 [Live Site - SpeakPortuEay](https://speakportueasypp4-342d78e3516e.herokuapp.com/home/)
 
 [Repository](https://github.com/MariaPadilha32/SpeakPortuEasy)
@@ -15,27 +16,59 @@ __Developed by Maria Fernanda Dias Padilha__
 
 ## Table of Contents
 - [SpeakPortuEasy](#speakportueasy) *UPDATE*
+  - [Introduction](#introduction)
+  - [Live Site and Repository Links](#live-site-and-repository-links)
   - [Table of Contents](#table-of-contents)
 
 - [User-Experience-Design](#user-experience-design) *UPDATE*
-  - [The-Strategy-Plane](#the-strategy-plane)
-    - [Site-Goals](#site-goals) *UPDATE*
+  - [Target Audience](#introduction)
+  - [User Requirements and Expectations](#live-site-and-repository-links)
+  - [The-Strategy-Plane](#the-strategy-plane) *UPDATE*
+    - [Site-Goals](#creater-goals) *UPDATE*
+  - [User Stories](#main-user-stories)
+        - [Main User Stories](#user-stories) *UPDATE*
+        - [Teacher/Admin-Specific Stories](#teacheradmin-specific-stories) *UPDATE*
+        - [Viewing and Navigation Stories](#viewing-and-navigation-stories) *UPDATE*
+        - [Security and Accessibility Stories](#security-and-accessibility-stories) *UPDATE*
+        - [Notifications and Feedback Stories](#notifications-and-feedback-stories) *UPDATE*
+-[The-Scope-Plane](#the-scope-plane)
+    - [Initial Development](#initial-development)
+    - [Interactive Refinements and Incorporating Feedback](#interactive-refinements-and-incorporating-feedback)
     - [Agile Planning](#agile-planning) *UPDATE*
-      - [User Stories](#user-stories)
-	- [Wireframes](#wireframes) *NEW*
+    - [Approach and Tools](#approach-and-tools) *UPDATE*
+    - [Sample User Stories and Tasks](#sample-user-stories-and-tasks)*UPDATE*
+        - [Initialization and Setup](#initialization-and-setup)
+        - [Template and UI Development](#template-and-ui-development)
+        - [View and URL Configuration](#view-and-url-configuration)
+        - [User Authentication](#user-authentication)
+        - [Error Handling and Notifications](##error-handling-and-notifications)
+        - [CRUD Functionalities for Different Models](#crud-functionalities-for-different-models)
+        - [Static Files and Navigation](#static-files-and-navigation)
+        - [Miscellaneous](#miscellaneous)
+    - [Wireframes](#wireframes) *NEW*
   - [The-Structure-Plane](#the-structure-plane)
-    - [Features](#features)
-    - [Features Left To Implement](#features-left-to-implement)
-  - [The-Skeleton-Plane](#the-skeleton-plane)
-    - [Database-Design](#database-design)
-    - [Security](#security)
-  - [The-Surface-Plane](#the-surface-plane)
-    - [Design](#design)
+    - [Project Structure](#project-structure)
+    - [Code Structure](#code-structure)
+    - [Project Apps](#project-apps)
+-[Database](#database)
+    - [Database-Model](#database-model)
+- [Design](#design)
     - [Colour-Scheme](#colour-scheme) *UPDATE*
     - [Typography](#typography)
     - [Imagery](#imagery)
-  - [Technolgies](#technolgies)
+- [System Features](#system-features)
+    - [Features Left To Implement](#features-left-to-implement)
+  - [The-Surface-Plane](#the-surface-plane)
+    - [Technolgies](#technolgies)
+        - [Html](#html)
+        - [Css](#css)
+        - [Python](#python)
+        - [JavaScript](#javascript)
+        - [Django](#django)
+    - [Libraries & Tools](#libraries-&-tools)
   - [Testing](#testing)
+    - [Validation](#validation)
+  - [Bugs](#bugs)
   - [Deployment](#deployment)
     - [Version Control](#version-control)
     - [Heroku Deployment](#heroku-deployment)
@@ -207,7 +240,7 @@ After receiving feedback from reviewers, I worked to address the highlighted iss
 
 The development of this project followed Agile methodologies to maintain flexibility and ensure continuous improvement. While unforeseen family circumstances led to pauses in the project, the Agile framework helped me adapt and refocus when needed. This experience underscored the importance of iterative progress and responsive planning.
 
-**Approach and Tools**
+### Approach and Tools
 
 - [Kanban Board](https://github.com/users/MariaPadilha32/projects/6)
 
@@ -234,7 +267,7 @@ I adopted the Moscow prioritization technique to classify requirements into Must
 - Time-Boxed Iterations:
 I worked in time-boxed iterations focusing on prioritized tasks. This approach allowed me to deliver functional increments consistently, despite the challenges faced.
 
-**Sample User Stories and Tasks**
+### Sample User Stories and Tasks
 User stories were instrumental in breaking down the project into actionable tasks. Each story was designed to reflect a specific user goal, providing a clear roadmap for development and testing.
 Here are examples of user stories and development tasks completed during the project:
 
@@ -1237,7 +1270,7 @@ The database was designed to allow CRUD (Create, Read, Update, Delete) functiona
 ### Django
  -  A front-end framework used alongside Django to facilitate design and development, ensuring the website is responsive and mobile-friendly.
 
-### Font Awesome
+ ### Font Awesome
  -  An icon library integrated into the navigation bar and footer to improve the visual appeal and usability of the website with various icons.
 
 ### Bootstrap 
@@ -1368,7 +1401,7 @@ All detailed results and processes are documented in the [TESTING.md](/docs/test
 
 ### Validation: 
 
-### CSS
+### CSS Validation
 
 - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used  to validate the css in the project
     - web app passed validator with no errors. 
@@ -1462,7 +1495,7 @@ All detailed results and processes are documented in the [TESTING.md](/docs/test
     <img src="docs/images/deleteerror.png">
     </details>
 
-### Python
+### Python Validation
 -[CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python in the project
 
 <details><summary>Views - accounts</summary>
@@ -1512,15 +1545,15 @@ All detailed results and processes are documented in the [TESTING.md](/docs/test
 <details><summary>Views - main</summary>
 <img src="docs/images/viewspy.png">
 </details>
-
-### JavaScrpit
+ 
+### JavaScrpit Validation
 - [JSHint](https://jshint.com/) was used to validate the Javascrip in the project
 
 <details><summary>JavaScript</summary>
 <img src="docs/images/jstest.png">
 </details>
 
-### HTML
+### HTML Validation
 - [WC3 Validator](https://validator.w3.org/) was used to validate the html in the project
 
     <details><summary>Main</summary>
