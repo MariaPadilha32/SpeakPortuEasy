@@ -447,7 +447,125 @@ Implemented secure access and user management:
 
 ### Project Structure
 
+**Web App Pages**
 
+The design and functionality of the SpeakPortuEasy web app prioritize simplicity, responsiveness, and ease of use. Each page is crafted with a clean and professional layout to ensure intuitive navigation and accessibility.
+
+**Sections**
+
+1. Home Page
+    - The home page begins with a navbar at the top, which is consistent across all pages, offering easy navigation to the main features of the app, such as managing students, teachers, classes, and more.
+    - Below the navbar, there is a hero section featuring the company logo and a welcome message. This area sets the tone for the platform and introduces users to its purpose.
+    - Following the hero section is a brief explanation of the platform, highlighting its features and how it simplifies school operations.
+
+2. Login and Registration Pages
+    - Secure and user-friendly forms for authentication.
+    - Options to reset passwords and create new accounts.
+
+3. Footer Section
+    - A simple footer is present on all pages of the website. It contains essential navigation links and a copyright notice, ensuring consistency and a professional look across the application.
+
+4. Registery
+    - Add Student Page: A form to register new students with detailed information.
+    - Add Class Page: Allows the creation of new classes with details like schedules and associated teachers.
+    - Add Classroom Page: Used to register new classrooms with details like capacity and facilities.
+    - Add Enrollment Page: A form for enrolling students in specific classes.
+    - Add Teacher Page: A form for registering new teachers.
+
+5. Manage Records
+    - Manage Students Records: Displays a searchable table of all registered students with options to search, edit, or delete.
+    - Manage Class Records: Displays a table of all classes with options to search, edit, or delete.
+    - Manage Classroom Records: Lists all classrooms with options to edit or delete.
+    - Manage Enrollments Records: Displays a list of all enrollments, allowing search and filtering options by the date.
+    - Manage Teacher Records: Displays a list of all teachers with their details with options to search, edit, or delete.
+
+6. Edit Records (accessible through the Search page)
+    - Edit Students Records: Users can view the original information registered and make edits if needed.
+    - Edit Class Records: Users can view the original class details and update them as required
+    - Edit Classroom Records: Users can access the original classroom information and modify it as needed.
+    - Edit Enrollments Records: Users can review enrollment data and make changes if necessary.
+    - Edit Teacher Records: Users can access teacher information and update it when required.
+
+7. Delete Records (accessible through the Search page)
+    - Delete Students Records: Users can view the original student information and delete it if desired.
+    - Delete Class Records: Users can access the class details and delete the table if needed.
+    - Delete Classroom Records: Users can view classroom data and delete the records if necessary.
+    - Delete Enrollments Records: Users can review enrollment information and remove it when required.
+    - Delete Teacher Records: Users can access teacher details and delete them if desired.
+
+8. Error Pages
+    - 404 Page: Notifies users when a requested page is not found.
+    - 500 Page: Displays a message when a server error occurs.
+
+### Code Structure
+The project follows a modular and organized structure, adhering to Django's best practices. The functionality is divided into two main applications for better manageability and separation of concerns.
+
+### Project Apps:
+
+**Main App:**
+
+- Encapsulates all core functionalities, including views, models, and templates for managing students, classes, classrooms, teachers, enrollments, and notes.
+- Provides features like CRUD operations for various entities, search functionality, and error handling.
+- Includes templates for the home page, student/classroom management, and other key features.
+
+**Accounts App:**
+
+- Handles user authentication, including registration, login, logout, and profile management.
+- Ensures secure access to the platform with views and models specifically designed for managing user credentials and permissions.
+
+### Other Django Files:
+
+**settings.py:** Manages project settings, including database configurations and installed apps.
+**Procfile:** Specifies deployment commands for hosting platforms like Heroku.
+**static:** Contains CSS, JavaScript, and images for styling and functionality.
+**templates:** Includes base templates (e.g., base.html) and app-specific templates.
+**requirements.txt:** Lists all Python dependencies required for the project.
+**env.py:** Stores environment variables securely, ensuring sensitive data is not exposed in the codebase.
+
+## Database
+The application utilizes a PostgreSQL database to manage and store structured data efficiently.
+
+### Data Model
+
+The project employs a well-structured database schema to manage users, classrooms, classes, students, teachers, enrollments, and schedules. Below is an overview of the models and their corresponding fields.
+
+**User Model**
+Manages user accounts, including admin, staff, and active users.
+
+<summary>User Model</summary>
+<img src="docs/images/modeluser.png">
+
+**Classroom Model**
+Stores information about classrooms, both physical and online.
+
+<summary>Classroom Model</summary>
+<img src="docs/images/classroommodel.png">
+
+**Classes Model**
+Defines the attributes of a class, including its level and description.
+
+<summary>Classes Model</summary>
+<img src="docs/images/classesmodel.png">
+
+**Student Model**
+Stores student details, including guardianship information for minors.
+
+<summary>Student Model</summary>
+<img src="docs/images/studentmodel.png">
+
+**Teacher Model**
+Captures teacher profiles, including their contact information.
+
+<summary>Student Model</summary>
+<img src="docs/images/teachermodel.png">
+
+**Enrollments Model**
+Links students and classes, tracking enrollment details.
+
+<summary>Enrollmment Model</summary>
+<img src="docs/images/enrollmodel.png">
+
+This comprehensive data model structure ensures a robust and scalable foundation for managing all the essential records in the application.
 
 ## Design
 
