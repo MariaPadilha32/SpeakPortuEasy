@@ -22,7 +22,7 @@ __Developed by Maria Fernanda Dias Padilha__
 
 - [User-Experience-Design](#user-experience-design) *UPDATE*
   - [Target Audience](#introduction)
-  - [User Requirements and Expectations](#live-site-and-repository-links)
+  - [User Requirements and Expectations](#user-requirements-and-expectations)
   - [The-Strategy-Plane](#the-strategy-plane) *UPDATE*
     - [Site-Goals](#creater-goals) *UPDATE*
   - [User Stories](#main-user-stories)
@@ -31,7 +31,7 @@ __Developed by Maria Fernanda Dias Padilha__
     - [Viewing and Navigation Stories](#viewing-and-navigation-stories) *UPDATE*
     - [Security and Accessibility Stories](#security-and-accessibility-stories) *UPDATE*
     - [Notifications and Feedback Stories](#notifications-and-feedback-stories) *UPDATE*
--[The-Scope-Plane](#the-scope-plane)
+- [The-Scope-Plane](#the-scope-plane) *UPDATE*
     - [Initial Development](#initial-development)
     - [Interactive Refinements and Incorporating Feedback](#interactive-refinements-and-incorporating-feedback)
     - [Agile Planning](#agile-planning) *UPDATE*
