@@ -16,47 +16,47 @@ The application was thoroughly evaluated on various devices to ensure a seamless
 **Samsung Galaxy S24**
 
 <details><summary>Samsung Galaxy S24</summary>
-<img src="docs/images/S241.jpg">
-<img src="docs/images/S242.jpg">
-<img src="docs/images/S243.jpg">
-<img src="docs/images/S244.jpg">
-<img src="docs/images/S245.jpg">
-<img src="docs/images/S246.jpg">
-<img src="docs/images/S247.jpg">
-<img src="docs/images/S248.jpg">
-<img src="docs/images/S249.jpg">
-<img src="docs/images/S24210.jpg">
-<img src="docs/images/S2411.jpg">
-<img src="docs/images/S2412.jpg">
-<img src="docs/images/S242.jpg">
-<img src="docs/images/S2413.jpg">
-<img src="docs/images/S2414.jpg">
-<img src="docs/images/S2415.jpg">
-<img src="docs/images/S2416.jpg">
-<img src="docs/images/S2417.jpg">
-<img src="docs/images/S2418.jpg">
+<img src="images/S241.jpg">
+<img src="images/S242.jpg">
+<img src="images/S243.jpg">
+<img src="images/S244.jpg">
+<img src="images/S245.jpg">
+<img src="images/S246.jpg">
+<img src="images/S247.jpg">
+<img src="images/S248.jpg">
+<img src="images/S249.jpg">
+<img src="images/S24210.jpg">
+<img src="images/S2411.jpg">
+<img src="images/S2412.jpg">
+<img src="images/S242.jpg">
+<img src="images/S2413.jpg">
+<img src="images/S2414.jpg">
+<img src="images/S2415.jpg">
+<img src="images/S2416.jpg">
+<img src="images/S2417.jpg">
+<img src="images/S2418.jpg">
 </details>
 
 **Iphone 11**
 
 <details><summary>Iphone 11</summary>
-<img src="docs/images/iphone1.jpg">
-<img src="docs/images/iphone2.jpg">
-<img src="docs/images/iphone3.jpg">
-<img src="docs/images/iphone4.jpg">
-<img src="docs/images/iphone5.jpg">
-<img src="docs/images/iphone6.jpg">
+<img src="images/iphone1.jpg">
+<img src="images/iphone2.jpg">
+<img src="images/iphone3.jpg">
+<img src="images/iphone4.jpg">
+<img src="images/iphone5.jpg">
+<img src="images/iphone6.jpg">
 </details>
 
 **Tablet Samsung Galaxy A9**
 
 <details><summary>Iphone 11</summary>
-<img src="docs/images/a91.jpg">
-<img src="docs/images/a92.jpg">
-<img src="docs/images/a93.jpg">
-<img src="docs/images/a94.jpg">
-<img src="docs/images/a95.jpg">
-<img src="docs/images/a96.jpg">
+<img src="images/a91.jpg">
+<img src="images/a92.jpg">
+<img src="images/a93.jpg">
+<img src="images/a94.jpg">
+<img src="images/a95.jpg">
+<img src="images/a96.jpg">
 </details>
 
 ## Browser compatibility
@@ -72,117 +72,117 @@ Since the testing was carried out by external testers on their personal devices,
 
 - Chrome: 
 <details><summary>Main Large screen</summary>
-<img src="docs/images/homelg.png">
+<img src="images/homelg.png">
 </details>
 
 <details><summary>Login Large screen</summary>
-<img src="docs/images/loginlg.png">
+<img src="images/loginlg.png">
 </details>
 
 <details><summary>Create User Large screen</summary>
-<img src="docs/images/createuserlg.png">
+<img src="images/createuserlg.png">
 </details>
 
 <details><summary>Add a new Student Large screen</summary>
-<img src="docs/images/addstudent.png">
+<img src="images/addstudent.png">
 </details>
 
 <details><summary>Search Student Large screen</summary>
-<img src="docs/images/searchstudentlg.png">
+<img src="images/searchstudentlg.png">
 </details>
 
 <details><summary>Edit Student Large screen</summary>
-<img src="docs/images/editstudentlg.png">
+<img src="images/editstudentlg.png">
 </details>
 
 <details><summary>Delete Student Large screen</summary>
-<img src="docs/images/deletestudentlg.png">
+<img src="images/deletestudentlg.png">
 </details>
 
 <details><summary>Add a new Class Large screen</summary>
-<img src="docs/images/addclasslg.png">
+<img src="images/addclasslg.png">
 </details>
 
 <details><summary>Search Class Large screen</summary>
-<img src="docs/images/searchclasslg.png">
+<img src="images/searchclasslg.png">
 </details>
 
 <details><summary>Edit Class Large screen</summary>
-<img src="docs/images/editclasslg.png">
+<img src="images/editclasslg.png">
 </details>
 
 <details><summary>Delete Class Large screen</summary>
-<img src="docs/images/classdeletelg.png">
+<img src="images/classdeletelg.png">
 </details>
 
 <details><summary>Add a new Classrooms Large screen</summary>
-<img src="docs/images/addclassroomlg.png">
+<img src="images/addclassroomlg.png">
 </details>
 
 <details><summary>Search Classrooms Large screen</summary>
-<img src="docs/images/searchclassroomlg.png">
+<img src="images/searchclassroomlg.png">
 </details>
 
 <details><summary>Edit Classrooms Large screen</summary>
-<img src="docs/images/editclassroomlg.png">
+<img src="images/editclassroomlg.png">
 </details>
 
 <details><summary>Delete Classrooms Large screen</summary>
-<img src="docs/images/deleteclassroomlg.png">
+<img src="images/deleteclassroomlg.png">
 </details>
 
 <details><summary>Enrollment Large screen</summary>
-<img src="docs/images/addenrolllg.png">
+<img src="images/addenrolllg.png">
 </details>
 
 <details><summary>Search Enrollment Large screen</summary>
-<img src="docs/images/searchenrolllg.png">
+<img src="images/searchenrolllg.png">
 </details>
 
 <details><summary>Edit Enrollment Large screen</summary>
-<img src="docs/images/editenrolllg.png">
+<img src="images/editenrolllg.png">
 </details>
 
 <details><summary>Delete Enrollment Large screen</summary>
-<img src="docs/images/deleteenrolllg.png">
+<img src="images/deleteenrolllg.png">
 </details>
 
 <details><summary>Teacher Large screen</summary>
-<img src="docs/images/addteacherlg.png">
+<img src="images/addteacherlg.png">
 </details>
 
 <details><summary>Teacher Small screen</summary>
-<img src="docs/images/addteachersmall.png">
+<img src="images/addteachersmall.png">
 </details>
 
 <details><summary>Search Teacher Large screen</summary>
-<img src="docs/images/searchteacherlg.png">
+<img src="images/searchteacherlg.png">
 </details>
 
 <details><summary>Edit Teacher Large screen</summary>
-<img src="docs/images/editteacherlg.png">
+<img src="images/editteacherlg.png">
 </details>
 
 <details><summary>Delete Teacher Large screen</summary>
-<img src="docs/images/deleteteacherlg.png">
+<img src="images/deleteteacherlg.png">
 </details>
 
 - AVG Secure Browser 
 <details><summary>AVG Secure Browser </summary>
-<img src="docs/images/avg1.png">
-<img src="docs/images/avg2.png">
-<img src="docs/images/avg3.png">
-<img src="docs/images/avg4.png">
-<img src="docs/images/avg5.png">
+<img src="images/avg1.png">
+<img src="images/avg2.png">
+<img src="images/avg3.png">
+<img src="images/avg4.png">
+<img src="images/avg5.png">
 </details>
 
 - Fire Fox
 <details><summary>Fire fox </summary>
-<img src="docs/images/firefox1.jpg">
-<img src="docs/images/firefox2.jpg">
-<img src="docs/images/firefox3.jpg">
-<img src="docs/images/firefox4.jpg">
-<img src="docs/images/firefox5.jpg">
+<img src="images/firefox1.jpg">
+<img src="images/firefox2.jpg">
+<img src="images/firefox3.jpg">
+<img src="images/firefox4.jpg">
+<img src="images/firefox5.jpg">
 </details>
 
 Additionally, during testing on Google Chrome, an intermittent error was observed. Occasionally, users received a warning message stating:
