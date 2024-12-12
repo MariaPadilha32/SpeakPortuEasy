@@ -17,10 +17,10 @@ __Developed by Maria Fernanda Dias Padilha__
 - [SpeakPortuEasy](#speakportueasy) *UPDATE*
   - [Table of Contents](#table-of-contents)
 
-- [User-Experience-Design](#user-experience-design)
+- [User-Experience-Design](#user-experience-design) *UPDATE*
   - [The-Strategy-Plane](#the-strategy-plane)
     - [Site-Goals](#site-goals) *UPDATE*
-    - [Agile Planning](#agile-planning)
+    - [Agile Planning](#agile-planning) *UPDATE*
       - [User Stories](#user-stories)
 	- [Wireframes](#wireframes) *NEW*
   - [The-Structure-Plane](#the-structure-plane)
@@ -46,6 +46,93 @@ __Developed by Maria Fernanda Dias Padilha__
 
 # User-Experience-Design
 
+## Target Audience
+
+**School Administrators**
+
+- Role: Oversee the system to ensure efficient management of student, teacher, class, classroom, and enrollment data.
+- Needs: Comprehensive tools to view, edit, delete, and analyze data related to school operations.
+	- Expectations:
+		- Secure access to all features.
+		- Intuitive interface for managing records.
+		- Role-based permissions to ensure data integrity.
+		- Ability to monitor user activities and manage users.
+
+**Teachers**
+
+- Role: Manage their specific classes, students, and schedules.
+- Needs: Tools to register, search, and update information about their own records.
+	- Expectations:
+		- Ability to create and manage their records (students, classes, etc.).
+		- User-friendly interface for navigating, adding, and updating information.
+		- Assurance of data security and privacy.
+
+## User Requirements and Expectations
+
+**User Requirements**
+
+1. User-Friendly Interface
+
+- Clean, intuitive design for easy navigation.
+- Mobile responsiveness for access on various devices.
+
+2. Role-Based Access Control
+
+- Admins (Superusers): Full access to all features and records.
+- Record Creators: Permissions to view, edit, and delete only their own records.
+- Other Users: View-only access, requiring manual URL entry to view specific records.
+
+3. CRUD Functionality
+
+- Ability to Create, Read, Update, and Delete records for students, teachers, classes, classrooms, and enrollments.
+
+4. Error Handling
+
+- Informative error pages (404, 500) for user guidance during issues.
+
+5. Search and Pagination
+
+- Efficient search options for records.
+- Pagination for managing large datasets.
+
+6. Notes Management
+
+- Options to add, edit, and delete notes related to students, classes, and other entities.
+
+7. Secure Data Management
+
+- Protection of sensitive user and school data.
+- Clear feedback messages for all actions (e.g., confirmation, error).
+
+**User Expectations**
+
+1. Clarity and Accessibility
+
+- Simple and clear instructions for all actions.
+- Logical navigation flow for a seamless user experience.
+
+2. Responsiveness
+
+- Consistent performance across devices and browsers.
+
+3. Flexibility and Scalability
+
+- Capability to handle increasing numbers of records and users.
+- Adaptable for future features or enhancements.
+
+4. Transparency
+
+- Clear information about permissions and access limits for different user roles.
+
+5. Reliability
+
+- System stability with minimal downtime or errors.
+- Fast load times for pages and actions.
+
+6. Support and Documentation
+
+- Comprehensive documentation in the README for troubleshooting and system usage.
+
 ## The-Strategy-Plane *UPDATE*
 
 The site is aimed at helping language teachers, specifically those teaching English or Portuguese. The user can enroll students, keep track of their classes, and perform create, read, update, and delete (CRUD) operations on student and class information as needed. This ensures that teachers can easily manage their classrooms and student records efficiently.
@@ -58,7 +145,7 @@ The site is aimed at helping language teachers, specifically those teaching Engl
  - **Search and Filters:** Enable advanced search and filtering options for quick access to records.
  - **Documentation:** Provide comprehensive documentation, including a README file, to guide users and developers.
 
-### User Stories
+### Main User Stories
 
  - **As a user,** I want to register an account so I can access the system’s features.
  - **As a user,** I want to log in securely so that my data remains protected.
@@ -474,7 +561,7 @@ A simple footer has been added to the bottom of the site. Since SpeakPortuEasy i
 <img src="docs/images/footermd.png">
 </details>
 
-<details><summary>Navbar Small screen</summary>
+<details><summary>Footer Small screen</summary>
 <img src="docs/images/footsm.png">
 </details>
 
@@ -964,154 +1051,6 @@ Unauthorized users cannot modify or delete records they did not create.
 <img src="docs/images/notauthorized.png">
 </details>
 
-**Implementation:**
-**Create Class Page**
-
-A create class page was implemented to allow teachers to create new classes via the UI without having to use the backend admin panel. This will enable teachers to quickly add new classes as needed.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102752.png)
-
-``USER STORY - As a teacher, I want to be able to view the classes I have created so that I can manage them effectively.``
-
-**Implementation:**
-**View Classes Page**
-
-A view classes page has been implemented to allow teachers to see all the classes they have created. This page includes a list of classes with relevant information and options to edit or delete each class.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103030.png)
-
-``USER STORY - As a teacher, I want to be able to edit a class when updates are needed so that the information remains current.``
-
-**Implementation:**
-**Edit Class Page**
-
-On the view classes page, an edit button was added to allow teachers to update class information when changes need to be made.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103037.png)
-
-``USER STORY - As a teacher, I want to be able to delete a class when it is no longer needed so that my class list stays organized.``
-
-**Implementation:**
-**Delete Class Page**
-
-On the view classes page, a delete button has been implemented that will take teachers to a confirmation page to allow them to delete a class. This helps maintain an up-to-date list of active classes.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103049.png)
-
-``USER STORY - As a teacher, I want to be able to create a new student record so that I can manage student information.``
-
-**Implementation:**
-**Create Student Page**
-
-A create student page was implemented with a form that takes in student details, allowing teachers to easily add new students to their classes through the UI.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+102752.png)
-
-``USER STORY - As a teacher, I want to be able to view student records so that I can keep track of student information.``
-
-**Implementation:**
-**View Students Page**
-
-A view students page was implemented to show all student records. Teachers can use this page to see detailed information about each student and manage their records.
-
-``USER STORY - As a teacher, I want to be able to edit a student record so that I can update their information as needed.``
-
-**Implementation:**
-**Edit Student Page**
-
-On the view students page, an edit button is available that directs teachers to a form where they can update student information.
-
-``USER STORY - As a teacher, I want to be able to delete a student record when it is no longer needed so that the student list remains accurate.``
-
-**Implementation:**
-**Delete Student Page**
-
-A delete button was added to the view students page, allowing teachers to remove student records they no longer need.
-
-``USER STORY - As a teacher, I want to be able to search for a specific class or student so that I can quickly find the information I need.``
-
-**Implementation:**
-**Search Box**
-
-A search box was added to the view classes and view students pages. This allows teachers to easily locate a specific class or student by entering relevant keywords.
-
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-08+103030.png)
-
-``USER STORY - As a teacher, I want to be notified if I try to register the same information more than once to avoid duplicates.``
-
-**Implementation:**
-**Duplicate Entry Notification**
-
-Validation logic was added to notify teachers if they attempt to register duplicate information. This helps maintain a clean and accurate database.
-
-**Favicon**
-    * A site wide favicon was implemented.
-    * This provides an image in the tabs header to allow the user to easily identify the website if they have multiple tabs open.
-
-**Error Pages**
-
-``USER STORY - As a developer, I need to implement a 404 error page to alert users when they have accessed a page that doesn't exist``
-
-**Implementation:**
-**404 Page**
-
-A 404 error page has been implemented to display whenever a user navigates to a broken link or a missing page. This custom error page provides a user-friendly way to handle such errors, allowing users to easily navigate back to the main website.
-
-The 404 page includes links to the home page and other key sections, so users can continue exploring the site without needing to use the browser's back button.
-
-``USER STORY - As a developer, I need to implement a 403 error page to alert users when they try to access a page/view that they do not have permission to view.``
-
-**Implementation:**
-**403 Page**
-
-A 403 error page has been implemented to provide feedback to users when they attempt to access unauthorized content. Users will be redirected to this page if they try to edit, delete, or view pages that are restricted based on their permissions.
-
-This covers:
-
-* Register Class - Only authorized for logged-in users
-* Edit Class - Only authorized for logged-in users
-* Delete Class - Only authorized for logged-in users
-* Register Student - Only authorized for logged-in users
-* Edit Student - Only authorized for logged-in users
-* Delete Student - Only authorized for logged-in users
-* Register Classroom - Only authorized for logged-in users
-* Edit Classroom - Only authorized for logged-in users
-* Delete Classroom - Only authorized for logged-in users
-* Register Schedule - Only authorized for logged-in users
-* Edit Schedule - Only authorized for logged-in users
-* Delete Schedule - Only authorized for logged-in users
-* Register Enrollment - Only authorized for logged-in users
-* Edit Enrollment - Only authorized for logged-in users
-* Delete Enrollment - Only authorized for logged-in users
-* Register Teacher - Only authorized for logged-in users
-* Edit Teacher - Only authorized for logged-in users
-* Delete Teacher - Only authorized for logged-in users
-
-``USER STORY - As a developer, I need to implement a 500 error page to notify users when an internal server error happens.``
-
-**Implementation:**
-**500 Page**
-
-A 500 error page has been created to inform users when an internal server error occurs. This page conveys to users that the issue originates from our side, not theirs, and we are working to resolve it
-
-**Base Setup User Stories**
-
-The following user stories were completed to lay the groundwork for all HTML pages and ensure the necessary installations and configurations were in place to run the application. While these tasks do not stand out as individual features, they were crucial for enabling the implementation of all the functionalities mentioned earlier.
-
-``USER STORY - As a developer, I need to create the base.html page and layout structure so that other pages can reuse the layout.``
-
-``USER STORY - As a developer, I need to create static resources so that images, CSS, and JavaScript function properly on the website.``
-
-``USER STORY - As a developer, I need to set up the project environment to be ready for implementing the core features.``
-
-**Explore More User Stories**
-
-In addition to the stories highlighted here, nearly 300 user stories have been meticulously documented and tracked on our Kanban board(https://github.com/users/MariaPadilha32/projects/6/views/1). These stories encompass the full scope of the project's development, covering all features, enhancements, and bug fixes.
-
-To gain a comprehensive understanding of the project's depth and the full range of functionalities implemented, please explore the complete list of user stories on our Kanban board
-
-
-
 **Favicon**
 
 A favicon was added the website to enable users to easily locate the website in the browser when multiple tabs are open.
@@ -1144,6 +1083,9 @@ The database was designed to allow CRUD (Create, Read, Update, Delete) functiona
 ### Python
  -  The primary programming language used to handle backend logic, including processing data and handling requests.
 
+ ### Javascript
+ - Used to enhance interactivity and dynamic behavior on the website. Features such as form validation, dynamic page content updates, and interactive elements were implemented using JavaScript.
+
 ### Django
  -  A front-end framework used alongside Django to facilitate design and development, ensuring the website is responsive and mobile-friendly.
 
@@ -1159,7 +1101,7 @@ The database was designed to allow CRUD (Create, Read, Update, Delete) functiona
 ### Heroku
  - A cloud platform leveraged to host and deploy the website, making it accessible online.
 
-### ElephantSQL
+### PostgreSQL
  - A cloud-based PostgreSQL database service used to store and manage the project's data.
 
 ### Git
@@ -1186,6 +1128,14 @@ asgiref==3.7.2
 * Description: ASGI (Asynchronous Server Gateway Interface) reference implementation. It provides utilities and a reference implementation of the ASGI specification, which is the successor to WSGI for Python web applications. It is used for handling asynchronous web applications.
 * Usage: This is often used in Django projects to enable asynchronous capabilities.
 
+boto3==1.34.156
+* Description: The AWS SDK for Python. It enables Python developers to create, configure, and manage AWS services, including S3.
+* Usage: Used for managing AWS services like S3 for storing static and media files in Django projects.
+
+botocore==1.34.156
+* Description: A low-level interface to AWS services. It is a foundational library for boto3, providing essential service calls.
+* Usage: Works as a dependency for boto3, enabling communication with AWS services.
+
 dj-database-url==0.5.0
 * Description: Allows the configuration of the Django database via a single environment variable.
 * Usage: It is useful for setting up database configurations in deployment environments, particularly when working with Heroku.
@@ -1198,9 +1148,17 @@ django-heroku==0.3.1
 * Description: Django-Heroku integrates Django with Heroku’s environment settings, including database configuration, static files, and logging.
 * Usage: Simplifies the deployment of Django applications on Heroku by automatically configuring settings.
 
+django-storages==1.14.4
+* Description: A Django library that provides storage backends for working with cloud services like AWS S3.
+* Usage: Used to integrate AWS S3 for storing static and media files in the Django application.
+
 gunicorn==20.1.0
 * Description: A Python WSGI HTTP Server for UNIX, which serves your Django application.
 * Usage: Used as a production-grade server to run Django applications, especially when deployed on platforms like Heroku.
+
+jmespath==1.0.1
+* Description: A Python library for JSON query language. It simplifies querying deeply nested JSON structures.
+* Usage: Used indirectly via boto3 for querying AWS service responses.
 
 mysql-connector-python==8.2.0
 * Description: MySQL Connector for Python is a standardized database driver for Python platforms and development.
@@ -1218,6 +1176,14 @@ psycopg2==2.9.9
 * Description: PostgreSQL database adapter for Python.
 * Usage: Required for connecting and interacting with PostgreSQL databases from a Django application.
 
+python-decouple==3.8
+* Description: A library to separate configuration settings from source code.
+* Usage: Used to manage environment variables like DATABASE_URL and SECRET_KEY in a secure way.
+
+s3transfer==0.10.2
+* Description: A library for managing multipart uploads and download tasks for Amazon S3.
+* Usage: A dependency of boto3, enhancing file transfer capabilities to AWS S3.
+
 setuptools==69.1.0
 * Description: A package development and distribution library. It provides enhancements to the Python standard library’s distutils.
 * Usage: Essential for building and distributing Python packages, and often required for installing other Python packages.
@@ -1234,29 +1200,278 @@ whitenoise==6.5.0
 * Description: WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere.
 * Usage: Simplifies serving static files (like CSS, JavaScript, images) in a Django application, particularly useful in production environments.
 
+### Libraries & Tools
+- [Balsamiq](https://balsamiq.com/) to create the projects wireframes
+- [Bootstrap](https://getbootstrap.com/). This project uses the Bootstrap library for UI components (Buttons, Card, Footer, Modal, Pagination, Navbar)
+- [Boostrap icons](https://fontawesome.com/) - Icons from Boostrap icons  were used throughout the site
+- [Git](https://git-scm.com/) was used for version control within VSCode to push the code to GitHub
+- [GitHub](https://github.com/) was used as a remote repository to store project code
+- [Google Fonts](https://fonts.google.com/) - for typography in project
+- [Favicon.io](https://favicon.io) for making the site favicon
+- [Canva](https://www.canva.com/) For creating the log and the images. 
 
 ## Testing
 
-Test cases: 
+### Validation: 
 
 ### CSS
 
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+223836.png)
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used  to validate the css in the project
+    - web app passed validator with no errors. 
+
+    <details><summary>Main</summary>
+    <img src="docs/images/cssmain.png">
+    </details>
+
+	<details><summary>Login</summary>
+    <img src="docs/images/csslogin.png">
+    </details>
+	
+	<details><summary>Create User</summary>
+    <img src="docs/images/csscreateuser.png">
+    </details>
+
+	<details><summary>Home</summary>
+    <img src="docs/images/csshome.png">
+    </details>
+
+	<details><summary>Success</summary>
+    <img src="docs/images/csssuccess.png">
+    </details>
+
+	<details><summary>Login</summary>
+    <img src="docs/images/csslogin.png">
+    </details>
+
+	<details><summary>Register Student</summary>
+    <img src="docs/images/cssregisterstudent.png">
+    </details>
+
+	<details><summary>Register Class</summary>
+    <img src="docs/images/cssregisterclass.png">
+    </details>
+
+	<details><summary>Register Classroom</summary>
+    <img src="docs/images/cssregisterclassroom.png">
+    </details>
+
+	<details><summary>Register Enrollment</summary>
+    <img src="docs/images/cssregisterenroll.png">
+    </details>
+
+	<details><summary>Register Teacher</summary>
+    <img src="docs/images/cssregisterteacher.png">
+    </details>
+
+	<details><summary>Search Student</summary>
+    <img src="docs/images/cssquerystudent.png">
+    </details>
+
+	<details><summary>Search Class</summary>
+    <img src="docs/images/cssqueryclass.png">
+    </details>
+
+	<details><summary>Search Classroom</summary>
+    <img src="docs/images/cssqueryclassroom.png">
+    </details>
+
+	<details><summary>Search Enrollment</summary>
+    <img src="docs/images/cssqueryenroll.png">
+    </details>
+
+	<details><summary>Search Teacher</summary>
+    <img src="docs/images/cssqueryteacher.png">
+    </details>
+
+	<details><summary>Edit Student</summary>
+    <img src="docs/images/csseditstudent.png">
+    </details>
+
+	<details><summary>Edit Class</summary>
+    <img src="docs/images/csseditclass.png">
+    </details>
+
+	<details><summary>Edit Classroom</summary>
+    <img src="docs/images/csseditclassroom.png">
+    </details>
+
+	<details><summary>Edit Enrollment</summary>
+    <img src="docs/images/csseditenroll.png">
+    </details>
+
+	<details><summary>Edit Teacher</summary>
+    <img src="docs/images/csseditteacher.png">
+    </details>
+
+	I was unable to validate the delete pages 	
+	<details><summary>Delete - error</summary>
+    <img src="docs/images/deleteerror.png">
+    </details>
 
 ### Python
+-[CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python in the project
 
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+225908.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+190003.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192851.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192932.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+192948.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+193104.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-07+193329.png)
+<details><summary>Views - accounts</summary>
+<img src="docs/images/views.png">
+</details>
 
-### JS
+<details><summary>Apps - accounts</summary>
+<img src="docs/images/appspy2.png">
+</details>
 
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+224609.png)
-![Image](https://speakportueasy.s3.amazonaws.com/media/Captura+de+tela+2024-08-06+224945.png)
+<details><summary>Admin - accounts</summary>
+<img src="docs/images/admin.png">
+</details>
+
+<details><summary>Asgi.py</summary>
+<img src="docs/images/asgipy.png">
+</details>
+
+<details><summary>Manage</summary>
+<img src="docs/images/managepy.png">
+</details>
+
+<details><summary>Urls</summary>
+<img src="docs/images/urlspy.png">
+</details>
+
+<details><summary>Wsgipy</summary>
+<img src="docs/images/wsgipy.png">
+</details>
+
+<details><summary>Admin - main</summary>
+<img src="docs/images/adminpy.png">
+</details>
+
+<details><summary>Apps - main</summary>
+<img src="docs/images/appspy.png">
+</details>
+
+<details><summary>Forms - main</summary>
+<img src="docs/images/formspy.png">
+</details>
+
+<details><summary>Models - main</summary>
+<img src="docs/images/modelspy.png">
+</details>
+
+<details><summary>Views - main</summary>
+<img src="docs/images/viewspy.png">
+</details>
+
+### JavaScrpit
+- [JSHint](https://jshint.com/) was used to validate the Javascrip in the project
+
+<details><summary>JavaScript</summary>
+<img src="docs/images/jstest.png">
+</details>
+
+### HTML
+- [WC3 Validator](https://validator.w3.org/) was used to validate the html in the project
+
+    <details><summary>Main</summary>
+    <img src="docs/images/cssmain.png">
+    </details>
+
+	<details><summary>Login</summary>
+    <img src="docs/images/login.png">
+    </details>
+	
+	<details><summary>Create User</summary>
+    <img src="docs/images/userregister.png">
+    </details>
+
+	<details><summary>Home</summary>
+    <img src="docs/images/mainpage.png">
+    </details>
+
+	<details><summary>Success</summary>
+    <img src="docs/images/successpage.png">
+    </details>
+
+	<details><summary>Register Student</summary>
+    <img src="docs/images/registerstudent.png">
+    </details>
+
+	<details><summary>Register Class</summary>
+    <img src="docs/images/registerclass.png">
+    </details>
+
+	<details><summary>Register Classroom</summary>
+    <img src="docs/images/registerclassroom.png">
+    </details>
+
+	<details><summary>Register Enrollment</summary>
+    <img src="docs/images/registerenrollments.png">
+    </details>
+
+	<details><summary>Register Teacher</summary>
+    <img src="docs/images/registerteacher.png">
+    </details>
+
+	<details><summary>Search Student</summary>
+    <img src="docs/images/querystudent.png">
+    </details>
+
+	<details><summary>Search Class</summary>
+    <img src="docs/images/queryclass.png">
+    </details>
+
+	<details><summary>Search Classroom</summary>
+    <img src="docs/images/queryclassroom.png">
+    </details>
+
+	<details><summary>Search Enrollment</summary>
+    <img src="docs/images/queryenroll.png">
+    </details>
+
+	<details><summary>Search Teacher</summary>
+    <img src="docs/images/queryteacher.png">
+    </details>
+
+	<details><summary>Edit Student</summary>
+    <img src="docs/images/editstudent.png">
+    </details>
+
+	<details><summary>Edit Class</summary>
+    <img src="docs/images/editclass.png">
+    </details>
+
+	<details><summary>Edit Classroom</summary>
+    <img src="docs/images/editclassroom.png">
+    </details>
+
+	<details><summary>Edit Enrollment</summary>
+    <img src="docs/images/csseditenroll.png">
+    </details>
+
+	<details><summary>Edit Teacher</summary>
+    <img src="docs/images/editteacher.png">
+    </details>
+	
+	<details><summary>Delete Student</summary>
+    <img src="docs/images/deletestudent.png">
+    </details>
+
+	<details><summary>Delete Class</summary>
+    <img src="docs/images/deleteclass.png">
+    </details>
+
+	<details><summary>Delete Classroom</summary>
+    <img src="docs/images/deleteclassroom.png">
+    </details>
+
+	<details><summary>Delete Enrollment</summary>
+    <img src="docs/images/deleteenrollment.png">
+    </details>
+
+	<details><summary>Delete Teacher</summary>
+    <img src="docs/images/deleteteacher.png">
+    </details>
+
+	<details><summary>404 Erre</summary>
+    <img src="docs/images/404errorpage.png">
+    </details>
 
 ## Deployment and Local Development
 The live deployed version of the website can be found on [Heroku](https://speakportueasypp4-342d78e3516e.herokuapp.com/). The following sections detail the deployment process and the technologies used. Instructions for forking or cloning the repository are also provided.
@@ -1500,6 +1715,9 @@ The steps below describe how to fork or clone the repository if desired.
 	- The Code Institute "Hello Django and I think Therefore I blog" project was very much relied upon to build this project.
 
 ### Acknowledgements
+
+- I would like to say thank to the Tutoring team for the multiple times that I could count on them.
+- Specially Sarah Collins, Roman Racik and my mentor Harry Dhillon for all the help.
 
 - Most special thanks to Ger Hickey, my father-in-law, who passed away while I was working on this project. He was always an amazing support.
 
