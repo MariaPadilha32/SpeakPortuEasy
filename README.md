@@ -26,16 +26,11 @@ __Developed by Maria Fernanda Dias Padilha__
   - [The-Strategy-Plane](#the-strategy-plane) *UPDATE*
     - [Site-Goals](#creater-goals) *UPDATE*
   - [User Stories](#main-user-stories)
-        - [Main User Stories](#user-stories) *UPDATE*
-
-        - [Teacher/Admin-Specific Stories](#teacheradmin-specific-stories) *UPDATE*
-
-        - [Viewing and Navigation Stories](#viewing-and-navigation-stories) *UPDATE*
-
-        - [Security and Accessibility Stories](#security-and-accessibility-stories) *UPDATE*
-
-        - [Notifications and Feedback Stories](#notifications-and-feedback-stories) *UPDATE*
-        
+    - [Main User Stories](#user-stories) *UPDATE*
+    - [Teacher/Admin-Specific Stories](#teacheradmin-specific-stories) *UPDATE*
+    - [Viewing and Navigation Stories](#viewing-and-navigation-stories) *UPDATE*
+    - [Security and Accessibility Stories](#security-and-accessibility-stories) *UPDATE*
+    - [Notifications and Feedback Stories](#notifications-and-feedback-stories) *UPDATE*
 -[The-Scope-Plane](#the-scope-plane)
     - [Initial Development](#initial-development)
     - [Interactive Refinements and Incorporating Feedback](#interactive-refinements-and-incorporating-feedback)
